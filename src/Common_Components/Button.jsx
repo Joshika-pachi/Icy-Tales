@@ -1,0 +1,22 @@
+import React from 'react';
+import { FaArrowRight } from "react-icons/fa";
+
+const Button = ({text,width, height, onClick}) => {
+  const style = {
+    backgroundColor:'#F83D8E',
+    color: '#fff',
+    borderRadius: '30px',
+    fontWeight: 'bold',
+    height: height,
+    width:width,
+    border:'none'
+  };
+
+  return (
+    <button style={style} onClick={onClick}>
+      {text} <FaArrowRight size={17}/>
+    </button>
+  );
+};
+
+export default Button;

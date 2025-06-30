@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Box } from "@mui/material";
+import { ColorPalette } from './Assets/Colors';
 import NavLayout from './Common_Components/NavLayout';
 import Footer from './Common_Components/Footer';
-// function App() {
-//   return (
-//     <div className="App" style={{backgroundColor:'lightblue'}}>
-//       <NavLayout />
-//     </div>
-//   );
-// }
+import Home1Main from './Body/Home/Home1/Home1Main';
 
-// export default App;
 
 function App() {
   return (
-    <div
-      className="App">
+    <Box sx={{
+      minHeight: '100vh',
+      background: ColorPalette.gradient,
+      paddingTop:'20px'
+    }}>
       <NavLayout />
+      <Home1Main />
       <Footer />
-    </div>
+    </Box>
   );
 }
 

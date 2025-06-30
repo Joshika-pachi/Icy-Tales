@@ -5,13 +5,15 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import DropDown from './DropDown';
 import { IoSearch } from "react-icons/io5";
 import Cart from './Cart'
+import Images from '../Assets/Images/Image';
+import { ColorPalette } from "../Assets/Colors";
 
 const styles = {
   outerDiv: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "22px",
+    // marginTop: "22px",
    
   },
   innerDiv: {
@@ -22,8 +24,8 @@ const styles = {
     alignItems: "center",
     justifyContent: "space-between",
     padding: "0 40px",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-    backgroundColor:'#FFF'
+    // boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+    // backgroundColor:'#FFF'
   },
   icelogo: {
     fontSize: "24px",
@@ -50,7 +52,9 @@ const NavLayout = () => {
   return (
     <div style={styles.outerDiv}>
       <div style={styles.innerDiv}>
-        <div style={styles.icelogo}>Icy Tales</div>
+        <div style={styles.icelogo}>
+          <img src={Images.logo}></img> 
+        </div>
 
         <div style={styles.navlist}>
           <DropDown title={'Home'} options={[
@@ -85,7 +89,7 @@ const NavLayout = () => {
           <IoSearch size={26}/>
           <Cart count={cartCount} onClick={() => alert("Go to cart")} />
           {/* <button style={styles.button}>Contact Us</button> */}
-          <Button text={"Contact Us"} width={148} height={48} onClick={"#"} />
+          <Button text={"Contact Us"} width={148} height={48} bcolor={ColorPalette.pink} onClick={"#"} />
         </div>
       </div>
     </div>

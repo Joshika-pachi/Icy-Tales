@@ -1,9 +1,9 @@
 import React from 'react';
 import { FaArrowRight } from "react-icons/fa";
 
-const Button = ({text,width, height, onClick}) => {
+const Button = ({text,width, height,bcolor, onClick}) => {
   const style = {
-    backgroundColor:'#F83D8E',
+    backgroundColor:bcolor,
     color: '#fff',
     borderRadius: '30px',
     fontWeight: 'bold',

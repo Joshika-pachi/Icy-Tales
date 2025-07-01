@@ -9,24 +9,25 @@ const styles = {
     width: "100%",
     backgroundColor: "#FFFFFF",
    
-    paddingTop:'30px',
-    paddingBottom: "30px",
+    paddingTop:'50px',
+    paddingBottom: "50px",
+  
   },
   headingLine: {
-    fontFamily: "'Playfair Display', serif",
-    fontSize: "70px",
-    fontWeight: 700,
+    fontFamily: "Berkshire Swash",
+    fontSize: "48px",
+    fontWeight: 500,
     lineHeight: "80px",
     color: "#000",
   },
   highlight: {
     color: "#FF3CAC",
-    fontFamily: "'Playfair Display', serif",
+    fontFamily: "Berkshire Swash",
   },
   tagline: {
     fontFamily: "Archivo",
-    fontSize: "20px",
-    fontWeight: "400",
+    fontSize: "18px",
+    fontWeight: "300",
     lineHeight: "30px",
   },
 };
@@ -38,13 +39,13 @@ const HomeComp4 = () => {
       <Box
         sx={{
           ...styles.headingLine,
-          fontSize: "60px",
+          
           lineHeight: "64px",
           textAlign: "center",
           marginBottom: "10px",
         }}
       >
-        Our Classic <span style={styles.highlight}>Favourites</span>
+        Explore Our <span style={styles.highlight}>Categories</span>
       </Box>
       <Box sx={{ ...styles.tagline, textAlign: "center", marginTop: "5px" }}>
         Check out our top products that our customers love

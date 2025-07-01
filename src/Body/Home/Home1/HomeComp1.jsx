@@ -13,7 +13,7 @@ const styles = {
     alignItems: "space-around",
     flexDirection: "row",
     marginRight: "300px",
-    // backgroundColor: ColorPalette.gradient,
+   
   },
   contentBox: {
     top: "0",
@@ -36,20 +36,20 @@ const styles = {
     marginTop: "100px",
   },
   headingLine: {
-    fontFamily: "'Playfair Display', serif",
+    fontFamily: "Berkshire Swash",
     fontSize: "70px",
-    fontWeight: 700,
+    fontWeight: 500,
     lineHeight: "80px",
     color: "#000",
   },
   highlight: {
     color: "#FF3CAC",
-    fontFamily: "'Playfair Display', serif",
+    fontFamily: "Berkshire Swash",
   },
   tagline: {
     fontFamily: "Archivo",
     fontSize: "20px",
-    fontWeight: "400",
+    fontWeight: "300",
     lineHeight: "30px",
   },
   sideImageBox: {

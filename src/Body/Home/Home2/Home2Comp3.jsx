@@ -1,10 +1,11 @@
-import React from 'react'
+import React from "react";
 import { Box } from "@mui/material";
 import { ColorPalette } from "../../../Assets/Colors";
 import Images from "../../../Assets/Images/Image";
-import HomeComp1 from "./HomeComp1";
+
 import {
   alignItems,
+  color,
   display,
   fontFamily,
   justifyContent,
@@ -15,7 +16,7 @@ import {
 import Button from "../../../Common_Components/Button";
 
 const styles = {
-    firstLine: {
+  firstLine: {
     height: "40px",
     width: "355px",
     fontFamily: "Berkshire Swash",
@@ -40,6 +41,8 @@ const styles = {
     fontSize: "20px",
     fontWeight: "300",
     lineHeight: "30px",
+    color: "#646464",
+    marginTop: "15px",
   },
   SecondBox: {
     display: "flex",
@@ -54,21 +57,33 @@ const styles = {
 const HomeComp2 = () => {
   return (
     <Box>
-       <Box
+      <Box
         sx={{
           width: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "#FFFFFF",
-          marginTop: "50px",
-          
+          paddingTop: "50px",
+          paddingBottom: "50px",
+          background: ColorPalette.gradient,
         }}
       >
+        <Box sx={{ paddingRight: "30px" }}>
+          <Box>
+            <img src={Images.dots} style={{ paddingBottom: "10%" }}></img>
+          </Box>
+          <Box>
+            <img
+              src={Images.SideCircles}
+              style={{ paddingTop: "90%", paddingLeft: "100px" }}
+            ></img>
+          </Box>
+        </Box>
         <Box sx={styles.SecondBox}>
           <Box>
             <img
-              src={Images.girl}
+              src={Images.Home2Comp3Image}
               style={{ height: "500px", width: "420px", marginRight: "50px" }}
             ></img>
           </Box>
@@ -80,16 +95,20 @@ const HomeComp2 = () => {
                 lineHeight: "70px",
               }}
             >
-              Relive the Sweet <br></br> Memories of Classic <br></br>{" "}
-              <span style={styles.highlight}>Ice Cream</span>
+              Our Guilt-Free <br></br>
+              <span style={styles.highlight}>Vegan</span> Ice Cream
             </Box>
             <Box sx={styles.tagline}>
-              From rich chocolate fudge to creamy vanilla sundaes, discover our
-              menu of classic ice cream creations
+              Enjoy creamy, dairy-free ice cream that’s both tasty and kind to
+              the planet.
+            </Box>
+            <Box sx={styles.tagline}>
+              Delicious Flavors Made With Only the Best Plant-<br></br>
+              Based Ingredients.
             </Box>
             <Box sx={{ marginTop: "20px" }}>
               <Button
-                text={"Explore Our Menu"}
+                text={"See our Vegan Menu"}
                 width={234}
                 height={62}
                 bcolor={ColorPalette.pink}
@@ -98,9 +117,12 @@ const HomeComp2 = () => {
             </Box>
           </Box>
         </Box>
+        <Box sx={{display:'flex',alignItems:'flex-end', justifyContent:'flex-end'}}>
+            <img src={Images.icecream} style={{transform: 'scaleX(-1)', opacity:'0.1', width:'80%',}} ></img>
+        </Box>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default HomeComp2
+export default HomeComp2;

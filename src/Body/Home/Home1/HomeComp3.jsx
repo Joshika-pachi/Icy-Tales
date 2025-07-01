@@ -17,25 +17,28 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     marginTop: "30px",
+   paddingTop: "50px",paddingBottom: "80px",
   },
   ThirdMiddle: {
     ml: "30px",
     mr: "30px",
   },
   headingLine: {
-    fontFamily: "'Playfair Display', serif",
-    fontSize: "70px",
-    fontWeight: 700,
-    lineHeight: "80px",
+    fontFamily: "Berkshire Swash",
+    fontWeight: 500,
     color: "#000",
+    fontSize: "48px",
+    lineHeight: "64px",
+    textAlign: "center",
+    marginBottom: "10px",
   },
   highlight: {
     color: "#FF3CAC",
-    fontFamily: "'Playfair Display', serif",
+    fontFamily: "Berkshire Swash",
   },
   tagline: {
     fontFamily: "Archivo",
-    fontSize: "20px",
+    fontSize: "18px",
     fontWeight: "400",
     lineHeight: "30px",
   },
@@ -52,7 +55,7 @@ const HomeComp3 = () => {
             alt="Pink Ice"
             style={{
               height: "300px",
-              width: "243px",
+              width: "183px",
               marginTop: "50px",
               opacity: 0.8,
             }}
@@ -65,10 +68,6 @@ const HomeComp3 = () => {
             <Box
               sx={{
                 ...styles.headingLine,
-                fontSize: "60px",
-                lineHeight: "64px",
-                textAlign: "center",
-                marginBottom: "10px",
               }}
             >
               Our Classic <span style={styles.highlight}>Favourites</span>
@@ -118,9 +117,10 @@ const HomeComp3 = () => {
             alt="Chocolate Ice"
             style={{
               height: "300px",
-              width: "243px",
+              width: "183px",
               marginTop: "50px",
               opacity: 0.8,
+              
             }}
           />
         </Box>

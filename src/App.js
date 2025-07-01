@@ -4,6 +4,7 @@ import { ColorPalette } from './Assets/Colors';
 import NavLayout from './Common_Components/NavLayout';
 import Footer from './Common_Components/Footer';
 import Home1Main from './Body/Home/Home1/Home1Main';
+import Home2Main from './Body/Home/Home2/Home2Main';
 
 
 function App() {
@@ -11,10 +12,12 @@ function App() {
     <Box sx={{
       minHeight: '100vh',
       background: ColorPalette.gradient,
-      paddingTop:'20px'
+      paddingTop:'5px',
+      overflow:'hidden'
     }}>
       <NavLayout />
       <Home1Main />
+      {/* <Home2Main /> */}
       <Footer />
     </Box>
   );

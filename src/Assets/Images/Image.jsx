@@ -32,6 +32,22 @@ export default Image = {
     snakes:require('./snakes.png'),
     string: require('./string.png'),
     Home2Comp3Image: require("./Home2Comp3Image.jpg"),
-    discount: require("./discount.png")
+    discount: require("./discount.png"),
+    CarouselPic1: require("./CarouselPic1.jpg"),
+    CarouselPic2: require("./CarouselPic2.jpg"),
+    CarouselPic3: require("./CarouselPic3.jpg"),
+    Home2Comp5Image1: require("./Home2Comp5Image1.png"),
+    Home2Comp5Image2: require("./Home2Comp5Image2.png"),
+    singleColorSnake: require("./singlecolorsnake.png"),
+    violetBlocks: require("./violetblocks.png"),
+    Home2Comp9FooterImage1: require("./Home2Comp9FooterImage1.jpg"),
+    Home2Comp9FooterImage2: require("./Home2Comp9FooterImage2.jpg"),
+    Home2Comp9FooterImage3: require("./Home2Comp9FooterImage3.jpg"),
+    Home2Comp9FooterImage4: require("./Home2Comp9FooterImage4.jpg"),
+    Home2Comp9FooterImage5: require("./Home2Comp9FooterImage5.jpg"),
+    Home2Comp9FooterImage6: require("./Home2Comp9FooterImage6.jpg"),
+    Home3Comp1Bg: require("./Home3Comp1Bg.jpg"),
+    Home3Comp2Image: require("./Home3Comp2Image.png")
+
     
 };

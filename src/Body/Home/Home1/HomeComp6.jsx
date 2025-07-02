@@ -3,31 +3,37 @@ import { Box } from "@mui/material";
 import { ColorPalette } from "../../../Assets/Colors";
 import Images from "../../../Assets/Images/Image";
 import ClassicFavCards from "../../../Common_Components/ClassicFavCards";
+
 const styles = {
   ThirdMain: {
     width: "100%",
     display: "flex",
-    justifyContent: "space-between",
+    flexDirection: { xs: "column", md: "row" },
+    justifyContent: { md: "space-between" },
     alignItems: "center",
     backgroundColor: "#FFFFFF",
-    paddingTop: "50px",paddingBottom: "80px",
+    paddingTop: "50px",
+    paddingBottom: "80px",
   },
   ThirdBox: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     marginTop: "30px",
+    width: { xs: "95%", md: "auto" },
   },
   ThirdMiddle: {
-    ml: "30px",
-    mr: "30px",
+    ml: { xs: 0, md: "30px" },
+    mr: { xs: 0, md: "30px" },
   },
   headingLine: {
     fontFamily: "Berkshire Swash",
-    fontSize: "64px",
+    fontSize: { xs: "28px", sm: "36px", md: "48px" },
     fontWeight: 500,
-    lineHeight: "80px",
+    lineHeight: { xs: "35px", sm: "45px", md: "70px" },
     color: "#000",
+    textAlign: "center",
+    marginBottom: "10px",
   },
   highlight: {
     color: "#FF3CAC",
@@ -35,9 +41,27 @@ const styles = {
   },
   tagline: {
     fontFamily: "Archivo",
-    fontSize: "18px",
+    fontSize: { xs: "14px", sm: "16px", md: "18px" },
     fontWeight: "400",
-    lineHeight: "30px",
+    lineHeight: { xs: "22px", sm: "25px", md: "30px" },
+    textAlign: "center",
+    marginTop: "5px",
+  },
+  cardsContainer: {
+    display: "flex",
+    flexDirection: { xs: "column", sm: "column", md: "row" },
+    gap: { xs: "20px", sm: "25px", md: "40px" },
+    marginTop: "30px",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
+  },
+  sideImage: {
+    height: "280px",
+    width: { xs: "180px", sm: "200px", md: "223px" },
+    marginTop: "50px",
+    opacity: 0.8,
+    display: { xs: "none", md: "block" },
   },
 };
 
@@ -45,40 +69,22 @@ const HomeComp6 = () => {
   return (
     <Box>
       <Box sx={styles.ThirdMain}>
-        {/* Left Image */}
         <Box>
           <img
             src={Images.pinkice}
             alt="Pink Ice"
-            style={{
-              height: "280px",
-              width: "223px",
-              marginTop: "50px",
-              opacity: 0.8,
-            }}
+            style={styles.sideImage}
           />
         </Box>
-
-        {/* Center Content */}
         <Box sx={styles.ThirdBox}>
           <Box sx={styles.ThirdMiddle}>
-            <Box
-              sx={{
-                ...styles.headingLine,
-                fontSize: "48px",
-                lineHeight: "70px",
-                textAlign: "center",
-                marginBottom: "10px",
-              }}
-            >
+            <Box sx={styles.headingLine}>
               Our <span style={styles.highlight}>Best</span> Sellers
             </Box>
-            <Box
-              sx={{ ...styles.tagline, textAlign: "center", marginTop: "5px" }}
-            >
+            <Box sx={styles.tagline}>
               Discover the favorites that keep our customers coming back for more
             </Box>
-            <Box sx={{ display: "flex", gap: "40px", marginTop: "30px" }}>
+            <Box sx={styles.cardsContainer}>
               <ClassicFavCards
                 img={Images.ClassicFavImage1}
                 heading={"Chocolate Brownie Sundae"}
@@ -110,18 +116,11 @@ const HomeComp6 = () => {
             </Box>
           </Box>
         </Box>
-
-        {/* Right Image */}
         <Box>
           <img
             src={Images.chocolateice}
             alt="Chocolate Ice"
-            style={{
-              height: "280px",
-              width: "203px",
-              marginTop: "50px",
-              opacity: 0.8,
-            }}
+            style={styles.sideImage}
           />
         </Box>
       </Box>

@@ -51,6 +51,7 @@ const styles = {
     alignItems: "center",
     mb: "3",
     backgroundColor: "#FFFFFF",
+    marginLeft:'70px'
   },
 };
 
@@ -71,7 +72,7 @@ const HomeComp2 = () => {
       >
         <Box sx={{ paddingRight: "30px" }}>
           <Box>
-            <img src={Images.dots} style={{ paddingBottom: "10%" }}></img>
+            <img src={Images.dots} style={{ paddingBottom: "10%", marginLeft:'20px' }}></img>
           </Box>
           <Box>
             <img

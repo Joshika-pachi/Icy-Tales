@@ -6,18 +6,16 @@ import Button from "../../../Common_Components/Button";
 
 const styles = {
   MainBox: {
-    // height: "720px",
     width: "100%",
     display: "flex",
+    flexDirection: { xs: "column", md: "row" },
     justifyContent: "center",
-    alignItems: "space-around",
-    flexDirection: "row",
-    marginRight: "300px",
-   
+    alignItems: "center",
+    gap: { xs: 4, md: 0 },
+    overflowX: "auto",
   },
   contentBox: {
-    top: "0",
-    // marginLeft: "-400px",
+    textAlign: { xs: "center", md: "left" },
   },
   iceimage: {
     position: "absolute",
@@ -31,16 +29,18 @@ const styles = {
     width: "355px",
     fontFamily: "Berkshire Swash",
     fontWeight: "400",
-    fontSize: "40px",
+    fontSize: { xs: "24px", sm: "32px", md: "40px" },
     lineHeight: "40px",
     marginTop: "100px",
+    textAlign: { xs: "center", md: "left" },
   },
   headingLine: {
     fontFamily: "Berkshire Swash",
-    fontSize: "70px",
+    fontSize: { xs: "36px", sm: "50px", md: "70px" },
     fontWeight: 500,
-    lineHeight: "80px",
+    lineHeight: { xs: "45px", sm: "60px", md: "80px" },
     color: "#000",
+    textAlign: { xs: "center", md: "left" },
   },
   highlight: {
     color: "#FF3CAC",
@@ -48,13 +48,18 @@ const styles = {
   },
   tagline: {
     fontFamily: "Archivo",
-    fontSize: "20px",
+    fontSize: { xs: "14px", sm: "16px", md: "20px" },
     fontWeight: "300",
-    lineHeight: "30px",
+    lineHeight: { xs: "22px", sm: "25px", md: "30px" },
+    textAlign: { xs: "center", md: "left" },
+    marginTop: "10px",
   },
-  sideImageBox: {
-    // height:'428px',
-    // width:'428px',
+  image: {
+    height: "400px",
+    width: "400px",
+    marginTop: "100px",
+    marginLeft: { xs: 0, md: "80px" },
+    flexShrink: 0,
   },
 };
 
@@ -64,7 +69,6 @@ const HomeComp1 = () => {
       <Box>
         <img src={Images.icecream} alt="icecream" style={styles.iceimage} />
       </Box>
-
       <Box sx={styles.MainBox}>
         <Box sx={styles.contentBox}>
           <Box sx={styles.firstLine}>Welcome to the</Box>
@@ -73,7 +77,7 @@ const HomeComp1 = () => {
             <span style={styles.highlight}>Cream</span> Parlor
           </Box>
           <Box sx={styles.tagline}>
-            Savor the taste of traditional ice cream made with love and<br></br>
+            Savor the taste of traditional ice cream made with love and<br />
             quality ingredients.
           </Box>
           <Box sx={{ marginTop: "20px" }}>
@@ -86,21 +90,15 @@ const HomeComp1 = () => {
             />
           </Box>
         </Box>
-        <Box sx={styles.sideImageBox}>
+        <Box>
           <img
             src={Images.bigicecream}
             alt="big icecream"
-            style={{
-              height: "400px",
-              width: "400px",
-              marginTop: "100px",
-              marginLeft: "80px",
-            }}
+            style={styles.image}
           />
         </Box>
       </Box>
-      </Box>
-    
+    </Box>
   )
 }
 

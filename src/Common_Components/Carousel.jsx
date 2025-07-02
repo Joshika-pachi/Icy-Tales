@@ -1,117 +1,110 @@
-import React, { useEffect, useState } from 'react';
-import { Carousel } from 'primereact/carousel';
-import { FaStar, FaArrowRight } from 'react-icons/fa';
-import { ProductData } from '../Data/CarouselData'
+import React, { useState } from "react";
+import products from "../Data/CarouselData";
+import Button from "./Button"
+import { ColorPalette } from "../Assets/Colors";
+import { border, borderRadius, fontFamily, fontSize, fontWeight, lineHeight, textAlign } from "@mui/system";
 
-import 'primereact/resources/themes/lara-light-blue/theme.css';
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
+const styles = {
+  carouselContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "10px",
+    margin: "40px",
+  },
+  carouselSlide: {
+    display: "flex",
+    gap: "20px",
+    overflow: "hidden",
+    width: "900px",
+    justifyContent: "center",
+  },
+  productCard: {
+    width: "250px",
+    borderRadius: "20px",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+    textAlign: "center",
+    padding: "15px",
+    boxShadow: "0 0 20px rgba(255, 60, 172, 0.2)",
+    borderRadius:'10px'
+  },
+  productImg: {
+    width: "100%",
+    height: "130px",
+    objectFit: "contain",
+    borderRadius: "20px",
+    marginBottom: "10px",
+   
 
-const Carouselpage = () => {
-  const [products, setProducts] = useState([]);
+  },
+  title: {
+    margin: "5px 0",
+    color: "#333",
+    fontFamily:'Archivo',
+    fontWeight:'700',
+    textAlign:'center',
+    fontSize:'20px'
+  },
+  price: {
+    fontWeight: 700,
+    color: ColorPalette.violet,
+    fontFamily:'Archivo',
+    fontSize:'22px',
+    lineHeight:'20px',
+    textAlign:'center'
+  },
+  rating: {
+    fontFamily:'Archivo',
+    fontWeight:600,
+    fontSize:'18px',
+    textAlign:'center'
+  },
+  button: {
+    fontSize: "30px",
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    color: "#444",
+    padding: "10px",
+  },
+  buttonHover: {
+    color: "#dd2c6f",
+  },
+};
 
-  useEffect(() => {
-    setProducts(ProductData);
-  }, []);
+const ProductCarousel = () => {
+  const [index, setIndex] = useState(0);
+  const itemsPerSlide = 3;
+  const totalSlides = Math.ceil(products.length / itemsPerSlide);
 
-  const productTemplate = (product) => {
-    return (
-      <div
-        className="carousel-item text-center"
-        style={{
-            width: '300px', 
-          padding: '10px',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-          borderRadius: '10px',
-          backgroundColor: '#fff'
-        }}
-      >
-        <img
-          src={product.image}
-          alt={product.name}
-          style={{
-            width: '100%',
-            height: '200px',
-            objectFit: 'cover',
-            borderRadius: '10px'
-          }}
-        />
-        <h4 style={{ marginTop: '10px', fontSize: '1.1rem' }}>{product.name}</h4>
-
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '4px', marginTop: '5px' }}>
-          {[...Array(5)].map((_, i) => (
-            <FaStar key={i} color="#f6c000" size={14} />
-          ))}
-          <span style={{ fontSize: '0.9rem', color: '#444' }}>( {product.rating}/5 )</span>
-        </div>
-
-        <p style={{ fontWeight: 'bold', color: '#a835a8', fontSize: '1.1rem', marginTop: '6px' }}>
-          ${product.price.toFixed(2)}
-        </p>
-
-        <button
-          style={{
-            backgroundColor: '#f5369c',
-            color: 'white',
-            border: 'none',
-            borderRadius: '30px',
-            padding: '10px 20px',
-            fontSize: '0.9rem',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            marginTop: '8px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px'
-          }}
-        >
-          Add to Cart <FaArrowRight />
-        </button>
-      </div>
-    );
+  const handlePrev = () => {
+    setIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   };
 
-  return (
-    <>
-      <style>
-        {`
-          .carousel-item-gap {
-            margin-right: 20px;
-          }
-          .p-carousel-items .p-carousel-item:last-child {
-            margin-right: 0;
-          }
-        `}
-      </style>
+  const handleNext = () => {
+    setIndex((prev) => (prev + 1) % totalSlides);
+  };
 
-      <div className="card mx-auto" style={{ margin: '30px auto', maxWidth: '1200px' }}>
-        <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Ice Cream Flavors</h2>
-        <Carousel
-          value={products}
-          numVisible={3}
-          numScroll={1}
-          itemTemplate={productTemplate}
-          autoplayInterval={4000}
-          circular
-          showIndicators
-          showNavigators
-          itemClassName="carousel-item-gap"
-          responsiveOptions={[
-            {
-              breakpoint: '1024px',
-              numVisible: 2,
-              numScroll: 1
-            },
-            {
-              breakpoint: '600px',
-              numVisible: 1,
-              numScroll: 1
-            }
-          ]}
-        />
+  const currentItems = products.slice(index * itemsPerSlide, index * itemsPerSlide + itemsPerSlide);
+
+  return (
+    <div style={styles.carouselContainer}>
+      <button style={styles.button} onClick={handlePrev}>‹</button>
+      <div style={styles.carouselSlide}>
+        {currentItems.map((item) => (
+          <div key={item.id} style={styles.productCard}>
+            <img src={item.image} alt={item.name} style={styles.productImg} />
+            <h3 style={styles.title}>{item.name}</h3>
+            <p style={styles.rating}>⭐{item.rating}</p>
+            <p style={styles.price}>{item.price}</p>
+            
+            <Button text={"Add to Cart"} width={130} height={44} bcolor={ColorPalette.pink} onClick={alert=>("You clicked add to cart")}></Button>
+          </div>
+        ))}
       </div>
-    </>
+      <button style={styles.button} onClick={handleNext}>›</button>
+    </div>
   );
 };
 
-export default Carouselpage;
+export default ProductCarousel;

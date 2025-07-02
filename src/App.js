@@ -5,6 +5,7 @@ import NavLayout from './Common_Components/NavLayout';
 import Footer from './Common_Components/Footer';
 import Home1Main from './Body/Home/Home1/Home1Main';
 import Home2Main from './Body/Home/Home2/Home2Main';
+import Home3Main from './Body/Home/Home3/Home3Main';
 
 
 function App() {
@@ -16,8 +17,10 @@ function App() {
       overflow:'hidden'
     }}>
       <NavLayout />
-      <Home1Main />
+      {/* <Home1Main />  */}
       {/* <Home2Main /> */}
+      <Home3Main />
+
       <Footer />
     </Box>
   );

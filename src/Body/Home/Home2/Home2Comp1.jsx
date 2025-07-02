@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import { ColorPalette } from "../../../Assets/Colors";
 import Images from "../../../Assets/Images/Image";
-import { color, margin } from "@mui/system";
+import { color, fontSize, margin, textAlign } from "@mui/system";
 import Button from "../../../Common_Components/Button";
 
 const styles = {
@@ -26,6 +26,8 @@ const styles = {
     lineHeight: "30px",
     color: "#FFFFFF",
     marginTop: "20px",
+    
+    
   },
 };
 
@@ -68,9 +70,9 @@ const Home2Comp1 = () => {
             <Button
               text={"Explore our Vegan Flavors"}
               width={248}
-              height={50}
+              height={56}
               bcolor={ColorPalette.pink}
-              onClick={"#"}
+              onClick={"#"} style={{fontSize:'28px'}}
             />
           </Box>
           <Box >

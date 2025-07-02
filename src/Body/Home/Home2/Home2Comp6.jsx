@@ -5,16 +5,21 @@ import Images from "../../../Assets/Images/Image";
 import Carousel from "../../../Common_Components/Carousel";
 import ImageCarousel from "../../../Common_Components/ImageCarousel"
 import Button from "../../../Common_Components/Button";
-import { alignItems, flexBasis, flexDirection, justifyContent, textAlign } from "@mui/system";
+import { alignItems, display, flexBasis, flexDirection, height, justifyContent, textAlign, width } from "@mui/system";
 
 const styles = {
     mainBox:{
         display:'flex',
+        background:ColorPalette.white,
+        
+    },
+    centerBox:{
+        display:'flex',
         alignItems:'center',
         justifyContent:'center',
-        background:ColorPalette.white,
         flexDirection:'column',
-        paddingBottom:'50px'
+        paddingBottom:'50px', 
+        marginLeft:'70px'
     },
   headingLine: {
     fontFamily: "Berkshire Swash",
@@ -42,10 +47,14 @@ const styles = {
   
 };
 
-const Home2Comp2 = () => {
+const Home2Comp6 = () => {
   return (
     <Box>
-      <Box style={styles.mainBox}>
+        <Box sx={styles.mainBox}>
+            <Box sx={{display:'flex', alignItems:'center', justifyContent:'center',background:ColorPalette.white, opacity:'0.1'}}>
+            <img src={Images.icecream} style={{height:'400px', width:'200px', }}></img>
+            </Box>
+      <Box style={styles.centerBox}>
         <Box>
         <Box
           sx={{
@@ -54,11 +63,10 @@ const Home2Comp2 = () => {
             lineHeight: "70px",
           }}
         >
-          Our Popular  {" "}
-          <span style={styles.highlight}>Vegan</span> Treats
+          Best <span style={styles.highlight}>Vegan</span> Ice Creams
         </Box>
         <Box sx={styles.tagline}>
-         Check out our favorite vegan ice cream flavors.
+         Our best-selling vegan ice creams and desserts.
         </Box>
         </Box>
         <Box >
@@ -66,9 +74,9 @@ const Home2Comp2 = () => {
       </Box>
       </Box>
 
-      
+      </Box>
     </Box>
   );
 };
 
-export default Home2Comp2;
+export default Home2Comp6;

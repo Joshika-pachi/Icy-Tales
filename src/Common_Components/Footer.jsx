@@ -1,61 +1,13 @@
-// import React from "react";
-
-// const Footer = () => {
-//   return (
-//     <div style={{ backgroundColor:'#683292'}}>
-//     <div
-//       className="outerDiv"
-//       style={{
-//         display: "flex",
-//         alignItems: "center",
-//         justifyContent: "center",
-//         flexDirection:'row',
-//         // maxWidth:'1200px',
-//         border:'5px solid black'
-       
-//       }}
-//     >
-//     <div
-//         className="FirstDiv"
-//         style={{ display: "flex", flexDirection: "column",   }}
-//       >
-//         <h2>Navigation</h2>
-//         <div style={{ display: "flex", flexDirection: "row" }}>
-//           <div>
-//             <ul>
-//               <li>Home</li>
-//               <li>About</li>
-//               <li>Shop</li>
-//             </ul>
-//           </div>
-//           <div>
-//             <ul>
-//               <li>Products</li>
-//               <li>Blog</li>
-//               <li>Contact</li>
-//             </ul>
-//           </div>
-//         </div>
-//     </div>
-//       <div>
-//         <p>Address: </p>
-//         <p>121 King Street </p>
-//       </div>
-//     </div>
-//     </div>
-//   );
-// };
-
-// export default Footer;
-
 import React from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
-import Images from '../Assets/Images/Image'
+import Images from '../Assets/Images/Image';
+import { Box } from "@mui/material";
+import { ColorPalette } from "../Assets/Colors";
 
 
 const styles = {
   footer: {
-    backgroundColor: "#822FA4",
+    backgroundColor: ColorPalette.violet ,
     color: "white",
     padding: "60px 40px 20px",
     fontFamily: "sans-serif",
@@ -111,6 +63,7 @@ const styles = {
 const Footer = () => {
   return (
     <div style={styles.footer}>
+      
       <div style={styles.container}>
         <div style={styles.logo}>
           <img src={Images.icecream} alt="logo" style={{height: "60px",

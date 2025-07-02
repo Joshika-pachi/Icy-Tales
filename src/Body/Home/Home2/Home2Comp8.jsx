@@ -1,26 +1,28 @@
-
-
 import React from "react";
 import { Box } from "@mui/material";
 import { ColorPalette } from "../../../Assets/Colors";
+import NavLayout from "../../../Common_Components/NavLayout";
 import Button from "../../../Common_Components/Button";
+import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
+import { padding } from "@mui/system";
 import Images from "../../../Assets/Images/Image";
 
 const styles = {
   mainBox: {
     background: ColorPalette.white,
-    padding: { xs: "20px 10px", sm: "20px 30px" },
+    padding: "20px",
     paddingBottom: "50px",
     paddingTop: "50px",
   },
   headingLine: {
     fontFamily: "Berkshire Swash",
     fontWeight: 400,
+    lineHeight: "80px",
     color: "#000",
-    fontSize: { xs: "28px", sm: "36px", md: "48px" },
-    lineHeight: { xs: "35px", sm: "50px", md: "70px" },
+    fontSize: "48px",
+    lineHeight: "70px",
     textAlign: "center",
     marginBottom: "10px",
   },
@@ -30,33 +32,10 @@ const styles = {
   },
   tagline: {
     fontFamily: "Archivo",
-    fontSize: { xs: "14px", sm: "16px", md: "18px" },
+    fontSize: "18px",
     fontWeight: "400",
-    lineHeight: { xs: "22px", sm: "25px", md: "30px" },
+    lineHeight: "30px",
     color: ColorPalette.tagline,
-    textAlign: "center",
-    marginTop: "5px",
-  },
-  emailBoxContainer: {
-    display: "flex",
-    flexDirection: { xs: "column", sm: "row" },
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: "20px",
-    gap: { xs: "15px", sm: "0px" },
-  },
-  emailBox: {
-    color: ColorPalette.tagline,
-    height: "50px",
-    width: { xs: "100%", sm: "400px", md: "550px" },
-    boxShadow: "2px 2px 8px rgba(0, 0, 0, 0.5)",
-    textAlign: "left",
-    display: "flex",
-    alignItems: "center",
-    paddingLeft: "15px",
-    borderRadius: "8px",
-    backgroundColor: "#fff",
-    paddingTop: "0px",
   },
 };
 
@@ -70,11 +49,35 @@ const HomeComp8 = () => {
             <br />
             and Updates
           </Box>
-          <Box sx={styles.tagline}>
+          <Box
+            sx={{ ...styles.tagline, textAlign: "center", marginTop: "5px" }}
+          >
             Get 10% off your next order and stay updated with our latest offers.
           </Box>
-          <Box sx={styles.emailBoxContainer}>
-            <Box sx={styles.emailBox}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "20px",
+            }}
+          >
+            {/* <textarea name="email" id="mail">Enter your email adress</textarea> */}
+            <Box
+              sx={{
+                color: ColorPalette.tagline,
+                height: "50px",
+                width: "550px",
+                boxShadow: "2px 2px 8px rgba(0, 0, 0, 0.5)",
+                textAlign: "left",
+                display: "flex",
+                alignItems: "center",
+                paddingLeft: "15px",
+                borderRadius: "8px",
+                backgroundColor: "#fff",
+                marginRight: "10px",
+                paddingTop: "0px",
+              }}
+            >
               Enter your email address
             </Box>
             <Button
@@ -111,19 +114,19 @@ const HomeComp8 = () => {
             sx={{
               color: "#333",
               fontFamily: "Arial, sans-serif",
-              fontSize: { xs: "12px", sm: "14px" },
+              fontSize: "14px",
               textAlign: "center",
             }}
           />
         </Box>
-        <Box sx={{ display: { xs: "none", sm: "block" } }}>
+        <Box>
           <img
             src={Images.SideCircles}
             alt="Side Circles"
             style={{ height: "auto", paddingLeft: "10%", marginTop: "-15%" }}
           />
         </Box>
-        <Box sx={{ display: { xs: "none", sm: "block" } }}>
+        <Box>
           <img
             src={Images.SideTraingle}
             alt="Side Triangle"
@@ -131,6 +134,7 @@ const HomeComp8 = () => {
           />
         </Box>
       </Box>
+      
     </Box>
   );
 };

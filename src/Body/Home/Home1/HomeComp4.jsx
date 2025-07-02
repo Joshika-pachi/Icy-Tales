@@ -2,23 +2,22 @@ import React from "react";
 import { Box } from "@mui/material";
 import CategoryCards from "../../../Common_Components/CategoryCards";
 import Images from "../../../Assets/Images/Image";
-import { margin, padding } from "@mui/system";
 
 const styles = {
   MainBox: {
     width: "100%",
     backgroundColor: "#FFFFFF",
-   
-    paddingTop:'50px',
+    paddingTop: "50px",
     paddingBottom: "50px",
-  
   },
   headingLine: {
     fontFamily: "Berkshire Swash",
-    fontSize: "48px",
     fontWeight: 500,
-    lineHeight: "80px",
     color: "#000",
+    fontSize: { xs: "28px", sm: "36px", md: "48px" },
+    lineHeight: { xs: "35px", sm: "45px", md: "64px" },
+    textAlign: "center",
+    marginBottom: "10px",
   },
   highlight: {
     color: "#FF3CAC",
@@ -26,48 +25,43 @@ const styles = {
   },
   tagline: {
     fontFamily: "Archivo",
-    fontSize: "18px",
+    fontSize: { xs: "14px", sm: "16px", md: "18px" },
     fontWeight: "300",
-    lineHeight: "30px",
+    lineHeight: { xs: "22px", sm: "25px", md: "30px" },
+    textAlign: "center",
+    marginTop: "5px",
+  },
+  cardsContainer: {
+    display: "flex",
+    flexDirection: { xs: "column", sm: "column", md: "row" },
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "50px",
+    marginBottom: "50px",
+    gap: { xs: "20px", sm: "25px", md: "30px" },
   },
 };
 
 const HomeComp4 = () => {
   return (
-    <Box >
-        <Box sx={styles.MainBox}>
-      <Box
-        sx={{
-          ...styles.headingLine,
-          
-          lineHeight: "64px",
-          textAlign: "center",
-          marginBottom: "10px",
-        }}
-      >
-        Explore Our <span style={styles.highlight}>Categories</span>
-      </Box>
-      <Box sx={{ ...styles.tagline, textAlign: "center", marginTop: "5px" }}>
-        Check out our top products that our customers love
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          marginTop: "50px",
-          marginBottom: "50px",
-          gap: "30px",
-        }}
-      >
-        <CategoryCards image={Images.CategoryImage1} name="Sundaes" />
-        <CategoryCards image={Images.CategoryIamge2} name="Ice Cream Cones" />
-        <CategoryCards image={Images.CategoryImage3} name="Milkshakes" />
-        <CategoryCards image={Images.CategoryImage4} name="Seasonal Flavours" />
-      </Box>
+    <Box>
+      <Box sx={styles.MainBox}>
+        <Box sx={styles.headingLine}>
+          Explore Our <span style={styles.highlight}>Categories</span>
+        </Box>
+        <Box sx={styles.tagline}>
+          Check out our top products that our customers love
+        </Box>
+        <Box sx={styles.cardsContainer}>
+          <CategoryCards image={Images.CategoryImage1} name="Sundaes" />
+          <CategoryCards image={Images.CategoryIamge2} name="Ice Cream Cones" />
+          <CategoryCards image={Images.CategoryImage3} name="Milkshakes" />
+          <CategoryCards image={Images.CategoryImage4} name="Seasonal Flavours" />
+        </Box>
       </Box>
     </Box>
   );
 };
 
 export default HomeComp4;
+

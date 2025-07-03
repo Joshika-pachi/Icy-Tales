@@ -6,6 +6,7 @@ import Carousel from "../../../Common_Components/Carousel";
 import ImageCarousel from "../../../Common_Components/ImageCarousel"
 import Button from "../../../Common_Components/Button";
 import { alignItems, flexBasis, flexDirection, justifyContent, textAlign } from "@mui/system";
+import VeganData from "../../../Data/CarouselData"
 
 const styles = {
     mainBox:{
@@ -62,7 +63,7 @@ const Home2Comp2 = () => {
         </Box>
         </Box>
         <Box >
-        <Carousel />
+        <Carousel data={VeganData}  />
       </Box>
       </Box>
 

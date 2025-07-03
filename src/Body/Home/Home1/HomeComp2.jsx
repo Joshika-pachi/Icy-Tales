@@ -27,21 +27,21 @@ const styles = {
   },
   SecondBox: {
     display: "flex",
-    flexDirection: { xs: "column", md: "row" }, // stack vertically on small screens, keep side by side on desktop
+    flexDirection: { xs: "column", md: "row" },
     width: { xs: "95%", sm: "90%", md: "80%", lg: "70%" },
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FFFFFF",
     gap: { xs: 4, md: 0 },
     textAlign: { xs: "center", md: "left" },
-    overflowX: "auto", // allow horizontal scroll on narrow screens
+    overflowX: "auto", 
   },
   image: {
     height: "500px",
     width: "420px",
     marginRight: { xs: 0, md: "50px" },
     marginBottom: { xs: "20px", md: 0 },
-    flexShrink: 0, // prevent image from shrinking
+    flexShrink: 0,
   },
 };
 

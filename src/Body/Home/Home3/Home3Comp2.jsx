@@ -24,18 +24,18 @@ const styles = {
     lineHeight: { xs: "22px", sm: "25px", md: "30px" },
     textAlign: { xs: "center", md: "left" },
     marginTop: "10px",
-    color:'#646464'
+    color: "#646464",
   },
   SecondBox: {
     display: "flex",
-    flexDirection: { xs: "column", md: "row" }, 
+    flexDirection: { xs: "column", md: "row" },
     width: { xs: "95%", sm: "90%", md: "80%", lg: "70%" },
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FFFFFF",
     gap: { xs: 4, md: 0 },
     textAlign: { xs: "center", md: "left" },
-    overflowX: "auto", 
+    overflowX: "auto",
   },
   image: {
     height: "450px",
@@ -56,22 +56,34 @@ const Home3Comp2 = () => {
         alignItems: "center",
         backgroundColor: "#FFFFFF",
         paddingTop: "50px",
-        paddingBottom:'50px'
+        paddingBottom: "50px",
+        position: "relative",
       }}
     >
+      <Box>
+        <img
+          src={Images.SideCircles}
+          style={{ position: "absolute", top: "35%", left: "10%" }}
+        ></img>
+      </Box>
       <Box sx={styles.SecondBox}>
         <Box>
-          <img src={Images.Home3Comp2Image} alt="Ice cream girl" style={styles.image} />
+          <img
+            src={Images.Home3Comp2Image}
+            alt="Ice cream girl"
+            style={styles.image}
+          />
         </Box>
-        <Box sx={{paddingLeft:'50px'}}>
+        <Box sx={{ paddingLeft: "50px" }}>
           <Box sx={styles.headingLine}>
-            Experience the <br /> Art Of  <span style={styles.highlight}> Gelato</span>
+            Experience the <br /> Art Of{" "}
+            <span style={styles.highlight}> Gelato</span>
           </Box>
           <Box sx={styles.tagline}>
-           Handcrafted Flavors with Fresh, Local Ingredients.
-           <br></br>
-           Enjoy gelato made with the finest ingredients and
-traditional techniques.
+            Handcrafted Flavors with Fresh, Local Ingredients.
+            <br></br>
+            Enjoy gelato made with the finest ingredients and traditional
+            techniques.
           </Box>
           <Box sx={{ marginTop: "20px" }}>
             <Button
@@ -83,6 +95,12 @@ traditional techniques.
             />
           </Box>
         </Box>
+      </Box>
+      <Box>
+        <img src={Images.SideTraingle}></img>
+      </Box>
+      <Box>
+        <img src={Images.twoCircles} style={{position:'absolute',bottom:'0', right:'10%'}}></img>
       </Box>
     </Box>
   );

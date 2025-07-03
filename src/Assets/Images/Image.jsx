@@ -47,7 +47,17 @@ export default Image = {
     Home2Comp9FooterImage5: require("./Home2Comp9FooterImage5.jpg"),
     Home2Comp9FooterImage6: require("./Home2Comp9FooterImage6.jpg"),
     Home3Comp1Bg: require("./Home3Comp1Bg.jpg"),
-    Home3Comp2Image: require("./Home3Comp2Image.png")
+    Home3Comp2Image: require("./Home3Comp2Image.png"),
+    twoCircles: require("./twoCircles.png"),
+    gelatoImage1: require("./gelatoImage1.png"),
+    gelatoImage2: require("./gelatoImage2.png"),
+    gelatoImage3: require("./gelatoImage3.png"),
+    gelatoImage4: require("./gelatoImage4.png"),
+    icecreamBowl: require("./iceCreamBowl.png"),
+    wpsideTriangles: require("./wpsidetriangles.png"),
+    crossCircle: require("./crossCircle.png"),
+    two6: require("./two6.png")
+    
 
     
 };

@@ -65,7 +65,7 @@ const styles = {
   },
 };
 
-const ProductCarousel = ({ data, itemsPerSlide = 3 }) => {
+const ProductCarousel = ({ data=[], itemsPerSlide = 3 }) => {
   const [index, setIndex] = useState(0);
   const totalSlides = Math.ceil(data.length / itemsPerSlide);
 

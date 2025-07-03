@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import products from "../Data/CarouselData";
+import products from "../Data/CarouselData"
 import { ColorPalette } from "../Assets/Colors";
 
 const ImageCarousel = () => {

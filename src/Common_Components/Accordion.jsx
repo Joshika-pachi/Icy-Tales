@@ -1,154 +1,79 @@
-// import React from "react";
-// import {
-//   Accordion,
-//   AccordionSummary,
-//   AccordionDetails,
-//   Typography,
-// } from "@mui/material";
-// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+// import { useState } from "react";
 
-// const Accordion = ({ question, answer }) => {
+// function AccordionItem({ title, children }) {
+//   const [open, setOpen] = useState(false);
+
 //   return (
-//     <Accordion
-//       sx={{
-//         marginBottom: 2,
-//         borderRadius: 2,
-//         boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-//         "&:before": { display: "none" },
-//       }}
-//     >
-//       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-//         <Typography
-//           sx={{
-//             fontWeight: "bold",
-//             fontSize: "18px",
-//             fontFamily: "Archivo",
-//           }}
-//         >
-//           {question}
-//         </Typography>
-//       </AccordionSummary>
-//       <AccordionDetails>
-//         <Typography
-//           sx={{
-//             fontSize: "16px",
-//             fontFamily: "Archivo",
-//             color: "#555",
-//           }}
-//         >
-//           {answer}
-//         </Typography>
-//       </AccordionDetails>
-//     </Accordion>
+//     <div style={{ border: "1px solid #ddd", borderRadius: 8, marginBottom: 10 }}>
+//       <button
+//         onClick={() => setOpen(!open)}
+//         style={{
+//           width: "100%",
+//           textAlign: "left",
+//           padding: "12px 16px",
+//           fontSize: 16,
+//           backgroundColor: "#f2f2f2",
+//           border: "none",
+//           borderRadius: "8px 8px 0 0",
+//           cursor: "pointer",
+//         }}
+//       >
+//         {title}
+//       </button>
+//       {open && (
+//         <div style={{ padding: "12px 16px", backgroundColor: "#fff" }}>
+//           {children}
+//         </div>
+//       )}
+//     </div>
 //   );
-// };
+// }
 
-// export default Accordions;
+// export default function Accordion() {
+//   return (
+//     <div style={{ maxWidth: 600, margin: "40px auto", fontFamily: "sans-serif" }}>
+//       <h1>React 19 Accordion</h1>
+//       <AccordionItem title="What is React 19?">
+//         React 19 is a major update to React introducing the React Compiler, improved SSR, and more.
+//       </AccordionItem>
+//       <AccordionItem title="Is this compatible?">
+//         Yes! This accordion uses only basic React state/hooks, fully compatible with React 19.
+//       </AccordionItem>
+//       <AccordionItem title="How can I customize it?">
+//         You can edit styles or add animations easily.
+//       </AccordionItem>
+//     </div>
+//   );
+// }
 
-import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  Divider,
-  Paper,
-} from "@mui/material";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-const faqs = [
-  {
-    question: "Who is Harshitha?",
-    answer: "Funky Monkey",
-  },
-  {
-    question: "Who is Mokshitha?",
-    answer: "Honky Donkey",
-  },
-  {
-    question: "Who is Varshini?",
-    answer: "Perky Turkey",
-  },
-];
+import { useState } from "react";
 
-export default function AccordionExpandDefault() {
-  const [selectedIndex, setSelectedIndex] = useState(null);
+export default function AccordionCard({ question, answer }) {
+  const [open, setOpen] = useState(false);
 
   return (
-    <Box
-      sx={{
-        height: 250,
-        border: "2px solid #ccc",
-        borderRadius: 3,
-        display: "flex",
-        justifyContent: selectedIndex === null ? "center" : "flex-start",
-        alignItems: selectedIndex === null ? "center" : "stretch",
-        transition: "all 0.3s ease",
-        backgroundColor: "#f0f0f0",
-      }}
-    >
-      {/* Question List */}
-      <Box
-        sx={{
-          width: selectedIndex === null ? "100%" : "35%",
-          p: 2,
-          borderRight: selectedIndex !== null ? "1px solid #ddd" : "none",
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-          alignItems: selectedIndex === null ? "center" : "flex-start",
-          transition: "width 0.3s ease",
+    <div style={{ border: "1px solid #ddd", borderRadius: 8, marginBottom: 10 }}>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          width: "100%",
+          textAlign: "left",
+          padding: "12px 16px",
+          fontSize: 16,
+          backgroundColor: "#f9f9f9",
+          border: "none",
+          borderRadius: "8px 8px 0 0",
+          cursor: "pointer",
         }}
       >
-        {faqs.map((faq, index) => (
-          <Paper
-            key={index}
-            elevation={selectedIndex === index ? 6 : 2}
-            sx={{
-              width: selectedIndex === null ? "60%" : "100%",
-              cursor: "pointer",
-              p: 2,
-              bgcolor: selectedIndex === index ? "#d0ebff" : "#d9e3f0",
-              "&:hover": {
-                bgcolor: "#bbdefb",
-              },
-              transition: "all 0.3s ease",
-            }}
-            onClick={() => setSelectedIndex(index)}
-          >
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="space-between"
-            >
-              <Typography variant="body1" fontWeight="bold" color="black">
-                {faq.question}
-              </Typography>
-              <ArrowForwardIosIcon
-                fontSize="small"
-                sx={{
-                  ml: 1,
-                  transition: "transform 0.3s ease",
-                  transform:
-                    selectedIndex === index ? "rotate(90deg)" : "rotate(0deg)",
-                  color: selectedIndex === index ? "#1976d2" : "#555",
-                }}
-              />
-            </Box>
-          </Paper>
-        ))}
-      </Box>
-
-      {/* Answer Side */}
-      {selectedIndex !== null && (
-        <Box sx={{ width: "65%", p: 4 }}>
-          <Typography variant="h5" fontWeight="bold" mb={1}>
-            {faqs[selectedIndex].question}
-          </Typography>
-          <Divider sx={{ mb: 2 }} />
-          <Typography variant="body1" color="text.secondary">
-            {faqs[selectedIndex].answer}
-          </Typography>
-        </Box>
+        {question}
+      </button>
+      {open && (
+        <div style={{ padding: "12px 16px", backgroundColor: "#fff" }}>
+          {answer}
+        </div>
       )}
-    </Box>
+    </div>
   );
 }

@@ -7,6 +7,10 @@ import { IoSearch } from "react-icons/io5";
 import Cart from './Cart'
 import Images from '../Assets/Images/Image';
 import { ColorPalette } from "../Assets/Colors";
+import { Link } from "react-router-dom";
+
+
+
 
 const styles = {
   outerDiv: {
@@ -48,6 +52,7 @@ const styles = {
 };
 
 const NavLayout = () => {
+
   const [cartCount, setCartCount] = useState(5);
   return (
     <div style={styles.outerDiv}>
@@ -57,17 +62,16 @@ const NavLayout = () => {
         </div>
 
         <div style={styles.navlist}>
-          <DropDown title={'Home'} options={[
-          { label: "Action", href: "#action/1" },
-          { label: "Another Action", href: "#action/2" },
-          { label: "Something", href: "#action/3" },
-          { type: "divider" },
-          { label: "Separated Link", href: "#action/4" },
-        ]} />
+           <DropDown title="Home" options={[
+  { label: "Home 2", href: "/home2" },
+  { label: "Home 3", href: "/home3" },
+]} />
 
-          <a style={styles.links} href="#">
+          {/* <a style={styles.links} href="#">
             About
-          </a>
+          </a> */}
+          <Link style={styles.links} to="/about">About</Link>
+
           <DropDown title={'Pages'} options={[
           { label: "Action", href: "#action/1" },
           { label: "Another Action", href: "#action/2" },

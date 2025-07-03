@@ -73,7 +73,12 @@ const Home3Comp8 = () => {
             Some of the queries you want to know about us.
           </Box>
         </Box>
-        <Box><Accordion /></Box>
+        <Box>
+          <Accordion
+        question="What is React?"
+        answer="React is a library for building user interfaces."
+      />
+        </Box>
         
           {/* <Box style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
             <h2 style={{ textAlign: "center", marginBottom: "30px" }}>FAQs</h2>

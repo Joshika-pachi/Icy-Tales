@@ -56,7 +56,9 @@ export default Image = {
     icecreamBowl: require("./iceCreamBowl.png"),
     wpsideTriangles: require("./wpsidetriangles.png"),
     crossCircle: require("./crossCircle.png"),
-    two6: require("./two6.png")
+    two6: require("./two6.png"),
+    AboutusComp2Image: require("./AboutusComp2Image.jpg"),
+    AboutusComp3Image: require("./AboutusComp3Image.png")
     
 
     

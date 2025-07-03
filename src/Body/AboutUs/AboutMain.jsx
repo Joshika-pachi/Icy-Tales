@@ -1,0 +1,31 @@
+import React from 'react'
+import {Box} from "@mui/material"
+import AboutUsComp2 from './AboutUsComp2'
+import AboutUsComp3 from './AboutUsComp3'
+import AboutUsComp4 from './AboutUsComp4'
+import AboutUsComp6 from './AboutUsComp6'
+
+const About = () => {
+  return (
+    <Box>
+      {/* Second Box  */}
+      <Box>
+      <AboutUsComp2 />
+      </Box>
+      {/* Third Box  */}
+      <Box>
+        <AboutUsComp3 />
+      </Box>
+      {/* Fourth Box  */}
+      <Box>
+        <AboutUsComp4 />
+      </Box>
+      {/* Sixth Box  */}
+      <Box>
+        <AboutUsComp6 />
+      </Box>
+    </Box>
+  )
+}
+
+export default About

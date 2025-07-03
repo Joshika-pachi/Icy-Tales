@@ -9,10 +9,11 @@ import HomeComp6 from "./HomeComp6";
 import HomeComp7 from "./HomeComp7";
 import HomeComp8 from "./HomeComp8";
 import HomeComp9 from "./HomeComp9";
+import { ColorPalette } from "../../../Assets/Colors";
 
 const Home1 = () => {
   return (
-    <Box>
+    <Box sx={{background:ColorPalette.gradient}}>
       {/* First box */}
       <Box>
         <HomeComp1 />

@@ -19,6 +19,7 @@ const styles = {
     alignContent: "center",
     paddingTop: "50px",
     // paddingBottom: "30px",
+    background:ColorPalette.white
   },
   headingLine: {
     fontFamily: "Berkshire Swash",

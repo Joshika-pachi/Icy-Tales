@@ -23,14 +23,22 @@ import Home1 from "./Body/Home/Home1/Home1Main";
 import Home2 from "./Body/Home/Home2/Home2Main";
 import Home3 from "./Body/Home/Home3/Home3Main";
 import AboutMain from "./Body/AboutUs/AboutMain";
+import Team from "./Body/Pages/Team"
+import Review from "./Body/Pages/ReviewPage";
+import SpecialOffersMain from "./Body/Pages/SpecialOffers/SpecialOffersMain";
+import Error from "./Body/Pages/Error"
+import ComingSoon from "./Body/Pages/ComingSoon";
+import PrivacyPolicy from "./Body/Pages/PrivacyPolicy";
+import TermsConditions from "./Body/Pages/TermsConditions"
+import ThankYou from "./Body/Pages/ThankYou"
 
 const routing = createBrowserRouter([
   {
     path: "/",
-    element: <HomeLayout />,  // 👈 Main layout
+    element: <HomeLayout />,  
     children: [
       {
-        index: true,           // 👈 This makes Home1 render at "/"
+        index: true,           
         element: <Home1 />,
       },
       {
@@ -45,6 +53,39 @@ const routing = createBrowserRouter([
         path: "about",        
         element: <AboutMain />,
       },
+      {
+        path:"team",
+        element: <Team />,
+
+      },
+      {
+        path:"review",
+        element:<Review />
+      },
+      {
+        path:"specialOffers",
+        element:<SpecialOffersMain />
+      },
+      {
+        path:"error",
+        element:<Error />
+      },
+      {
+        path:"comingSoon",
+        element:<ComingSoon />
+      },
+      {
+        path:"privacyPolicy",
+        element:<PrivacyPolicy />
+      },
+      {
+        path:"termsConditions",
+        element:<TermsConditions />
+      },
+      {
+        path:"thankYou",
+        element:<ThankYou />
+      }
     ],
   },
 ]);

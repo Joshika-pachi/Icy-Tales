@@ -58,7 +58,19 @@ export default Image = {
     crossCircle: require("./crossCircle.png"),
     two6: require("./two6.png"),
     AboutusComp2Image: require("./AboutusComp2Image.jpg"),
-    AboutusComp3Image: require("./AboutusComp3Image.png")
+    AboutusComp3Image: require("./AboutusComp3Image.png"),
+    TeamMember1: require("./TeamMember1.jpg"),
+    TeamMember2: require("./TeamMember2.jpg"),
+    TeamMember3: require("./TeamMember3.jpg"),
+    TeamMember4: require("./TeamMember4.jpg"),
+    TeamMember5: require("./TeamMember5.jpg"),
+    TeamMember6: require("./TeamMember6.jpg"),
+    smiley: require("./smiley.png"),
+    pinkBg: require("./pinkBg.png"),
+    offerBowl: require("./offerBowl.png"),
+    CommitmentIcecream: require("./CommitmentIceCream.png")
+
+
     
 
     

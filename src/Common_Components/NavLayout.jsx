@@ -83,6 +83,7 @@ const NavLayout = () => {
               { label: "Privacy Policy", href: "/privacyPolicy" },
               { label: "Terms & Conditions", href: "/termsConditions" },
               { label: "Thank You", href: "/thankYou" },
+               { label: "Shop 1", href: "/ShopLayout1" },
               
             ]}
           />
@@ -96,10 +97,12 @@ const NavLayout = () => {
               { label: "Separated Link", href: "#action/4" },
             ]}
           />
-          <a style={styles.links} href="#">
+          {/* <a style={styles.links} href="#">
             Faq's
-          </a>
-          {/* Search Icon  */}
+          </a> */}
+          <Link style={styles.links} to="/faqs">
+            Faq's
+          </Link>
           <IoSearch size={26} />
           <Cart count={cartCount} onClick={() => alert("Go to cart")} />
           {/* <button style={styles.button}>Contact Us</button> */}
@@ -108,7 +111,7 @@ const NavLayout = () => {
             width={148}
             height={48}
             bcolor={ColorPalette.pink}
-            onClick={"#"}
+            onClick={"/contactUs"}
           />
         </div>
       </div>

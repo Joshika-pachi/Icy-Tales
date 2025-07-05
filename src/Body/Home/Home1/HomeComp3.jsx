@@ -89,6 +89,7 @@ const HomeComp3 = () => {
                 tagline={"Rich chocolate ice cream with chunks of brownie."}
                 price={5.49}
                 rating={4.8}
+                onclick={'#'}
               />
               <ClassicFavCards
                 img={Images.ClassicFavImage2}
@@ -96,6 +97,7 @@ const HomeComp3 = () => {
                 tagline={"Strawberry ice cream layered with shortcake"}
                 price={5.29}
                 rating={4.9}
+                onclick={'#'}
               />
               <ClassicFavCards
                 img={Images.ClassicFavImage3}
@@ -103,6 +105,7 @@ const HomeComp3 = () => {
                 tagline={"Refreshing mint ice cream with chocolate"}
                 price={3.99}
                 rating={4.5}
+                onclick={'#'}
               />
               <ClassicFavCards
                 img={Images.ClassicFavImage4}
@@ -110,6 +113,7 @@ const HomeComp3 = () => {
                 tagline={"Creamy vanilla ice cream topped with cherry."}
                 price={4.99}
                 rating={5.0}
+                onclick={'#'}
               />
             </Box>
           </Box>

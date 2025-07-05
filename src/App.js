@@ -11,9 +11,6 @@ import MainApp from "./MainApp";
 function App(){
     return(
         <Box>
-            {/* <NavLayout />
-            <Home2Main />
-            <Footer /> */}
             <MainApp />
         </Box>
 

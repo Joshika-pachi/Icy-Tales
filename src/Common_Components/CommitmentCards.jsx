@@ -11,7 +11,8 @@ const styles={
         flexDirection:'column',
         height:'200px',
         width:'200px',
-        border:'2px solid #646464',
+        // border:'2px solid #646464',
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)", 
        
     },
     title:{
@@ -45,19 +46,6 @@ const styles={
 
 };
 
-// const CommitmentCards = ({icon, title, tag, boxbg}) => {
-//   return (
-//     <Box>
-//         <Box sx={styles.mainBox}>
-//             <Box sx={{...styles.iconContainer, background:boxbg}}>{icon}</Box>
-//             <Box sx={styles.title}>{title}</Box>
-//             <Box sx={styles.tagline}>{tag}</Box>
-
-//         </Box>
-      
-//     </Box>
-//   )
-// }
 
 const CommitmentCards = ({ icon, title, tag, boxbg }) => {
   return (

@@ -68,7 +68,9 @@ export default Image = {
     smiley: require("./smiley.png"),
     pinkBg: require("./pinkBg.png"),
     offerBowl: require("./offerBowl.png"),
-    CommitmentIcecream: require("./CommitmentIceCream.png")
+    CommitmentIcecream: require("./CommitmentIceCream.png"),
+    ChocoChipCone: require("./ChocoChipCone.png"),
+    strawberrySundae: require("./strawberrySundae.png")
 
 
     

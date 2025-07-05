@@ -24,6 +24,7 @@ const styles = {
     lineHeight: "70px",
     textAlign: "center",
     marginBottom: "10px",
+    paddingTop:'50px'
   },
   highlight: {
     color: "#FF3CAC",
@@ -80,7 +81,7 @@ const SpecialOffers3 = () => {
         <Box sx={styles.secondBox}>
           <Box sx={styles.cardBoxes}>
             <CommitmentCards icon={<CiDeliveryTruck size={50} style={{background:ColorPalette.pink, color:'white'}}/>} title={"Free Shipping"} tag={"Enjoy the convenience of free shipping on all orders!"} boxbg={ColorPalette.pink} />
-            <CommitmentCards icon={<RiMoneyCnyCircleLine size={50} style={{background:ColorPalette.violet, color:'white'}}/>} title={"Free Shipping"} tag={"Enjoy the convenience of free shipping on all orders!"} boxbg={ColorPalette.violet}/>
+            <CommitmentCards icon={<RiMoneyCnyCircleLine size={50} style={{background:ColorPalette.violet, color:'white'}}/>} title={"Unique Packaging"} tag={"Experience our commitment to uniqueness with every order."} boxbg={ColorPalette.violet}/>
           </Box>
           <Box sx={{padding:'8%'}}>
           <Box sx={styles.imageContainer}>
@@ -88,8 +89,9 @@ const SpecialOffers3 = () => {
           </Box>
           </Box>
           <Box sx={styles.cardBoxes}>
-            <CommitmentCards icon={<CiDeliveryTruck size={50} style={{background:ColorPalette.pink, color:'white'}}/>} title={"Free Shipping"} tag={"Enjoy the convenience of free shipping on all orders!"} boxbg={ColorPalette.pink}/>
-            <CommitmentCards icon={<CiDeliveryTruck size={50} style={{background:ColorPalette.pink, color:'white'}}/>} title={"Free Shipping"} tag={"Enjoy the convenience of free shipping on all orders!"} boxbg={ColorPalette.violet}/>
+            <CommitmentCards icon={<CiDeliveryTruck size={50} style={{background:ColorPalette.pink, color:'white'}}/>} title={"100% Money Back"} tag={"Rest assured with our money-back guarantee at any time."} boxbg={ColorPalette.pink}/>
+            <CommitmentCards icon={<RiMoneyCnyCircleLine size={50} style={{background:ColorPalette.violet, color:'white'}}/>} title={"Fast Delivery"} tag={"Experience swift and efficiently reliable delivery with us"} boxbg={ColorPalette.violet}/>
+            
           </Box>
         </Box>
       </Box>

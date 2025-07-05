@@ -1,0 +1,103 @@
+import Images from "../Assets/Images/Image";
+
+const productsData = [
+  {
+    id: 1,
+    name: "Classic Canned Ice Cream",
+    tagline:"Creamy vanilla ice cream topped with cherry.",
+    category: "Canned Ice Cream",
+    price: 6.99,
+    image: Images.ClassicFavImage1,
+  },
+  {
+    id: 2,
+    name: "Strawberry Frozen Yogurt",
+    tagline:"Creamy vanilla ice cream topped with cherry.",
+    category: "Frozen Yogurt",
+    price: 5.49,
+    image: Images.ClassicFavImage2,
+  },
+  {
+    id: 3,
+    name: "Chocolate Ice Cream Cake",
+    tagline:"Creamy vanilla ice cream topped with cherry.",
+    category: "Ice Cream Cakes",
+    price: 7.29,
+    image: Images.ClassicFavImage3,
+  },
+  {
+    id: 4,
+    name: "Vanilla Milkshake",
+    tagline:"Creamy vanilla ice cream topped with cherry.",
+    category: "Milkshakes",
+    price: 4.99,
+    image: Images.ClassicFavImage4,
+  },
+  {
+    id: 5,
+    name: "Mango Popsicle",
+    tagline:"Creamy vanilla ice cream topped with cherry.",
+    category: "Popsicles",
+    price: 3.99,
+    image: Images.CarouselPic1,
+  },
+  {
+    id: 6,
+    name: "Strawberry Sundae",
+    tagline:"Creamy vanilla ice cream topped with cherry.",
+    category: "Sundaes",
+    price: 6.19,
+    image: Images.CarouselPic2,
+  },
+  {
+    id: 7,
+    name: "Classic Vanilla Ice-Cream",
+    tagline:"Creamy vanilla ice cream topped with cherry.",
+    category: "Popsicles",
+    price: 4.99,
+    image: Images.ClassicFavImage4,
+  },
+  {
+    id: 8,
+    name: "Chocolate Brownie Sundae",
+    tagline:"Rich chocolate ice cream with chunks of brownie.",
+    category: "Sundaes",
+    price: 6.99,
+    image: Images.ClassicFavImage1,
+  },
+  {
+    id: 9,
+    name: "Strawberry ShortCake",
+    tagline:"Strawberry ice cream layered with shortcake",
+    category: "Ice Cream Cakes",
+    price: 5.49,
+    image: Images.ClassicFavImage2,
+  },
+   {
+    id: 10,
+    name: "Mint Chocolate Chip Cone",
+    tagline:"Refreshing mint ice cream with chocolate chips.",
+    category: "Popsicles",
+    price: 3.99,
+    image: Images.ClassicFavImage3,
+  },
+  {
+    id: 11,
+    name: "Strawberry Sundae",
+    tagline:"Chocolate chip cookie dough ice cream in a cone.",
+    category: "Sundae",
+    price: 5.99,
+    image: Images.strawberrySundae,
+  },
+  {
+    id: 12,
+    name: "Chocolate Chip Cookie  Cone",
+    tagline:"Chocolate chip cookie dough ice cream in a cone.",
+    category: "Popsicles",
+    price: 4.49,
+    image: Images.ChocoChipCone,
+  },
+  
+];
+
+export default productsData;

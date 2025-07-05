@@ -12,7 +12,7 @@ import Home2Comp9 from './Home2Comp9';
 
 const Home2Main = () => {
   return (
-    <Box>
+    <Box sx={{overflowX:'hidden'}}>
       {/* First Box  */}
       <Box>
         <Home2Comp1 />

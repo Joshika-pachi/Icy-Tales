@@ -31,6 +31,9 @@ import ComingSoon from "./Body/Pages/ComingSoon";
 import PrivacyPolicy from "./Body/Pages/PrivacyPolicy";
 import TermsConditions from "./Body/Pages/TermsConditions"
 import ThankYou from "./Body/Pages/ThankYou"
+import Faqs from "./Body/Faqs/FaqsMain"
+import ContactUs from "./Body/ContactUs/ContactUsMain"
+import ShopLayout1 from "./Body/Shop/Shop1/Shop1Main"
 
 const routing = createBrowserRouter([
   {
@@ -85,6 +88,18 @@ const routing = createBrowserRouter([
       {
         path:"thankYou",
         element:<ThankYou />
+      },
+      {
+        path:"faqs",
+        element:<Faqs />
+      },
+      {
+        path:"contactUs",
+        element:<ContactUs />
+      },
+      {
+        path:"ShopLayout1",
+        element:<ShopLayout1 />
       }
     ],
   },

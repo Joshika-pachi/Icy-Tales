@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { ColorPalette } from "../Assets/Colors";
-import { FaShoppingCart} from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 
 const styles = {
@@ -22,17 +22,6 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     paddingTop: "10px",
-  },
-  heartIcon: {
-    position: "absolute",
-    top: 10,
-    left: 10,
-    color: "#333",
-    backgroundColor: "#fff",
-    borderRadius: "50%",
-    padding: "5px",
-    fontSize: "14px",
-    boxShadow: "0 1px 4px rgba(0,0,0,0.2)",
   },
   image: {
     height: "180px",
@@ -82,19 +71,24 @@ const styles = {
     fontWeight: "700",
     fontSize: "18px",
   },
-  cartIconCircle: {
+  cartButton: {
     backgroundColor: ColorPalette.violet,
     borderRadius: "50%",
+    border: "none",
     padding: "8px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     color: "#fff",
     cursor: "pointer",
+    transition: "background-color 0.3s",
+    "&:hover": {
+      backgroundColor: "#7a4dc3",
+    },
   },
 };
 
-const ClassicFavCards = ({ img, heading, tagline, price, rating }) => {
+const ClassicFavCards = ({ img, heading, tagline, price, rating, onAddToCart }) => {
   return (
     <Box sx={styles.cardContainer}>
       <Box sx={styles.imageBox}>
@@ -113,9 +107,13 @@ const ClassicFavCards = ({ img, heading, tagline, price, rating }) => {
 
       <Box sx={styles.bottomRow}>
         <Box sx={styles.priceText}>${price}</Box>
-        <Box sx={styles.cartIconCircle}>
+        <button
+          style={styles.cartButton}
+          aria-label={`Add ${heading} to cart`}
+          onClick={onAddToCart}
+        >
           <FaShoppingCart size={16} />
-        </Box>
+        </button>
       </Box>
     </Box>
   );

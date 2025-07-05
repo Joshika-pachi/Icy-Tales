@@ -1,6 +1,6 @@
 // import { useState } from "react";
 
-// function AccordionItem({ title, children }) {
+// export default function AccordionCard({ question, answer }) {
 //   const [open, setOpen] = useState(false);
 
 //   return (
@@ -12,36 +12,19 @@
 //           textAlign: "left",
 //           padding: "12px 16px",
 //           fontSize: 16,
-//           backgroundColor: "#f2f2f2",
+//           backgroundColor: "#f9f9f9",
 //           border: "none",
 //           borderRadius: "8px 8px 0 0",
 //           cursor: "pointer",
 //         }}
 //       >
-//         {title}
+//         {question}
 //       </button>
 //       {open && (
 //         <div style={{ padding: "12px 16px", backgroundColor: "#fff" }}>
-//           {children}
+//           {answer}
 //         </div>
 //       )}
-//     </div>
-//   );
-// }
-
-// export default function Accordion() {
-//   return (
-//     <div style={{ maxWidth: 600, margin: "40px auto", fontFamily: "sans-serif" }}>
-//       <h1>React 19 Accordion</h1>
-//       <AccordionItem title="What is React 19?">
-//         React 19 is a major update to React introducing the React Compiler, improved SSR, and more.
-//       </AccordionItem>
-//       <AccordionItem title="Is this compatible?">
-//         Yes! This accordion uses only basic React state/hooks, fully compatible with React 19.
-//       </AccordionItem>
-//       <AccordionItem title="How can I customize it?">
-//         You can edit styles or add animations easily.
-//       </AccordionItem>
 //     </div>
 //   );
 // }
@@ -53,24 +36,45 @@ export default function AccordionCard({ question, answer }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div style={{ border: "1px solid #ddd", borderRadius: 8, marginBottom: 10 }}>
+    <div
+      style={{
+        border: "1px solid #e0e0e0",
+        borderRadius: 12,
+        marginBottom: 20,
+        boxShadow: "0 4px 12px rgba(0,0,0,0.05)", // subtle shadow like your example
+        overflow: "hidden",
+        maxWidth: 600, // limits width like a neat card
+        transition: "all 0.3s ease",
+      }}
+    >
       <button
         onClick={() => setOpen(!open)}
         style={{
           width: "100%",
           textAlign: "left",
-          padding: "12px 16px",
-          fontSize: 16,
-          backgroundColor: "#f9f9f9",
+          padding: "16px 20px",
+          fontSize: 18,
+          fontFamily: "Archivo",
+          fontWeight: 500,
+          color: "#000",
+          backgroundColor: "#fff",
           border: "none",
-          borderRadius: "8px 8px 0 0",
           cursor: "pointer",
         }}
       >
         {question}
       </button>
       {open && (
-        <div style={{ padding: "12px 16px", backgroundColor: "#fff" }}>
+        <div
+          style={{
+            padding: "16px 20px",
+            backgroundColor: "#f9f9f9",
+            fontFamily: "Archivo",
+            fontSize: 16,
+            color: "#333",
+            borderTop: "1px solid #e0e0e0",
+          }}
+        >
           {answer}
         </div>
       )}

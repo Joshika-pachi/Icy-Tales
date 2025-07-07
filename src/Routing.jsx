@@ -33,7 +33,9 @@ import TermsConditions from "./Body/Pages/TermsConditions"
 import ThankYou from "./Body/Pages/ThankYou"
 import Faqs from "./Body/Faqs/FaqsMain"
 import ContactUs from "./Body/ContactUs/ContactUsMain"
-import ShopLayout1 from "./Body/Shop/Shop1/Shop1Main"
+import Shop1 from "./Body/Shop/Shop1Comp";
+import Shop2 from "./Body/Shop/Shop2Comp";
+import Shop3 from "./Body/Shop/Shop3Comp"
 
 const routing = createBrowserRouter([
   {
@@ -98,8 +100,16 @@ const routing = createBrowserRouter([
         element:<ContactUs />
       },
       {
-        path:"ShopLayout1",
-        element:<ShopLayout1 />
+        path:"shop1",
+        element:<Shop1 />
+      },
+      {
+        path:"shop2",
+        element:<Shop2 />
+      },
+      {
+        path:"shop3",
+        element:<Shop3 />
       }
     ],
   },

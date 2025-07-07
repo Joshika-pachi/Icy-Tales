@@ -11,7 +11,7 @@ import Home3Comp8 from './Home3Comp8'
 
 const Home3Main = () => {
   return (
-    <Box>
+    <Box sx={{overflowX:'hidden'}}>
       {/* First Box  */}
       <Box>
           <Home3Comp1 />

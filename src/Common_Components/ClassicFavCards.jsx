@@ -21,11 +21,11 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: "10px",
+    // paddingTop: "10px",
   },
   image: {
-    height: "180px",
-    width: "180px",
+    height: "200px",
+    width: "220px",
     backgroundColor: "#FFEFD8",
     borderRadius: "15px",
     filter: "brightness(95%)",
@@ -38,9 +38,9 @@ const styles = {
     padding: "8px 12px 0",
   },
   heading: {
-    fontWeight: "700",
-    fontFamily: "Archivo, sans-serif",
-    fontSize: "16px",
+    fontWeight: "450",
+    fontFamily: "Archivo",
+    fontSize: "18px",
     color: "#0F0200",
   },
   ratingBox: {
@@ -51,8 +51,8 @@ const styles = {
     fontWeight: 500,
   },
   tagline: {
-    fontFamily: "Archivo, sans-serif",
-    fontSize: "13px",
+    fontFamily: "Archivo",
+    fontSize: "14px",
     fontWeight: "400",
     color: "#646464",
     padding: "4px 12px 0",

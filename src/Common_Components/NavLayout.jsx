@@ -83,7 +83,9 @@ const NavLayout = () => {
               { label: "Privacy Policy", href: "/privacyPolicy" },
               { label: "Terms & Conditions", href: "/termsConditions" },
               { label: "Thank You", href: "/thankYou" },
-               { label: "Shop 1", href: "/ShopLayout1" },
+               { label: "Shop 1", href: "/shop1" },
+               { label: "Shop 2", href: "/shop2" },
+               { label: "Shop 3", href: "/shop3" },
               
             ]}
           />

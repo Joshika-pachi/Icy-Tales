@@ -7,6 +7,7 @@ const productsData = [
     tagline:"Creamy vanilla ice cream topped with cherry.",
     category: "Canned Ice Cream",
     price: 6.99,
+    rating:4.5,
     image: Images.ClassicFavImage1,
   },
   {
@@ -15,6 +16,7 @@ const productsData = [
     tagline:"Creamy vanilla ice cream topped with cherry.",
     category: "Frozen Yogurt",
     price: 5.49,
+    rating:4.5,
     image: Images.ClassicFavImage2,
   },
   {
@@ -23,6 +25,7 @@ const productsData = [
     tagline:"Creamy vanilla ice cream topped with cherry.",
     category: "Ice Cream Cakes",
     price: 7.29,
+    rating:4.5,
     image: Images.ClassicFavImage3,
   },
   {
@@ -31,6 +34,7 @@ const productsData = [
     tagline:"Creamy vanilla ice cream topped with cherry.",
     category: "Milkshakes",
     price: 4.99,
+    rating:4.5,
     image: Images.ClassicFavImage4,
   },
   {
@@ -39,6 +43,7 @@ const productsData = [
     tagline:"Creamy vanilla ice cream topped with cherry.",
     category: "Popsicles",
     price: 3.99,
+    rating:4.5,
     image: Images.CarouselPic1,
   },
   {
@@ -47,6 +52,7 @@ const productsData = [
     tagline:"Creamy vanilla ice cream topped with cherry.",
     category: "Sundaes",
     price: 6.19,
+    rating:4.5,
     image: Images.CarouselPic2,
   },
   {
@@ -55,6 +61,7 @@ const productsData = [
     tagline:"Creamy vanilla ice cream topped with cherry.",
     category: "Popsicles",
     price: 4.99,
+    rating:4.5,
     image: Images.ClassicFavImage4,
   },
   {
@@ -63,6 +70,7 @@ const productsData = [
     tagline:"Rich chocolate ice cream with chunks of brownie.",
     category: "Sundaes",
     price: 6.99,
+    rating:4.5,
     image: Images.ClassicFavImage1,
   },
   {
@@ -71,6 +79,7 @@ const productsData = [
     tagline:"Strawberry ice cream layered with shortcake",
     category: "Ice Cream Cakes",
     price: 5.49,
+    rating:4.5,
     image: Images.ClassicFavImage2,
   },
    {
@@ -79,6 +88,7 @@ const productsData = [
     tagline:"Refreshing mint ice cream with chocolate chips.",
     category: "Popsicles",
     price: 3.99,
+    rating:4.5,
     image: Images.ClassicFavImage3,
   },
   {
@@ -87,6 +97,7 @@ const productsData = [
     tagline:"Chocolate chip cookie dough ice cream in a cone.",
     category: "Sundae",
     price: 5.99,
+    rating:4.5,
     image: Images.strawberrySundae,
   },
   {
@@ -95,7 +106,53 @@ const productsData = [
     tagline:"Chocolate chip cookie dough ice cream in a cone.",
     category: "Popsicles",
     price: 4.49,
+    rating:4.5,
     image: Images.ChocoChipCone,
+  },
+  {
+    id: 13,
+    name: "Chocolate Chip Cookie  Cone",
+    tagline:"Chocolate chip cookie dough ice cream in a cone.",
+    category: "Popsicles",
+    price: 4.49,
+    rating:4.5,
+    image: Images.gelatoImage4,
+  },
+  {
+    id: 14,
+    name: "Chocolate Chip Cookie  Cone",
+    tagline:"Chocolate chip cookie dough ice cream in a cone.",
+    category: "Popsicles",
+    price: 4.49,
+    rating:4.5,
+    image: Images.gelatoImage3,
+  },
+  {
+    id: 15,
+    name: "Chocolate Chip Cookie  Cone",
+    tagline:"Chocolate chip cookie dough ice cream in a cone.",
+    category: "Popsicles",
+    price: 4.49,
+    rating:4.5,
+    image: Images.gelatoImage2,
+  },
+  {
+    id: 16,
+    name: "Chocolate Chip Cookie  Cone",
+    tagline:"Chocolate chip cookie dough ice cream in a cone.",
+    category: "Popsicles",
+    price: 4.49,
+    rating:4.5,
+    image: Images.gelatoImage1,
+  },
+  {
+    id: 17,
+    name: "Chocolate Chip Cookie  Cone",
+    tagline:"Chocolate chip cookie dough ice cream in a cone.",
+    category: "Popsicles",
+    price: 4.49,
+    rating:4.5,
+    image: Images.gelatoImage4,
   },
   
 ];

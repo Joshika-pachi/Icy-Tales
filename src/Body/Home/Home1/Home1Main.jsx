@@ -31,9 +31,9 @@ const Home1 = () => {
         <HomeComp4 />
       </Box>
       {/* Fifth Box */}
-      {/* <Box>
+      <Box>
         <HomeComp5 />
-      </Box> */}
+      </Box>
       {/* Sixth Box  */}
       <Box>
         <HomeComp6 />

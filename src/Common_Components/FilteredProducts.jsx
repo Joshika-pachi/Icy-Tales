@@ -1,39 +1,3 @@
-// import React from "react";
-// import { useSelector } from "react-redux";
-// import { Box } from "@mui/material";
-// import ClassicFavCards from "../Common_Components/ClassicFavCards";
-
-// const ProductList = () => {
-//   const products = useSelector((state) => state.products.filteredProducts);
-
-//   return (
-//     <Box
-//       sx={{
-//         display: "grid",
-//         gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-//         gap: "20px",
-//       }}
-//     >
-//       {products.length === 0 ? (
-//         <p>No products found for selected filter.</p>
-//       ) : (
-//         products.map((product) => (
-//           <ClassicFavCards
-//             key={product.id}
-//             img={product.image}
-//             heading={product.name}
-//             tagline={product.tagline}
-//             price={product.price}
-//             rating={product.rating || 4.5} // fallback rating if missing
-//           />
-//         ))
-//       )}
-//     </Box>
-//   );
-// };
-
-// export default ProductList;
-
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
@@ -46,14 +10,14 @@ const styles = {
   },
   slide: {
     display: "flex",
-    flexDirection: "column", // rows stack vertically
+    flexDirection: "column", 
     gap: "50px",
   },
   row: {
     display: "flex",
     justifyContent: "center",
     gap: "70px",
-    flexWrap: "wrap", // handle small screens
+    flexWrap: "wrap",
   },
   paginationContainer: {
     display: "flex",
@@ -96,7 +60,7 @@ const styles = {
 
 const Carousel = () => {
   const products = useSelector((state) => state.products.filteredProducts);
-  const itemsPerSlide = 6; // 3×2
+  const itemsPerSlide = 8; 
   const totalSlides = Math.ceil(products.length / itemsPerSlide);
   const [index, setIndex] = useState(0);
 
@@ -110,8 +74,8 @@ const Carousel = () => {
     index * itemsPerSlide + itemsPerSlide
   );
 
-  const firstRow = currentSlideItems.slice(0, 3);
-  const secondRow = currentSlideItems.slice(3, 6);
+  const firstRow = currentSlideItems.slice(0, 4);
+  const secondRow = currentSlideItems.slice(4, 8);
 
   return (
     <Box sx={styles.carouselContainer}>

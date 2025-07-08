@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 import ClassicFavCards from "../Common_Components/ClassicFavCards";
+import { Link } from "react-router-dom";
 
 const styles = {
   carouselContainer: {
@@ -58,7 +59,7 @@ const styles = {
   },
 };
 
-const Carousel = () => {
+const FilteredProducts = () => {
   const products = useSelector((state) => state.products.filteredProducts);
   const itemsPerSlide = 8; 
   const totalSlides = Math.ceil(products.length / itemsPerSlide);
@@ -84,32 +85,33 @@ const Carousel = () => {
         <Box sx={styles.row}>
           {firstRow.map((product) => (
             <Box key={product.id} sx={{ maxWidth: "220px" }}>
+               <Link to={`/product/${product.id}`} style={{ textDecoration: "none" }}>
               <ClassicFavCards
-                img={product.image}
+                img={product.images[0]}
                 heading={product.name}
                 tagline={product.tagline}
                 price={product.price}
                 rating={product.rating || 4.5}
-              />
+              /></Link>
             </Box>
           ))}
         </Box>
         <Box sx={styles.row}>
           {secondRow.map((product) => (
             <Box key={product.id} sx={{ maxWidth: "220px" }}>
+              <Link to={`/product/${product.id}`} style={{ textDecoration: "none" }}>
               <ClassicFavCards
-                img={product.image}
+                img={product.images[0]}
                 heading={product.name}
                 tagline={product.tagline}
                 price={product.price}
                 rating={product.rating || 4.5}
-              />
+              /></Link>
             </Box>
           ))}
         </Box>
       </Box>
 
-      {/* Pagination with arrows */}
       <Box sx={styles.paginationContainer}>
         <button style={styles.arrowBtn} onClick={handlePrev}>‹</button>
         {Array.from({ length: totalSlides }).map((_, pageIdx) => (
@@ -130,4 +132,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default FilteredProducts;

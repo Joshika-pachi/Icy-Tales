@@ -36,6 +36,7 @@ import ContactUs from "./Body/ContactUs/ContactUsMain"
 import Shop1 from "./Body/Shop/Shop1Comp";
 import Shop2 from "./Body/Shop/Shop2Comp";
 import Shop3 from "./Body/Shop/Shop3Comp"
+import FullPageCardDetails from "./Common_Components/FullPageDetailCard"
 
 const routing = createBrowserRouter([
   {
@@ -110,6 +111,10 @@ const routing = createBrowserRouter([
       {
         path:"shop3",
         element:<Shop3 />
+      },
+      {
+        path: "product/:id",
+        element:<FullPageCardDetails />
       }
     ],
   },

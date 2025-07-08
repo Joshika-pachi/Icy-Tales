@@ -8,13 +8,14 @@ import Cart from "./Cart";
 import Images from "../Assets/Images/Image";
 import { ColorPalette } from "../Assets/Colors";
 import { Link } from "react-router-dom";
+import { fontFamily, fontSize, fontWeight } from "@mui/system";
+import { Box } from "@mui/material";
 
 const styles = {
   outerDiv: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    // marginTop: "22px",
   },
   innerDiv: {
     width: "1417px",
@@ -69,7 +70,8 @@ const NavLayout = () => {
             About
           </a> */}
           <Link style={styles.links} to="/about">
-            About
+          <div style={{fontFamily:'Archivo', fontWeight:500, fontSize:'18px'}}>
+            About</div>
           </Link>
 
           <DropDown
@@ -103,7 +105,8 @@ const NavLayout = () => {
             Faq's
           </a> */}
           <Link style={styles.links} to="/faqs">
-            Faq's
+          <div style={{fontFamily:'Archivo', fontWeight:500, fontSize:'18px'}}>
+            Faq's</div>
           </Link>
           <IoSearch size={26} />
           <Cart count={cartCount} onClick={() => alert("Go to cart")} />

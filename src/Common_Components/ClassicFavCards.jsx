@@ -99,7 +99,7 @@ const ClassicFavCards = ({ img, heading, tagline, price, rating, onAddToCart }) 
         <Box sx={styles.heading}>{heading}</Box>
         <Box sx={styles.ratingBox}>
           <IoStar size={18} style={{ color: "gold" }} />
-          <span>{rating}/5</span>
+          <span style={{color:'#000'}}>{rating}/5</span>
         </Box>
       </Box>
 

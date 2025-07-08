@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import { ColorPalette } from "../Assets/Colors";
+import Alldata from "../Data/AllData"
+import { Link } from "react-router-dom";
 
 const styles = {
   carouselContainer: {
@@ -81,7 +83,7 @@ const ProductCarousel = ({ data=[], itemsPerSlide = 3 }) => {
     index * itemsPerSlide,
     index * itemsPerSlide + itemsPerSlide
   );
-
+  
   return (
     <div style={styles.carouselContainer}>
       <button style={styles.button} onClick={handlePrev}>
@@ -89,6 +91,7 @@ const ProductCarousel = ({ data=[], itemsPerSlide = 3 }) => {
       </button>
       <div style={styles.carouselSlide}>
         {currentItems.map((item) => (
+          <Link to={`/product/${item.id}`} style={{ textDecoration: "none" }}>
           <div key={item.id} style={styles.productCard}>
             <img src={item.image} alt={item.name} style={styles.productImg} />
             <h3 style={styles.title}>{item.name}</h3>
@@ -101,7 +104,9 @@ const ProductCarousel = ({ data=[], itemsPerSlide = 3 }) => {
               bcolor={ColorPalette.pink}
               onClick={() => alert("You clicked add to cart")}
             />
+           
           </div>
+           </Link>
         ))}
       </div>
       <button style={styles.button} onClick={handleNext}>

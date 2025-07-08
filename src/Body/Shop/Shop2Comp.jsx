@@ -76,10 +76,12 @@ const Shop2 = () => {
         <Box sx={styles.sidebar}>
              
           <Box sx={styles.heading}>Featured Products</Box>
+          <Box sx={{display: 'flex', flexDirection: 'column', gap: '5px'}}>
           <FeaturedProductsCards img={Image.gelatoImage4} name="Pistachio" firstPrice={9.80} discounted={4.99} />
           <FeaturedProductsCards img={Image.gelatoImage3} name="Tiramisu" firstPrice={9.80} discounted={4.99} />
           <FeaturedProductsCards img={Image.gelatoImage1} name="Balsamic" firstPrice={9.80} discounted={4.99} />
           <FeaturedProductsCards img={Image.gelatoImage2} name="Hazelnut" firstPrice={9.80} discounted={4.99} />
+          </Box>
         </Box>
         <Box sx={styles.centerPart}>
           <Box sx={styles.topControls}>

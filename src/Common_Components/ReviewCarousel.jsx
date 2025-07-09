@@ -13,7 +13,7 @@ function ReviewsCarousel() {
 
   const styles = {
     container: {
-      textAlign: "center",
+      textAlign: "start",
       padding: "50px",
      
       fontFamily: "Archivo",
@@ -41,7 +41,8 @@ function ReviewsCarousel() {
     },
     review: {
       fontSize: "1.2rem",
-      marginBottom: "20px",
+      marginBottom: "30px",
+      paddingBottom:'20px'
     },
     author: {
       fontWeight: 700,
@@ -90,7 +91,8 @@ function ReviewsCarousel() {
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
-                      paddingBottom:'20px'
+                      paddingBottom:'20px',
+                      paddingTop:'20px'
                     }}
                   >
                     {[...Array(5)].map((_, i) => (

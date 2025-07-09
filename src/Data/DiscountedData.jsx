@@ -10,8 +10,8 @@ const sampleProducts = [
     discount: "-20%",
     image: Images.ClassicFavImage1,
     description: "Sweet and creamy strawberry ice cream with fresh berries.",
-    originalPrice: "$6.99",
-    discountedPrice: "$5.59",
+    originalPrice: 6.99,
+    price: 5.59,
   },
   {
     id: 2,
@@ -20,8 +20,8 @@ const sampleProducts = [
     discount: "-15%",
     image: Images.ClassicFavImage2,
     description: "Rich chocolate ice cream topped with dark chocolate chips.",
-    originalPrice: "$7.49",
-    discountedPrice: "$6.37",
+    originalPrice: 7.49,
+    price: 6.37,
   },
   {
     id: 3,
@@ -30,8 +30,8 @@ const sampleProducts = [
     discount: "-10%",
     image: Images.ClassicFavImage3,
     description: "Tropical mango sorbet bursting with fresh flavor.",
-    originalPrice: "$6.49",
-    discountedPrice: "$5.84",
+    originalPrice: 6.49,
+    price: 5.84,
   },
   {
     id: 4,
@@ -40,8 +40,8 @@ const sampleProducts = [
     discount: "-5%",
     image: Images.CarouselPic1,
     description: "Smooth and creamy classic vanilla ice cream.",
-    originalPrice: "$5.99",
-    discountedPrice: "$5.69",
+    originalPrice: 5.99,
+    price: 5.69,
   },
   {
     id: 5,
@@ -50,8 +50,8 @@ const sampleProducts = [
     discount: "-25%",
     image: Images.CarouselPic2,
     description: "Mixed berry ice cream with raspberries, blueberries, and strawberries.",
-    originalPrice: "$7.99",
-    discountedPrice: "$5.99",
+    originalPrice: 7.99,
+    price: 5.99,
   },
   {
     id: 6,
@@ -60,8 +60,8 @@ const sampleProducts = [
     discount: "-30%",
     image:Images.CarouselPic3,
     description: "Espresso-flavored ice cream with chocolate-covered coffee beans.",
-    originalPrice: "$8.49",
-    discountedPrice: "$5.94",
+    originalPrice: 8.49,
+    price: 5.94,
   },
 ];
 

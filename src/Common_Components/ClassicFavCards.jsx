@@ -3,6 +3,8 @@ import { Box } from "@mui/material";
 import { ColorPalette } from "../Assets/Colors";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Redux/Reducer";
 
 const styles = {
   cardContainer: {
@@ -89,6 +91,17 @@ const styles = {
 };
 
 const ClassicFavCards = ({ img, heading, tagline, price, rating, onAddToCart }) => {
+  
+const dispatch = useDispatch();
+const item = {
+    id: heading,
+    name: heading,
+    image: img,
+    price,
+    rating,
+    tagline,
+  };
+
   return (
     <Box sx={styles.cardContainer}>
       <Box sx={styles.imageBox}>
@@ -110,7 +123,7 @@ const ClassicFavCards = ({ img, heading, tagline, price, rating, onAddToCart }) 
         <button
           style={styles.cartButton}
           aria-label={`Add ${heading} to cart`}
-          onClick={onAddToCart}
+          onClick={() => dispatch(addToCart(item))}
         >
           <FaShoppingCart size={16} />
         </button>

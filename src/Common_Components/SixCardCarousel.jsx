@@ -4,6 +4,8 @@ import { Box } from "@mui/material";
 import { ColorPalette } from "../Assets/Colors";
 import { Link } from "react-router-dom";
 import { color } from "@mui/system";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Redux/Reducer";
 
 const styles = {
   container: {
@@ -79,6 +81,7 @@ const styles = {
 };
 
 const SixCardCarousel = ({ data = [] }) => {
+  const dispatch = useDispatch();
   const itemsPerPage = 6; 
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const [pageIndex, setPageIndex] = useState(0);
@@ -105,7 +108,7 @@ const SixCardCarousel = ({ data = [] }) => {
               width={130}
               height={44}
               bcolor={ColorPalette.pink}
-              onClick={() => alert("Added to cart")}
+              onClick={() => dispatch(addToCart(item))}
             />
           </Box>
           </Link>
@@ -114,21 +117,29 @@ const SixCardCarousel = ({ data = [] }) => {
 
       <Box style={styles.row}>
         {bottomRow.map((item) => (
-          <Link to={`/product/${item.id}`} style={{ textDecoration: "none" }}>
+          
           <Box key={item.id} style={styles.card}>
+            <Link to={`/product/${item.id}`} style={{ textDecoration: "none" }}>
             <img src={item.images[0]} alt={item.name} style={styles.image} />
             <h3 style={styles.title}>{item.name}</h3>
             <p style={styles.rating}>⭐ {item.rating} /5 </p>
+             </Link>
             <p style={styles.price}>{item.price}</p>
             <Button
               text="Add to Cart"
               width={130}
               height={44}
               bcolor={ColorPalette.pink}
-              onClick={() => alert("Added to cart")}
+              // onClick={() => dispatch(addToCart(item))}
+              onClick={(e) => {
+      e.preventDefault(); // stop Link redirect
+      e.stopPropagation(); // stop bubbling
+      dispatch(addToCart(item));
+              }
+            }
             />
           </Box>
-          </Link>
+         
         ))}
       </Box>
 

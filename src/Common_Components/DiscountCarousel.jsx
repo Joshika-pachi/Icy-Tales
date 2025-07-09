@@ -3,6 +3,8 @@ import { Box } from "@mui/material";
 import { FaShoppingCart} from "react-icons/fa";
 import { color } from "@mui/system";
 import { ColorPalette } from "../Assets/Colors";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Redux/Reducer";
 
 const styles = {
   carouselContainer: {
@@ -110,6 +112,7 @@ const styles = {
 };
 
 const DiscountCarousel = ({ data = [], itemsPerSlide = 3, autoplayDelay = 4000 }) => {
+   const dispatch = useDispatch();
   const [index, setIndex] = useState(0);
   const totalSlides = Math.ceil(data.length / itemsPerSlide);
 
@@ -159,14 +162,14 @@ const DiscountCarousel = ({ data = [], itemsPerSlide = 3, autoplayDelay = 4000 }
             <Box sx={styles.priceContainer}>
               <Box>
                 <Box component="span" sx={styles.originalPrice}>
-                  {item.originalPrice}
+                  $ {item.originalPrice}
                 </Box>{" "}
-                <Box component="span" sx={styles.discountedPrice}>
-                  {item.discountedPrice}
+                <Box component="span" sx={styles.price}>
+                 $ {item.discountedPrice}
                 </Box>
               </Box>
 
-              <Box sx={styles.cartButton}><FaShoppingCart /></Box>
+              <Box sx={styles.cartButton} onClick={() => dispatch(addToCart(item))}><FaShoppingCart /></Box>
             </Box>
           </Box>
         ))}

@@ -36,7 +36,10 @@ import ContactUs from "./Body/ContactUs/ContactUsMain"
 import Shop1 from "./Body/Shop/Shop1Comp";
 import Shop2 from "./Body/Shop/Shop2Comp";
 import Shop3 from "./Body/Shop/Shop3Comp"
-import FullPageCardDetails from "./Common_Components/FullPageDetailCard"
+import FullPageCardDetails from "./Common_Components/FullPageDetailCard";
+import CartInfo from "./Common_Components/CartInfo"
+import CheckOut from "./Common_Components/CheckOut";
+import Blog1 from "./Body/Blog/Blog1";
 
 const routing = createBrowserRouter([
   {
@@ -115,6 +118,18 @@ const routing = createBrowserRouter([
       {
         path: "product/:id",
         element:<FullPageCardDetails />
+      },
+      {
+        path:"cart",
+        element:<CartInfo />
+      },
+      {
+        path:"checkout",
+        element:<CheckOut />
+      },
+      {
+        path:"blog1",
+        element:<Blog1 />
       }
     ],
   },

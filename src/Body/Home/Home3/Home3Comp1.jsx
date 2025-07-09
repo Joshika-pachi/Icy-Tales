@@ -83,7 +83,7 @@ const Home3Comp1 = () => {
               </Box>
             </Box>
             <Box>
-                <img src={Images.icecream} style={{height:'200px', width:'200px', position:'absolute', left:'200px', bottom:'-68px', opacity:'0.3', overflow:'hidden'}}></img>
+                <img src={Images.icecream} style={{height:'200px', width:'130px', position:'absolute', left:'50%',top:'93%', transform: 'translate(-50%, -50%)', opacity:'0.3', overflow:'hidden'}}></img>
             </Box>
           </Box>
         </Box>

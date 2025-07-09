@@ -10,7 +10,8 @@ const styles = {
   mainBox:{
     display:'flex',
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    background:ColorPalette.gradient
   }
 };
 

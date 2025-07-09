@@ -70,7 +70,8 @@ export default Image = {
     offerBowl: require("./offerBowl.png"),
     CommitmentIcecream: require("./CommitmentIceCream.png"),
     ChocoChipCone: require("./ChocoChipCone.png"),
-    strawberrySundae: require("./strawberrySundae.png")
+    strawberrySundae: require("./strawberrySundae.png"),
+    paymentCards: require("./PaymentCards.png")
 
 
     

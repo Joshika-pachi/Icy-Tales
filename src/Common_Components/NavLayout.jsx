@@ -10,6 +10,10 @@ import { ColorPalette } from "../Assets/Colors";
 import { Link } from "react-router-dom";
 import { fontFamily, fontSize, fontWeight } from "@mui/system";
 import { Box } from "@mui/material";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+
 
 const styles = {
   outerDiv: {
@@ -49,7 +53,11 @@ const styles = {
 };
 
 const NavLayout = () => {
-  const [cartCount, setCartCount] = useState(5);
+  const navigate = useNavigate();
+
+  const cart = useSelector((state) => state.products.cart);
+const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <div style={styles.outerDiv}>
       <div style={styles.innerDiv}>
@@ -70,7 +78,7 @@ const NavLayout = () => {
             About
           </a> */}
           <Link style={styles.links} to="/about">
-          <div style={{fontFamily:'Archivo', fontWeight:500, fontSize:'18px'}}>
+          <div style={{fontFamily:'Archivo', fontWeight:500, fontSize:'19px'}}>
             About</div>
           </Link>
 
@@ -92,24 +100,23 @@ const NavLayout = () => {
             ]}
           />
           <DropDown
-            title={"Blog"}
+            title="Blog"
             options={[
-              { label: "Action", href: "#action/1" },
-              { label: "Another Action", href: "#action/2" },
-              { label: "Something", href: "#action/3" },
-              { type: "divider" },
-              { label: "Separated Link", href: "#action/4" },
+              { label: "Blog", href: "/blog1" },
+
+              
             ]}
           />
           {/* <a style={styles.links} href="#">
             Faq's
           </a> */}
           <Link style={styles.links} to="/faqs">
-          <div style={{fontFamily:'Archivo', fontWeight:500, fontSize:'18px'}}>
+          <div style={{fontFamily:'Archivo', fontWeight:500, fontSize:'19px'}}>
             Faq's</div>
           </Link>
           <IoSearch size={26} />
-          <Cart count={cartCount} onClick={() => alert("Go to cart")} />
+          <Cart count={cartCount} onClick={() => navigate("/cart")} />
+
           {/* <button style={styles.button}>Contact Us</button> */}
           <Button
             text={"Contact Us"}

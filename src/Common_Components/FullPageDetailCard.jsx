@@ -15,6 +15,8 @@ import { ColorPalette } from "../Assets/Colors";
 import Carousel from "../Common_Components/Carousel"
 import CarouselData from "../Data/CarouselData"
 import PagesHeader from "./PagesHeader";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Redux/Reducer";
 
 const styles = {
   mainBox: {
@@ -47,6 +49,9 @@ const styles = {
 };
 
 const ProductDetail = () => {
+
+  const dispatch = useDispatch();
+
   const { id } = useParams();
   const product = useSelector((state) =>
     state.products.allProducts.find((item) => item.id.toString() === id)
@@ -110,7 +115,7 @@ const ProductDetail = () => {
             <Button
               variant="contained"
               sx={{ backgroundColor: ColorPalette.pink, textTransform: "none" }}
-              onClick={() => alert("Added to cart")}
+              onClick={() => dispatch(addToCart(product))}
             >
               Add to Cart
             </Button>

@@ -18,9 +18,19 @@ const Button = ({text,width, height,bcolor, onClick}) => {
     fontFamily:'Archivo'
   };
 
-  const handleClick = () => {
-    if (onClick) {
-      navigate(onClick); 
+  // const handleClick = () => {
+  //   if (onClick) {
+  //     navigate(onClick); 
+  //   }
+  // };
+  const handleClick = (e) => {
+    if (typeof onClick === 'function') {
+      e.preventDefault();
+      e.stopPropagation();
+      onClick(e);
+    } else if (typeof onClick === 'string') {
+      // It's a route path like "/checkout"
+      navigate(onClick);
     }
   };
 

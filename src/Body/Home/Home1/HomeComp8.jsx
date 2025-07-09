@@ -44,6 +44,7 @@ const styles = {
     alignItems: "center",
     marginTop: "20px",
     gap: { xs: "15px", sm: "0px" },
+    
   },
   emailBox: {
     color: ColorPalette.tagline,
@@ -57,6 +58,7 @@ const styles = {
     borderRadius: "8px",
     backgroundColor: "#fff",
     paddingTop: "0px",
+    marginRight: '15px'
   },
 };
 

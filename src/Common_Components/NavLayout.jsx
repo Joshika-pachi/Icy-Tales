@@ -69,8 +69,8 @@ const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
           <DropDown
             title="Home"
             options={[
-              { label: "Home 2", href: "/home2" },
-              { label: "Home 3", href: "/home3" },
+              { label: "Explore Our Vegan Shop", href: "/home2" },
+              { label: "Have a look at our ", href: "/home3" },
             ]}
           />
 
@@ -132,3 +132,6 @@ const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 };
 
 export default NavLayout;
+
+
+

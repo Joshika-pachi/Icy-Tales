@@ -122,3 +122,6 @@ const ProductCarousel = ({ data=[], itemsPerSlide = 3 }) => {
 };
 
 export default ProductCarousel;
+
+
+

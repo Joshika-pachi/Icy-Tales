@@ -14,8 +14,9 @@ const styles = {
     paddingBottom: "70px",
   },
   sideImage: {
-    height: "320px",
+    height: {md:"320px",xs:'scale(0.5)'},
     width: "460px",
+
   },
   headingLine: {
     fontFamily: "Berkshire Swash",

@@ -7,10 +7,13 @@ import {
   alignItems,
   color,
   display,
+  flexWrap,
   fontFamily,
   justifyContent,
   lineHeight,
   margin,
+  padding,
+  textAlign,
   width,
 } from "@mui/system";
 import Button from "../../../Common_Components/Button";
@@ -38,7 +41,8 @@ const styles = {
   },
   tagline: {
     fontFamily: "Archivo",
-    fontSize: "20px",
+    fontSize: {md:"20px", xs:"16px"},
+    flexWrap:{xs:'wrap', md:'no-wrap'},
     fontWeight: "300",
     lineHeight: "30px",
     color: "#646464",
@@ -46,16 +50,19 @@ const styles = {
   },
   SecondBox: {
     display: "flex",
-    width: "70%",
+    width: {md:"70%",xs:"85%"},
     justifyContent: "center",
     alignItems: "center",
     mb: "3",
     backgroundColor: "#FFFFFF",
-    marginLeft:'70px'
+    marginLeft:'70px',
+    flexDirection:{xs: "column", lg:'row', },
+    padding:{xs:'20px', md:'0'},
+    textAlign:{xs:'center',md:'left'}
   },
 };
 
-const HomeComp2 = () => {
+const Home2Comp3 = () => {
   return (
     <Box>
       <Box
@@ -88,7 +95,7 @@ const HomeComp2 = () => {
               style={{ height: "500px", width: "420px", marginRight: "50px" }}
             ></img>
           </Box>
-          <Box>
+          <Box sx={{width:'600px'}}>
             <Box
               sx={{
                 ...styles.headingLine,
@@ -126,4 +133,5 @@ const HomeComp2 = () => {
   );
 };
 
-export default HomeComp2;
+export default Home2Comp3;
+

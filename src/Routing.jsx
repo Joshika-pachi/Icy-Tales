@@ -40,6 +40,12 @@ import FullPageCardDetails from "./Common_Components/FullPageDetailCard";
 import CartInfo from "./Common_Components/CartInfo"
 import CheckOut from "./Common_Components/CheckOut";
 import Blog1 from "./Body/Blog/Blog1";
+import LoaadMore from "./Body/Blog/LoaadMore";
+import OneColumn from "./Body/Blog/OneColumn"
+import TwoColumn from "./Body/Blog/TwoColumn";
+import ThreeColumn from "./Body/Blog/ThreeColumn";
+import FourColumn from "./Body/Blog/FourColumn";
+import SingleBlog from "./Body/Blog/SingleBlog"
 
 const routing = createBrowserRouter([
   {
@@ -130,6 +136,30 @@ const routing = createBrowserRouter([
       {
         path:"blog1",
         element:<Blog1 />
+      },
+      {
+        path:"loadMore",
+        element:<LoaadMore />
+      },
+      {
+        path:"OneColumn",
+        element:<OneColumn />
+      },
+      {
+        path:"TwoColumn",
+        element:<TwoColumn />
+      },
+      {
+        path:"ThreeColumn",
+        element:<ThreeColumn />
+      },
+      {
+        path:'FourColumn',
+        element:<FourColumn />
+      },
+      {
+        path:"SingleBlog",
+        element:<SingleBlog />
       }
     ],
   },

@@ -7,7 +7,7 @@ import { IoSearch } from "react-icons/io5";
 import Cart from "./Cart";
 import Images from "../Assets/Images/Image";
 import { ColorPalette } from "../Assets/Colors";
-import { Link } from "react-router-dom";
+import { href, Link } from "react-router-dom";
 import { fontFamily, fontSize, fontWeight } from "@mui/system";
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
@@ -70,7 +70,7 @@ const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
             title="Home"
             options={[
               { label: "Explore Our Vegan Shop", href: "/home2" },
-              { label: "Have a look at our ", href: "/home3" },
+              { label: "Have a look at our gelato collection ", href: "/home3" },
             ]}
           />
 
@@ -103,6 +103,12 @@ const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
             title="Blog"
             options={[
               { label: "Blog", href: "/blog1" },
+              { label: "Load More", href:'/loadMore'},
+              {label:"One Column", href:"/OneColumn"},
+              {label:"Two Column", href:"/TwoColumn"},
+              {label:"Three Column", href:"ThreeColumn"},
+              {label:'Four Column', href:'FourColumn'},
+              {label:"Single Blog", href:"/SingleBlog"}
 
               
             ]}

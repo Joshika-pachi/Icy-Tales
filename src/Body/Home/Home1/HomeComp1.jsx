@@ -65,7 +65,7 @@ const styles = {
 
 const HomeComp1 = () => {
   return (
-    <Box>
+    <Box sx={{overflowX:'hidden'}}>
       <Box>
         <img src={Images.icecream} alt="icecream" style={styles.iceimage} />
       </Box>
@@ -86,7 +86,7 @@ const HomeComp1 = () => {
               width={304}
               height={62}
               bcolor={ColorPalette.violet}
-              onClick={"#"}
+              onClick={"/shop1"}
             />
           </Box>
         </Box>
@@ -103,3 +103,4 @@ const HomeComp1 = () => {
 }
 
 export default HomeComp1
+

@@ -5,6 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Redux/Reducer";
+import { Link } from "react-router-dom";
 
 const styles = {
   cardContainer: {
@@ -90,7 +91,7 @@ const styles = {
   },
 };
 
-const ClassicFavCards = ({ img, heading, tagline, price, rating, onAddToCart }) => {
+const ClassicFavCards = ({ img, heading, tagline, price, rating, onAddToCart, id }) => {
   
 const dispatch = useDispatch();
 const item = {
@@ -127,6 +128,7 @@ const item = {
         >
           <FaShoppingCart size={16} />
         </button>
+      
       </Box>
     </Box>
   );

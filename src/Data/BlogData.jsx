@@ -17,7 +17,7 @@ const blogPosts = [
     description: "Discover the latest economic trends affecting the frozen dessert industry.",
     date: "October 28, 2023",
     author: "Admin",
-    image: "https://source.unsplash.com/400x300/?icecream,caramel",
+    image: Images.CarouselPic2,
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const blogPosts = [
     description: "We're excited to announce the opening of our newest store in the city.",
     date: "October 25, 2023",
     author: "Team",
-    image: "https://source.unsplash.com/400x300/?icecream,store",
+    image: Images.CarouselPic3,
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ const blogPosts = [
     description: "Get expert advice on how to start your own gourmet ice cream business.",
     date: "October 22, 2023",
     author: "Expert Team",
-    image: "https://source.unsplash.com/400x300/?icecream,consulting",
+    image: Images.CategoryImage1,
   },
   {
     id: 5,
@@ -44,7 +44,7 @@ const blogPosts = [
     description: "See how we're adding more flavors and products to delight our customers.",
     date: "October 20, 2023",
     author: "Marketing Team",
-    image: "https://source.unsplash.com/400x300/?icecream,flavors",
+    image:Images.CategoryIamge2,
   },
   {
     id: 6,
@@ -53,7 +53,7 @@ const blogPosts = [
     description: "Tips to increase your frozen dessert sales during the peak summer season.",
     date: "October 18, 2023",
     author: "Admin",
-    image: "https://source.unsplash.com/400x300/?icecream,sundae",
+    image: Images.CategoryImage3,
   },
   {
     id: 7,
@@ -62,7 +62,7 @@ const blogPosts = [
     description: "Top flavors and presentation trends in the ice cream industry this year.",
     date: "October 15, 2023",
     author: "Food News",
-    image: "https://source.unsplash.com/400x300/?icecream,trends",
+    image: Images.CategoryImage4,
   },
   {
     id: 8,
@@ -71,7 +71,7 @@ const blogPosts = [
     description: "Join our fun-loving team of ice cream makers and scoopers.",
     date: "October 13, 2023",
     author: "HR Team",
-    image: "https://source.unsplash.com/400x300/?icecream,staff",
+    image: Images.Home2Comp3Image,
   },
   {
     id: 9,
@@ -80,7 +80,7 @@ const blogPosts = [
     description: "Learn how to launch a dessert startup with expert support and guidance.",
     date: "October 10, 2023",
     author: "Mentor Group",
-    image: "https://source.unsplash.com/400x300/?icecream,business",
+    image: Images.Home2Comp9FooterImage1,
   },
   {
     id: 10,
@@ -89,7 +89,7 @@ const blogPosts = [
     description: "Explore our new dairy-free ice creams crafted for everyone.",
     date: "October 7, 2023",
     author: "R&D Team",
-    image: "https://source.unsplash.com/400x300/?vegan,icecream",
+    image: Images.Home2Comp9FooterImage2,
   },
   {
     id: 11,
@@ -98,7 +98,7 @@ const blogPosts = [
     description: "Easy and creative marketing ideas for small ice cream brands.",
     date: "October 4, 2023",
     author: "Admin",
-    image: "https://source.unsplash.com/400x300/?icecream,marketing",
+    image: Images.Home2Comp9FooterImage3,
   },
   {
     id: 12,
@@ -107,7 +107,7 @@ const blogPosts = [
     description: "Why gelato is booming and how we are responding to the demand.",
     date: "October 2, 2023",
     author: "News Desk",
-    image: "https://source.unsplash.com/400x300/?gelato,global",
+    image: Images.Home2Comp9FooterImage4,
   },
   {
     id: 13,
@@ -116,7 +116,7 @@ const blogPosts = [
     description: "Celebrate with us and enjoy discounts, gifts, and more.",
     date: "September 30, 2023",
     author: "Store Manager",
-    image: "https://source.unsplash.com/400x300/?icecream,celebration",
+    image: Images.ClassicFavImage1,
   },
   {
     id: 14,
@@ -125,7 +125,7 @@ const blogPosts = [
     description: "How decor and ambiance impact your dessert shop's success.",
     date: "September 27, 2023",
     author: "Design Studio",
-    image: "https://source.unsplash.com/400x300/?icecream,interior",
+    image: Images.ClassicFavImage2,
   },
   {
     id: 15,
@@ -134,7 +134,7 @@ const blogPosts = [
     description: "See how our creative chefs develop innovative and tasty treats.",
     date: "September 25, 2023",
     author: "Chef Team",
-    image: "https://source.unsplash.com/400x300/?icecream,lab",
+    image: Images.ClassicFavImage3,
   },
 ];
 

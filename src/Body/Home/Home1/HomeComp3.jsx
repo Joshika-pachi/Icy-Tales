@@ -108,6 +108,7 @@ const HomeComp3 = () => {
                 onclick={'#'}
               />
               <ClassicFavCards
+                
                 img={Images.ClassicFavImage4}
                 heading={"Classic Vanilla Ice Cream"}
                 tagline={"Creamy vanilla ice cream topped with cherry."}

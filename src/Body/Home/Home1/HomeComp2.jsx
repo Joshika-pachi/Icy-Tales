@@ -86,3 +86,4 @@ const HomeComp2 = () => {
 };
 
 export default HomeComp2;
+

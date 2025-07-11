@@ -192,7 +192,7 @@ const CartPage = () => {
                       <FaPlus />
                     </Box>
                     {item.quantity}
-                    <Box onClick={() => dispatch(incrementQuantity(item.id))} sx={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+                    <Box onClick={() => dispatch(decrementQuantity(item.id))} sx={{display:'flex', alignItems:'center', justifyContent:'center'}}>
                       <TiMinus />
                     </Box>
                   </Box>

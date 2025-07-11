@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { color } from "@mui/system";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Redux/Reducer";
+import BlogCard from "./BlogCard"
 
 const styles = {
   container: {
@@ -31,11 +32,10 @@ const styles = {
   },
   image: {
     width: "100%",
-    height: "100%",
-    objectFit: "cover",
+    height: "130px",
+    objectFit: "contain",
     borderRadius: "10px",
     marginBottom: "10px",
-    scaleY:'1'
   },
   title: {
     fontSize: "18px",
@@ -81,7 +81,7 @@ const styles = {
   },
 };
 
-const SixCardCarousel = ({ data = [] }) => {
+const BlogCarousel = ({ data = [],cardNumber, cardWidth  }) => {
   const dispatch = useDispatch();
   const itemsPerPage = 6; 
   const totalPages = Math.ceil(data.length / itemsPerPage);
@@ -89,8 +89,8 @@ const SixCardCarousel = ({ data = [] }) => {
 
   const start = pageIndex * itemsPerPage;
   const currentItems = data.slice(start, start + itemsPerPage);
-  const topRow = currentItems.slice(0, 3);
-  const bottomRow = currentItems.slice(3, 6);
+  const topRow = currentItems.slice(0, cardNumber);
+  const bottomRow = currentItems.slice(cardNumber, 6);
 
   const goToPage = (i) => setPageIndex(i);
 
@@ -98,50 +98,16 @@ const SixCardCarousel = ({ data = [] }) => {
     <Box style={styles.container}>
       <Box style={styles.row}>
         {topRow.map((item) => (
-          <Link to={`/product/${item.id}`} style={{ textDecoration: "none" }}>
-          <Box key={item.id} style={styles.card}>
-            <img src={item.images[0]} alt={item.name} style={styles.image} />
-            <h3 style={styles.title}>{item.name}</h3>
-            <p style={styles.rating}>⭐ {item.rating} / 5</p>
-            <p style={styles.price}>$ {item.price}</p>
-            <Button
-              text="Add to Cart"
-              width={130}
-              height={44}
-              bcolor={ColorPalette.pink}
-              onClick={() => dispatch(addToCart(item))}
-            />
-          </Box>
-          </Link>
+            <Box sx={{width:cardWidth}}>
+          <BlogCard blogs={item} /></Box>
         ))}
       </Box>
 
       <Box style={styles.row}>
         {bottomRow.map((item) => (
-          
-          <Box key={item.id} style={styles.card}>
-            <Link to={`/product/${item.id}`} style={{ textDecoration: "none" }}>
-            <img src={item.images[0]} alt={item.name} style={styles.image} />
-            <h3 style={styles.title}>{item.name}</h3>
-            <p style={styles.rating}>⭐ {item.rating} /5 </p>
-             </Link>
-            <p style={styles.price}>{item.price}</p>
-            <Button
-              text="Add to Cart"
-              width={130}
-              height={44}
-              bcolor={ColorPalette.pink}
-              // onClick={() => dispatch(addToCart(item))}
-              onClick={(e) => {
-      e.preventDefault(); // stop Link redirect
-      e.stopPropagation(); // stop bubbling
-      dispatch(addToCart(item));
-              }
-            }
-            />
-          </Box>
-         
-        ))}
+            <Box sx={{width:cardWidth}}>
+          <BlogCard blogs={item} /></Box>
+           ))}
       </Box>
 
     
@@ -181,4 +147,5 @@ const SixCardCarousel = ({ data = [] }) => {
   );
 };
 
-export default SixCardCarousel;
+export default BlogCarousel;
+

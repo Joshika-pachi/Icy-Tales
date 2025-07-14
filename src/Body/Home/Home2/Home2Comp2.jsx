@@ -90,3 +90,4 @@ const Home2Comp2 = () => {
 };
 
 export default Home2Comp2;
+

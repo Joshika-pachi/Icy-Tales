@@ -124,7 +124,10 @@ const item = {
         <button
           style={styles.cartButton}
           aria-label={`Add ${heading} to cart`}
-          onClick={() => dispatch(addToCart(item))}
+        onClick={() => {
+  dispatch(addToCart(item));
+  alert("Item added to cart!");
+}}
         >
           <FaShoppingCart size={16} />
         </button>

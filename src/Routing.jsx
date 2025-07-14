@@ -45,7 +45,7 @@ import OneColumn from "./Body/Blog/OneColumn"
 import TwoColumn from "./Body/Blog/TwoColumn";
 import ThreeColumn from "./Body/Blog/ThreeColumn";
 import FourColumn from "./Body/Blog/FourColumn";
-import SingleBlog from "./Body/Blog/SingleBlog"
+
 
 const routing = createBrowserRouter([
   {
@@ -157,10 +157,6 @@ const routing = createBrowserRouter([
         path:'FourColumn',
         element:<FourColumn />
       },
-      {
-        path:"SingleBlog",
-        element:<SingleBlog />
-      }
     ],
   },
 ]);

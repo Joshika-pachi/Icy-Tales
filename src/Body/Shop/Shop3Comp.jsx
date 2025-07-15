@@ -6,19 +6,19 @@ import FeaturedProductsCards from "../../Common_Components/FeaturedProductsCards
 import Image from "../../Assets/Images/Image";
 import SearchBar from "../../Common_Components/SearchBar";
 import SortingDropdown from "../../Common_Components/SortingDropdown";
-import ClassicFavCards from "../../Common_Components/ClassicFavCards"; // your product card
+import ClassicFavCards from "../../Common_Components/ClassicFavCards"; 
 import SixCardCarousel from "../../Common_Components/SixCardCarousel";
 import CategoryFilter from "../../Common_Components/CategoryFilter";
-import PriceFilter from "../../Common_Components/PriceFilter"
+import PriceFilter from "../../Common_Components/PriceFilter";
 import { alignItems, justifyContent, margin } from "@mui/system";
 
 const styles = {
   mainBox: {
     display: "flex",
-    padding: {xs:'0',md:"40px"},
-    marginTop:{xs:'40px',md:'20px'},
+    padding: { xs: "0", md: "40px" },
+    marginTop: { xs: "40px", md: "20px" },
     fontFamily: "sans-serif",
-    overflowX:'hidden'
+    overflowX: "hidden",
   },
   sidebar: {
     width: "18%",
@@ -59,8 +59,8 @@ const styles = {
     display: "flex",
     flexWrap: "wrap",
     gap: "20px",
-    alignItems:'center',
-    justifyContent:'center'
+    alignItems: "center",
+    justifyContent: "center",
   },
 };
 
@@ -69,75 +69,71 @@ const Shop3 = () => {
   const gelatoProducts = allProducts.filter(
     (product) => product.category === "Popsicles"
   );
-  console.log(gelatoProducts)
+  console.log(gelatoProducts);
 
   return (
     <Box>
       <PagesHeader title="Shop Layout 3" path="Shop Layout 3" />
       <Box sx={styles.mainBox}>
-        {/* <Box sx={styles.sidebar}>
-         
-             
-          <Box sx={styles.heading}>Featured Products</Box>
-          <Box sx={{display:'flex', flexDirection: 'column', gap: '5px'}}>
-          <FeaturedProductsCards img={Image.gelatoImage4} name="Pistachio" firstPrice={9.80} discounted={4.99} />
-          <FeaturedProductsCards img={Image.gelatoImage3} name="Tiramisu" firstPrice={9.80} discounted={4.99} />
-          <FeaturedProductsCards img={Image.gelatoImage1} name="Balsamic" firstPrice={9.80} discounted={4.99} />
-          <FeaturedProductsCards img={Image.gelatoImage2} name="Hazelnut" firstPrice={9.80} discounted={4.99} />
-          </Box>
-        </Box> */}
         <Box
-  sx={{
-    ...styles.sidebar,
-    display: { xs: "none", md: "block" }, // Hide sidebar on xs & sm screens
-  }}
->
-  <Box sx={styles.heading}>Featured Products</Box>
-  <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
-    <FeaturedProductsCards img={Image.gelatoImage4} name="Pistachio" firstPrice={9.80} discounted={4.99} />
-    <FeaturedProductsCards img={Image.gelatoImage3} name="Tiramisu" firstPrice={9.80} discounted={4.99} />
-    <FeaturedProductsCards img={Image.gelatoImage1} name="Balsamic" firstPrice={9.80} discounted={4.99} />
-    <FeaturedProductsCards img={Image.gelatoImage2} name="Hazelnut" firstPrice={9.80} discounted={4.99} />
-  </Box>
-</Box>
+          sx={{
+            ...styles.sidebar,
+            display: { xs: "none", md: "block" },
+          }}
+        >
+          <Box sx={styles.heading}>Featured Products</Box>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+            <FeaturedProductsCards
+              img={Image.gelatoImage4}
+              name="Pistachio"
+              firstPrice={9.8}
+              discounted={4.99}
+            />
+            <FeaturedProductsCards
+              img={Image.gelatoImage3}
+              name="Tiramisu"
+              firstPrice={9.8}
+              discounted={4.99}
+            />
+            <FeaturedProductsCards
+              img={Image.gelatoImage1}
+              name="Balsamic"
+              firstPrice={9.8}
+              discounted={4.99}
+            />
+            <FeaturedProductsCards
+              img={Image.gelatoImage2}
+              name="Hazelnut"
+              firstPrice={9.8}
+              discounted={4.99}
+            />
+          </Box>
+        </Box>
 
-       
         <Box sx={styles.centerPart}>
-          {/* <Box sx={styles.topControls}>
-            <Box sx={styles.leftBox}>
+          <Box
+            sx={{
+              ...styles.topControls,
+              flexDirection: { xs: "column", sm: "column", md: "row" },
+              alignItems: { xs: "center", md: "center" },
+              gap: { xs: "20px", md: "0px" },
+            }}
+          >
+            <Box
+              sx={{
+                ...styles.leftBox,
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "10px",
+              }}
+            >
               <SearchBar />
               <Box sx={styles.resultText}>
-                Showing 1–{gelatoProducts.length} of {allProducts.length} results
+                Showing 1–{gelatoProducts.length} of {allProducts.length}{" "}
+                results
               </Box>
             </Box>
-            <Box>
-              <SortingDropdown />
-            </Box>
-          </Box> */}
-          <Box
-  sx={{
-    ...styles.topControls,
-    flexDirection: { xs: "column", sm: "column", md: "row" },
-    alignItems: { xs: "center", md: "center" },
-    gap: { xs: "20px", md: "0px" },
-  }}
->
-  {/* Left side: Search + Result count */}
-  <Box
-    sx={{
-      ...styles.leftBox,
-      flexDirection: "column",
-      alignItems: "flex-start",
-      gap: "10px",
-    }}
-  >
-    <SearchBar />
-    <Box sx={styles.resultText}>
-      Showing 1–{gelatoProducts.length} of {allProducts.length} results
-    </Box>
-  </Box>
-</Box>
-
+          </Box>
 
           <Box sx={styles.productGrid}>
             <SixCardCarousel data={gelatoProducts} />
@@ -149,4 +145,3 @@ const Shop3 = () => {
 };
 
 export default Shop3;
-

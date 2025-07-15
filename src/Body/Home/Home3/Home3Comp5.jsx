@@ -1,6 +1,3 @@
-
-
-
 import React from "react";
 import { Box } from "@mui/material";
 import Images from "../../../Assets/Images/Image";
@@ -56,7 +53,6 @@ const Home3Comp5 = () => {
           <img src={Images.wpsideTriangles} alt="triangles" />
         </Box>
 
-        {/* Text & CTA */}
         <Box sx={{ marginLeft: { xs: "0", md: "10%" }, zIndex: 1 }}>
           <Box sx={styles.headingLine}>
             Gelato Lovers' <br /> Special!!!
@@ -80,7 +76,6 @@ const Home3Comp5 = () => {
           </Box>
         </Box>
 
-        {/* Right-side Bowl Image - hidden on small screens */}
         <Box sx={{ display: { xs: "none", md: "block" } }}>
           <img
             src={Images.icecreamBowl}

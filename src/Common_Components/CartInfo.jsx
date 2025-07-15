@@ -169,7 +169,6 @@ const CartPage = () => {
       <PagesHeader title={"Shopping Cart"} path={"Shopping Cart"} />
 
       <Box sx={styles.container}>
-        {/* Cart Table */}
         <Box sx={styles.cartTable}>
           <Box sx={styles.cartHeader}>
             <Box>Shopping Cart</Box>
@@ -240,7 +239,7 @@ const CartPage = () => {
           </Box>
         </Box>
 
-        {/* Summary Box */}
+
         <Box sx={styles.summaryBox}>
           <Box sx={{ fontSize: "20px", fontWeight: 700, mb: 1 }}>
             Order Summary

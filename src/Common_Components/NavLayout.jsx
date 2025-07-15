@@ -1,145 +1,3 @@
-// import React, { useState } from "react";
-// import Button from "./Button";
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import NavDropdown from "react-bootstrap/NavDropdown";
-// import DropDown from "./DropDown";
-// import { IoSearch } from "react-icons/io5";
-// import Cart from "./Cart";
-// import Images from "../Assets/Images/Image";
-// import { ColorPalette } from "../Assets/Colors";
-// import { href, Link } from "react-router-dom";
-// import { fontFamily, fontSize, fontWeight } from "@mui/system";
-// import { Box } from "@mui/material";
-// import { useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
-
-
-
-// const styles = {
-//   outerDiv: {
-//     display: "flex",
-//     justifyContent: "center",
-//     alignItems: "center",
-//   },
-//   innerDiv: {
-//     width: "1417px",
-//     height: "70px",
-//     borderRadius: "12px",
-//     display: "flex",
-//     alignItems: "center",
-//     justifyContent: "space-between",
-//     padding: "0 40px",
-//     // boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-//     // backgroundColor:'#FFF'
-//   },
-//   icelogo: {
-//     fontSize: "24px",
-//     fontWeight: "bold",
-//     color: "#FF5A8D",
-//     fontFamily: "sans-serif",
-//   },
-//   navlist: {
-//     display: "flex",
-//     alignItems: "center",
-//     gap: "30px",
-//   },
-//   links: {
-//     textDecoration: "none",
-//     color: "#333",
-//     fontWeight: "500",
-//     fontSize: "16px",
-//     cursor: "pointer",
-//   },
-// };
-
-// const NavLayout = () => {
-//   const navigate = useNavigate();
-
-//   const cart = useSelector((state) => state.products.cart);
-// const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-
-//   return (
-//     <div style={styles.outerDiv}>
-//       <div style={styles.innerDiv}>
-//         <div style={styles.icelogo}>
-//           <img src={Images.logo}></img>
-//         </div>
-
-//         <div style={styles.navlist}>
-//           <DropDown
-//             title="Home"
-//             options={[
-//               { label: "Explore Our Vegan Shop", href: "/home2" },
-//               { label: "Have a look at our gelato collection ", href: "/home3" },
-//             ]}
-//           />
-
-//           {/* <a style={styles.links} href="#">
-//             About
-//           </a> */}
-//           <Link style={styles.links} to="/about">
-//           <div style={{fontFamily:'Archivo', fontWeight:500, fontSize:'19px'}}>
-//             About</div>
-//           </Link>
-
-//           <DropDown
-//             title="Pages"
-//             options={[
-//               { label: "Team", href: "/team" },
-//               { label: "Reviews", href: "/review" },
-//               { label: "Special Offers", href: "/specialOffers" },
-//               { label: "404", href: "/error" },
-//               { label: "Coming Soon", href: "/comingSoon" },
-//               { label: "Privacy Policy", href: "/privacyPolicy" },
-//               { label: "Terms & Conditions", href: "/termsConditions" },
-//               { label: "Thank You", href: "/thankYou" },
-//                { label: "Shop 1", href: "/shop1" },
-//                { label: "Shop 2", href: "/shop2" },
-//                { label: "Shop 3", href: "/shop3" },
-              
-//             ]}
-//           />
-//           <DropDown
-//             title="Blog"
-//             options={[
-//               { label: "Blog", href: "/blog1" },
-//               { label: "Load More", href:'/loadMore'},
-//               {label:"One Column", href:"/OneColumn"},
-//               {label:"Two Column", href:"/TwoColumn"},
-//               {label:"Three Column", href:"ThreeColumn"},
-//               {label:'Four Column', href:'FourColumn'},
-//               {label:"Single Blog", href:"/SingleBlog"}
-
-              
-//             ]}
-//           />
-//           {/* <a style={styles.links} href="#">
-//             Faq's
-//           </a> */}
-//           <Link style={styles.links} to="/faqs">
-//           <div style={{fontFamily:'Archivo', fontWeight:500, fontSize:'19px'}}>
-//             Faq's</div>
-//           </Link>
-//           <IoSearch size={26} />
-//           <Cart count={cartCount} onClick={() => navigate("/cart")} />
-
-//           {/* <button style={styles.button}>Contact Us</button> */}
-//           <Button
-//             text={"Contact Us"}
-//             width={148}
-//             height={48}
-//             bcolor={ColorPalette.pink}
-//             onClick={"/contactUs"}
-//           />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default NavLayout;
-
-
 import React, { useState } from "react";
 import Button from "./Button";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -206,7 +64,7 @@ const styles = {
   gap: "20px",
 },
   mobileLink: {
-    marginBottom: "15px",
+    // marginBottom: "15px"
     fontSize: "18px",
     fontFamily: "Archivo",
     fontWeight: 500,
@@ -271,13 +129,12 @@ const NavLayout = () => {
               { label: "Two Column", href: "/TwoColumn" },
               { label: "Three Column", href: "/ThreeColumn" },
               { label: "Four Column", href: "/FourColumn" },
-              { label: "Single Blog", href: "/SingleBlog" },
             ]}
           />
           <Link style={styles.links} to="/faqs">
             <div style={{ fontFamily: "Archivo", fontWeight: 500, fontSize: "19px" }}>Faq's</div>
           </Link>
-          <IoSearch size={26} />
+          {/* <IoSearch size={26} /> */}
           <Cart count={cartCount} onClick={() => navigate("/cart")} />
           <Button
             text={"Contact Us"}
@@ -297,65 +154,6 @@ const NavLayout = () => {
         </IconButton>
       </Box>
 
-      {/* Drawer Menu for Mobile */}
-      {/* <Drawer anchor="right" open={openDrawer} onClose={toggleDrawer}>
-        <Box sx={styles.mobileMenu}>
-          <Box display="flex" justifyContent="flex-end">
-            <IconButton onClick={toggleDrawer}>
-              <CloseIcon />
-            </IconButton>
-          </Box>
-
-          <DropDown
-            title="Home"
-            options={[
-              { label: "Explore Our Vegan Shop", href: "/home2" },
-              { label: "Have a look at our gelato collection", href: "/home3" },
-            ]}
-          />
-          <Lin      k to="/about" style={styles.mobileLink}>About</Link>
-          <DropDown
-            title="Pages"
-            options={[
-              { label: "Team", href: "/team" },
-              { label: "Reviews", href: "/review" },
-              { label: "Special Offers", href: "/specialOffers" },
-              { label: "404", href: "/error" },
-              { label: "Coming Soon", href: "/comingSoon" },
-              { label: "Privacy Policy", href: "/privacyPolicy" },
-              { label: "Terms & Conditions", href: "/termsConditions" },
-              { label: "Thank You", href: "/thankYou" },
-              { label: "Shop 1", href: "/shop1" },
-              { label: "Shop 2", href: "/shop2" },
-              { label: "Shop 3", href: "/shop3" },
-            ]}
-          />
-          <DropDown
-            title="Blog"
-            options={[
-              { label: "Blog", href: "/blog1" },
-              { label: "Load More", href: "/loadMore" },
-              { label: "One Column", href: "/OneColumn" },
-              { label: "Two Column", href: "/TwoColumn" },
-              { label: "Three Column", href: "/ThreeColumn" },
-              { label: "Four Column", href: "/FourColumn" },
-              { label: "Single Blog", href: "/SingleBlog" },
-            ]}
-          />
-          <Link to="/faqs" style={styles.mobileLink}>Faq's</Link>
-          <Cart count={cartCount} onClick={() => navigate("/cart")} />
-          <Box mt={2}>
-            <Button
-              text={"Contact Us"}
-              width={160}
-              height={48}
-              bcolor={ColorPalette.pink}
-              onClick={"/contactUs"}
-            />
-          </Box>
-        </Box>
-      </Drawer> */}
-
       <Drawer anchor="right" open={openDrawer} onClose={toggleDrawer}>
   <Box sx={{ ...styles.mobileMenu, width: 280, backgroundColor: "#fff" }}>
     <Box display="flex" justifyContent="flex-end" mb={1}>
@@ -364,16 +162,16 @@ const NavLayout = () => {
       </IconButton>
     </Box>
 
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-      <DropDown
-        title="Home"
-        options={[
-          { label: "Explore Our Vegan Shop", href: "/home2" },
-          { label: "Have a look at our gelato collection", href: "/home3" },
-        ]}
-      />
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <DropDown
+          title="Home"
+          options={[
+            { label: "Explore Our Vegan Shop", href: "/home2" },
+            { label: "Have a look at our gelato collection", href: "/home3" },
+          ]}
+        />
 
-      <Link to="/about" style={{ ...styles.mobileLink, paddingLeft: "8px" }}>
+      <Link to="/about" style={{ ...styles.mobileLink,  }}>
         About
       </Link>
 
@@ -400,22 +198,19 @@ const NavLayout = () => {
           { label: "Blog", href: "/blog1" },
           { label: "Load More", href: "/loadMore" },
           { label: "One Column", href: "/OneColumn" },
-          { label: "Two Column", href: "/TwoColumn" },
-          { label: "Three Column", href: "/ThreeColumn" },
-          { label: "Four Column", href: "/FourColumn" },
-          { label: "Single Blog", href: "/SingleBlog" },
+          // { label: "Two Column", href: "/TwoColumn" },
+          // { label: "Three Column", href: "/ThreeColumn" },
+          // { label: "Four Column", href: "/FourColumn" },
         ]}
       />
 
-      <Link to="/faqs" style={{ ...styles.mobileLink, paddingLeft: "8px" }}>
+      <Link to="/faqs" style={{ ...styles.mobileLink,  }}>
         Faq's
       </Link>
 
-      <Box display="flex" alignItems="center" mt={2}>
+      <Box display="flex" alignItems="center">
         <Cart count={cartCount} onClick={() => navigate("/cart")} />
-        <Box ml={2}>
-          <IoSearch size={24} />
-        </Box>
+          <Box sx={{ml:1}}>Cart</Box>
       </Box>
 
       <Box mt={3} textAlign="center">

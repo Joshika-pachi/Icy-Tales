@@ -12,11 +12,11 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     gap: '40px',
-    padding: '40px 0',
+    padding: {xs:"20px 0",md:'40px 0'},
   },
   cardWrapper: {
     width: '90%', 
-    maxWidth:'40%'
+    maxWidth:{xs:"90%",md:'40%'}
   },
 };
 

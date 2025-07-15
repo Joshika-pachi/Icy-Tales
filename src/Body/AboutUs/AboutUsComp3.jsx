@@ -127,6 +127,8 @@ const styles = {
     textAlign: { xs: "center",sm:"center", md: "left" },
     marginTop: "10px",
     color: "#FFFFFF",
+    maxWidth: "500px",
+marginX: "auto",
   },
 };
 
@@ -155,7 +157,18 @@ const AboutUsComp3 = () => {
           <img src={Images.wpsideTriangles} alt="" />
         </Box>
 
-        <Box sx={{ marginLeft: "10%" }}>
+        <Box
+  sx={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: { xs: "center", md: "flex-start" },
+    justifyContent: "center",
+    textAlign: { xs: "center", md: "left" },
+    paddingX: { xs: 2, md: 0 },
+    marginLeft: { xs: 0, md: "10%" },
+    maxWidth: { xs: "100%", md: "500px" }, // To keep lines even
+  }}
+>
           <Box sx={styles.headingLine}>
             Our Mission is to <br />
             create Moments

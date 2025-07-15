@@ -58,9 +58,9 @@ const Home3Comp7 = () => {
             Read testimonials from those who have enjoyed our artisan gelato.
           </Box>
         </Box>
-        <Box>
-            <CardCarousel data={ReviewsCarouselData}/>
-        </Box>
+        <Box sx={{ width: "100%", display: "flex", justifyContent: "center", mt: 4 }}>
+  <CardCarousel data={ReviewsCarouselData} />
+</Box>
       </Box>
     </Box>
   );

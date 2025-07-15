@@ -115,7 +115,7 @@ const styles = {
     background: ColorPalette.white,
     height: { xs: "400px", md: "550px" },
     width: { xs: "400px", md: "570px" },
-    borderRadius: "50%",
+    borderRadius:"50%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -135,7 +135,7 @@ const styles = {
     color: { xs: "#fff", md: "#000" },
   },
   highlight: {
-    color: "#fff", // white for small screens
+    color: "#fff",
     fontFamily: "Berkshire Swash",
   },
   highlightLarge: {

@@ -136,6 +136,8 @@ import { ColorPalette } from "../../../Assets/Colors";
 import Images from "../../../Assets/Images/Image";
 import Button from "../../../Common_Components/Button";
 import { textAlign } from "@mui/system";
+import { useMediaQuery, useTheme } from "@mui/material";
+
 
 const styles = {
   heroContainer: {
@@ -168,7 +170,7 @@ const styles = {
   display: "flex",
   flexDirection: "column",
   gap: "20px",
-  textAlign: { xs: "center", md: "left" },       // center on xs, left on md+
+  textAlign: { xs: "center", md: "left" },       
   alignItems: { xs: "center", md: "flex-start" }, // center content on xs, left-align on md+
 },
 
@@ -232,8 +234,12 @@ const styles = {
 };
 
 const SpecialOffers2 = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Box sx={styles.heroContainer}>
+      
       {/* LEFT SIDE */}
       <Box sx={styles.leftContent}>
         <Box sx={styles.heading}>Summer Special!</Box>
@@ -242,7 +248,7 @@ const SpecialOffers2 = () => {
           text={"Get This Deal"}
           width={180}
           height={62}
-          bcolor={ColorPalette.pink}
+          bcolor={isSmallScreen ? ColorPalette.violet : ColorPalette.pink}
           onClick={"#"}
         />
         <Box sx={styles.codeText}>Use code: SUMMER50 at checkout.</Box>

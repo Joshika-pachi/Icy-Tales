@@ -163,17 +163,28 @@ const styles = {
     marginTop: "15px",
     textAlign: { xs: "center", md: "left" },
   },
+  // SecondBox: {
+  //   display: "flex",
+  //   width: { md: "70%", xs: "85%" },
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   backgroundColor: "#FFFFFF",
+  //   marginLeft: '70px',
+  //   flexDirection: { xs: "column", lg: 'row' },
+  //   padding: { xs: '20px', md: '0' },
+  //   textAlign: { xs: 'center', md: 'left' }
+  // },
   SecondBox: {
-    display: "flex",
-    width: { md: "70%", xs: "85%" },
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#FFFFFF",
-    marginLeft: '70px',
-    flexDirection: { xs: "column", lg: 'row' },
-    padding: { xs: '20px', md: '0' },
-    textAlign: { xs: 'center', md: 'left' }
-  },
+  display: "flex",
+  width: { md: "70%", xs: "85%" },
+  justifyContent: "center",
+  alignItems: "center",
+  backgroundColor: "#FFFFFF",
+  marginLeft: { xs: 0, md: '70px' }, // 🔧 responsive fix here
+  flexDirection: { xs: "column", lg: 'row' },
+  padding: { xs: '20px', md: '0' },
+  textAlign: { xs: 'center', md: 'left' }
+},
 };
 
 const Home2Comp3 = () => {

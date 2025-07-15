@@ -93,16 +93,20 @@ const styles = {
   mainBox: {
     display: "flex",
     background: ColorPalette.white,
-    flexDirection: { xs: "column", md: "row" }, // Stack on small screens
+    flexDirection: { xs: "column", md: "row" },
   },
-  centerBox: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-    paddingBottom: "50px",
-    marginLeft: { xs: "0px", md: "70px" },
-  },
+centerBox: {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "column",
+  paddingBottom: "50px",
+  marginLeft: { xs: 0, md: "70px" },
+  marginRight: { xs: 0, md: "70px" },  
+  width: "100%",
+  textAlign: "center", 
+},
+
   headingLine: {
     fontFamily: "Berkshire Swash",
     fontSize: { xs: "32px", sm: "40px", md: "50px", lg: "74px" },
@@ -164,9 +168,9 @@ const Home2Comp6 = () => {
             </Box>
           </Box>
 
-          <Box>
-            <Carousel data={VeganData} />
-          </Box>
+          <Box sx={{ width: "100%", display: "flex", justifyContent: "center", mt: 4 }}>
+  <Carousel data={VeganData} />
+</Box>
         </Box>
       </Box>
     </Box>

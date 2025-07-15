@@ -108,6 +108,7 @@ import Images from "../../Assets/Images/Image";
 import Button from "../../Common_Components/Button";
 import { ColorPalette } from "../../Assets/Colors";
 import { useTheme } from "@mui/material/styles";
+import { width } from "@mui/system";
 
 const styles = {
   mainBox: {
@@ -133,6 +134,7 @@ const styles = {
     fontFamily: "Berkshire Swash",
   },
   tagline: {
+    
     fontFamily: "Archivo",
     fontSize: { xs: "14px", sm: "16px", md: "20px" },
     fontWeight: 300,

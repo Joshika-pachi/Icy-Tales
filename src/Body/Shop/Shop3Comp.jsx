@@ -103,7 +103,7 @@ const Shop3 = () => {
 
        
         <Box sx={styles.centerPart}>
-          <Box sx={styles.topControls}>
+          {/* <Box sx={styles.topControls}>
             <Box sx={styles.leftBox}>
               <SearchBar />
               <Box sx={styles.resultText}>
@@ -113,7 +113,31 @@ const Shop3 = () => {
             <Box>
               <SortingDropdown />
             </Box>
-          </Box>
+          </Box> */}
+          <Box
+  sx={{
+    ...styles.topControls,
+    flexDirection: { xs: "column", sm: "column", md: "row" },
+    alignItems: { xs: "center", md: "center" },
+    gap: { xs: "20px", md: "0px" },
+  }}
+>
+  {/* Left side: Search + Result count */}
+  <Box
+    sx={{
+      ...styles.leftBox,
+      flexDirection: "column",
+      alignItems: "flex-start",
+      gap: "10px",
+    }}
+  >
+    <SearchBar />
+    <Box sx={styles.resultText}>
+      Showing 1–{gelatoProducts.length} of {allProducts.length} results
+    </Box>
+  </Box>
+</Box>
+
 
           <Box sx={styles.productGrid}>
             <SixCardCarousel data={gelatoProducts} />

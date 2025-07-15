@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 import { ColorPalette } from "../Assets/Colors";
 import { addToCart } from "../Redux/Reducer";
+import { padding } from "@mui/system";
 
 const styles = {
   container: {
@@ -25,7 +26,8 @@ const styles = {
     boxShadow: "0 0 15px rgba(255, 60, 172, 0.2)",
     borderRadius: "10px",
     textAlign: "center",
-    padding: "15px",
+    // padding: "15px",
+    paddingBottom:'15px',
     backgroundColor: "#fff",
   },
   image: {

@@ -157,13 +157,14 @@ const styles = {
     textAlign: "center",
   },
   centerBox: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-    marginLeft: "20px",
-    marginRight: "80px",
-  },
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+  marginLeft: { xs: 0, md: "20px" },
+  marginRight: { xs: 0, md: "80px" },
+  textAlign: "center", 
+},
 };
 
 const Home2Comp5 = () => {

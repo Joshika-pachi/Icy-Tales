@@ -1,37 +1,3 @@
-// import React from "react";
-// import { Box } from "@mui/material";
-// import { ColorPalette } from "../../../Assets/Colors";
-// import { IoStar } from "react-icons/io5";
-// import Images from "../../../Assets/Images/Image";
-// import { alignContent, alignItems, display, justifyContent, lineHeight } from "@mui/system";
-// import ReviewCarousel from "../../../Common_Components/ReviewCarousel";
-
-// const styles = {
-//   mainBox:{
-//     display:'flex',
-//     justifyContent:'center',
-//     alignItems:'center',
-//     background:ColorPalette.gradient
-//   }
-// };
-
-// const Home2Comp7 = () => {
-//   return (
-//     <Box>
-//       <Box sx={styles.mainBox}>
-//       <Box>
-//         <img src={Images.violetBlocks} style={{position:'relative', left:'-100px',top:"-70px"}}></img>
-//       </Box>
-//       <Box>
-//         <ReviewCarousel />
-//       </Box>
-//       </Box>
-//     </Box>
-//   );
-// };
-
-// export default Home2Comp7;
-
 import React from "react";
 import { Box, useTheme, useMediaQuery } from "@mui/material";
 import { ColorPalette } from "../../../Assets/Colors";
@@ -44,9 +10,9 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     background: ColorPalette.gradient,
-    flexDirection: { xs: "column", md: "row" }, // stack vertically on small screens
-    paddingY: "40px", // add vertical spacing
-    overflow: "hidden", // prevent image overflow
+    flexDirection: { xs: "column", md: "row" }, 
+    paddingY: "40px", 
+    overflow: "hidden",
   },
   sideImage: {
     position: "relative",
@@ -69,7 +35,6 @@ const Home2Comp7 = () => {
   return (
     <Box>
       <Box sx={styles.mainBox}>
-        {/* Decorative Image */}
         <Box sx={{display:{xs:"none", md:"block"}}}>
           <img
             src={Images.violetBlocks}
@@ -83,8 +48,6 @@ const Home2Comp7 = () => {
             alt="violet blocks"
           />
         </Box>
-
-        {/* Review Carousel */}
         <Box sx={styles.carouselWrapper}>
           <ReviewCarousel />
         </Box>

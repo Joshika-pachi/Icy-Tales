@@ -17,7 +17,7 @@ const styles = {
     color: '#212529',
     fontFamily: 'Archivo',
     fontSize: '22px',
-    fontWeight: 700, // make it bold
+    fontWeight: 700, 
     lineHeight: '28px',
     margin: '20px 0 5px 0',
   },

@@ -78,7 +78,6 @@ export default function LabTabs() {
             </Box>
           )}
 
-          {/* Small Screen Drawer Button */}
           {isSm && (
             <IconButton
               onClick={() => setDrawerOpen(true)}

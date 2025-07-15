@@ -80,7 +80,7 @@ const FilteredProducts = () => {
 
   return (
     <Box sx={styles.carouselContainer}>
-      {/* Current Slide */}
+   
       <Box sx={styles.slide}>
         <Box sx={styles.row}>
           {firstRow.map((product) => (

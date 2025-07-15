@@ -161,16 +161,12 @@ const Home1Comp5 = () => {
    const isSmallScreen = useMediaQuery("(max-width:600px)");
   return (
     <Box sx={styles.heroContainer}>
-      {/* LEFT SIDE */}
       <Box sx={styles.leftContent}>
         <Box sx={styles.heading}>Summer Special!</Box>
         <Box sx={styles.subHeading}>Buy One Sundae, Get One 50% Off!</Box>
         <Button text={"Get This Deal"} width={180} height={62} bcolor={isSmallScreen ? ColorPalette.violet : ColorPalette.pink} onClick={"/specialOffers"}></Button>
         <Box sx={styles.codeText}>Use code: SUMMER50 at checkout.</Box>
-      </Box>
-
-      {/* RIGHT SIDE */}
-      
+      </Box>      
       <Box sx={styles.rightContent}>
         <img src={Images.string} style={styles.stringImg}></img>
         <img src={Images.offerBowl} alt="Ice Cream Bowl" style={styles.iceCreamImg} />

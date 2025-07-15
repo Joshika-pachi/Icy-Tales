@@ -87,12 +87,12 @@ const NavLayout = () => {
     <Box sx={styles.outerDiv}>
       <Box sx={styles.innerDiv}>
 
-        {/* Logo */}
+        
         <Box sx={styles.icelogo}>
           <img src={Images.logo} alt="Logo" />
         </Box>
 
-        {/* Desktop Nav */}
+       
         <Box sx={{ ...styles.navlist, display: { xs: "none", md: "flex" } }}>
           <DropDown
             title="Home"
@@ -145,7 +145,7 @@ const NavLayout = () => {
           />
         </Box>
 
-        {/* Hamburger Icon for Mobile */}
+      
         <IconButton
           sx={{ display: { xs: "block", md: "none" } }}
           onClick={toggleDrawer}

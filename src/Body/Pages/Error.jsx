@@ -21,7 +21,7 @@ const styles = {
     alignItems: "center",
     height: "100vh",
     width: "70%",
-    fontFamily: "Berkire Swash",
+    fontFamily: "Archivo",
     color: "#000",
     flexDirection: "column",
   },

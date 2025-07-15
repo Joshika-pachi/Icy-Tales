@@ -172,7 +172,7 @@ const AboutUsComp3 = () => {
               width={180}
               height={62}
               bcolor={ColorPalette.pink}
-              onClick={"#"}
+              onClick={"/blog1"}
             />
           </Box>
 

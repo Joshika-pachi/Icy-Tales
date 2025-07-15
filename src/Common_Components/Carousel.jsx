@@ -276,7 +276,7 @@ const ProductCarousel = ({ data = [], itemsPerSlide = 3 }) => {
               width={130}
               height={44}
               bcolor={ColorPalette.pink}
-              onClick={() => dispatch(addToCart(item))}
+              onClick={() =>{ dispatch(addToCart(item)); alert("Added to Cart")}}
             />
           </div>
         ))}

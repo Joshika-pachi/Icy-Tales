@@ -119,14 +119,14 @@ const HomeComp8 = () => {
             }}
           />
         </Box>
-        <Box>
+        <Box sx={{display:{xs:'none', md:'block'}}}>
           <img
             src={Images.SideCircles}
             alt="Side Circles"
-            style={{ height: "auto", paddingLeft: "10%", marginTop: "-15%" }}
+            style={{ height: "auto", paddingLeft: "10%", marginTop: "-15%",  }}
           />
         </Box>
-        <Box>
+        <Box sx={{display:{xs:'none', md:'block'}}}>
           <img
             src={Images.SideTraingle}
             alt="Side Triangle"

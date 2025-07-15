@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import { ColorPalette } from "../../../Assets/Colors";
 import Images from "../../../Assets/Images/Image";
 import Button from "../../../Common_Components/Button";
+import { useMediaQuery } from "@mui/material";
 
 const styles = {
   MainBox: {
@@ -64,9 +65,11 @@ const styles = {
 };
 
 const HomeComp1 = () => {
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
+
   return (
     <Box sx={{overflowX:'hidden'}}>
-      <Box>
+      <Box sx={{display:{xs:'none', md:"block"}}}>
         <img src={Images.icecream} alt="icecream" style={styles.iceimage} />
       </Box>
       <Box sx={styles.MainBox}>
@@ -83,14 +86,14 @@ const HomeComp1 = () => {
           <Box sx={{ marginTop: "20px" }}>
             <Button
               text={"Browse Our Classic Flavors"}
-              width={304}
+              width={isSmallScreen ?230:304}
               height={62}
               bcolor={ColorPalette.violet}
-              onClick={"/shop1"}
+              onClick={"/home2"}
             />
           </Box>
         </Box>
-        <Box>
+        <Box sx={{display:{xs:"none", md:"flex"}}}>
           <img
             src={Images.bigicecream}
             alt="big icecream"

@@ -1,19 +1,89 @@
-import React from 'react'
-import { Box } from '@mui/material'
-import PagesHeader from '../../Common_Components/PagesHeader'
+// import React from 'react'
+// import { Box } from '@mui/material'
+// import PagesHeader from '../../Common_Components/PagesHeader'
+// import { ColorPalette } from '../../Assets/Colors';
+// import ReviewsCarouselData from "../../Data/ReviewsCarouselData";
+// import CardCarousel from "../../Common_Components/cardCarousel"
+
+// const styles = {
+//   mainBox: {
+//     display: "flex",
+//     justifyContent: "center",
+//     alignItems: "center",
+//     flexDirection: "column",
+//     paddingTop: "50px",
+//     paddingBottom: "50px",
+//     background: ColorPalette.white
+//   },
+//   headingLine: {
+//     fontFamily: "Berkshire Swash",
+//     fontWeight: 500,
+//     color: "#000",
+//     fontSize: { xs: "28px", sm: "36px", md: "50px" },
+//     lineHeight: { xs: "35px", sm: "45px", md: "70px" },
+//     textAlign: { xs: "center", md: "center" },
+//   },
+//   highlight: {
+//     color: "#FF3CAC",
+//     fontFamily: "Berkshire Swash",
+//   },
+//   tagline: {
+//     fontFamily: "Archivo",
+//     fontSize: { xs: "14px", sm: "16px", md: "20px" },
+//     fontWeight: 300,
+//     lineHeight: { xs: "22px", sm: "25px", md: "30px" },
+//     textAlign: { xs: "center", md: "center" },
+//     marginTop: "10px",
+//     color: "#646464",
+//   },
+// };
+
+
+// const ReviewPage = () => {
+//   return (
+//     <Box>
+//         <Box>
+//             <PagesHeader title={"Review"} path={"Review"} />
+//         </Box>
+//         <Box sx={styles.mainBox}>
+//         <Box>
+//           <Box sx={styles.headingLine}>
+//             Hear From Our <span style={styles.highlight}> Gelato</span>{" "}
+//             <br></br> Enthusiasts
+//           </Box>
+//           <Box sx={styles.tagline}>
+//             Read testimonials from those who have enjoyed our artisan gelato.
+//           </Box>
+//         </Box>
+//         <Box>
+//             <CardCarousel data={ReviewsCarouselData}/>
+//         </Box>
+//       </Box>
+
+      
+//     </Box>
+//   )
+// }
+
+// export default ReviewPage
+
+import React from 'react';
+import { Box } from '@mui/material';
+import PagesHeader from '../../Common_Components/PagesHeader';
 import { ColorPalette } from '../../Assets/Colors';
 import ReviewsCarouselData from "../../Data/ReviewsCarouselData";
-import CardCarousel from "../../Common_Components/cardCarousel"
+import CardCarousel from "../../Common_Components/cardCarousel";
 
 const styles = {
   mainBox: {
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
     flexDirection: "column",
+    alignItems: "center",
     paddingTop: "50px",
     paddingBottom: "50px",
-    background: ColorPalette.white
+    background: ColorPalette.white,
+    px: { sm: 4, md: 8 },
+    overflowX:'hidden'
   },
   headingLine: {
     fontFamily: "Berkshire Swash",
@@ -21,7 +91,7 @@ const styles = {
     color: "#000",
     fontSize: { xs: "28px", sm: "36px", md: "50px" },
     lineHeight: { xs: "35px", sm: "45px", md: "70px" },
-    textAlign: { xs: "center", md: "center" },
+    textAlign: "center",
   },
   highlight: {
     color: "#FF3CAC",
@@ -32,37 +102,40 @@ const styles = {
     fontSize: { xs: "14px", sm: "16px", md: "20px" },
     fontWeight: 300,
     lineHeight: { xs: "22px", sm: "25px", md: "30px" },
-    textAlign: { xs: "center", md: "center" },
+    textAlign: "center",
     marginTop: "10px",
     color: "#646464",
+    mb: 4,
+  },
+  carouselBox: {
+    width: "100%",
+    maxWidth: "1200px",     // restricts the max width
+    display: "flex",
+    justifyContent: "center",
   },
 };
-
 
 const ReviewPage = () => {
   return (
     <Box>
-        <Box>
-            <PagesHeader title={"Review"} path={"Review"} />
-        </Box>
-        <Box sx={styles.mainBox}>
+      <PagesHeader title={"Review"} path={"Review"} />
+
+      <Box sx={styles.mainBox}>
         <Box>
           <Box sx={styles.headingLine}>
-            Hear From Our <span style={styles.highlight}> Gelato</span>{" "}
-            <br></br> Enthusiasts
+            Hear From Our <span style={styles.highlight}> Gelato</span><br /> Enthusiasts
           </Box>
           <Box sx={styles.tagline}>
             Read testimonials from those who have enjoyed our artisan gelato.
           </Box>
         </Box>
-        <Box>
-            <CardCarousel data={ReviewsCarouselData}/>
+
+        <Box sx={styles.carouselBox}>
+          <CardCarousel data={ReviewsCarouselData} />
         </Box>
       </Box>
-
-      
     </Box>
-  )
-}
+  );
+};
 
-export default ReviewPage
+export default ReviewPage;

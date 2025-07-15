@@ -125,6 +125,7 @@ import React, { useState } from "react";
 import { Box, useTheme, useMediaQuery } from "@mui/material";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { ColorPalette } from "../Assets/Colors";
+import { useNavigate } from "react-router-dom";
 
 const styles = {
   productCard: {
@@ -169,6 +170,7 @@ const styles = {
 
 const EmployeeCarousel = ({ data = [] }) => {
   const [index, setIndex] = useState(0);
+  const navigate=useNavigate();
 
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md")); // xs & sm
@@ -211,7 +213,9 @@ const EmployeeCarousel = ({ data = [] }) => {
           gap: "20px",
           justifyContent: "center",
           flexWrap: "nowrap",
+          
         }}
+        onClick={() => navigate("/team")}
       >
         {currentItems.map((item, i) => (
           <Box key={i} sx={styles.productCard}>

@@ -170,13 +170,15 @@
 
 import React, { useState, useEffect } from "react";
 import { useTheme, useMediaQuery, Box } from "@mui/material";
-import products from "../Data/CarouselData";
+import products from "../Data/AllData";
 import { ColorPalette } from "../Assets/Colors";
+import { useNavigate } from "react-router-dom";
 
 const ImageCarousel = () => {
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.down("sm")); // <600px
   const isSm = useMediaQuery(theme.breakpoints.between("sm", "md")); // 600–899px
+  const navigate=useNavigate();
 
   const [index, setIndex] = useState(0);
   const [itemsPerSlide, setItemsPerSlide] = useState(3);
@@ -214,6 +216,7 @@ const ImageCarousel = () => {
     >
       <Box
         sx={{
+         
           display: "flex",
           gap: "30px",
           overflow: "hidden",
@@ -224,6 +227,8 @@ const ImageCarousel = () => {
               : itemsPerSlide === 2
               ? "600px"
               : "900px",
+               
+              
         }}
       >
         {currentItems.map((item, i) => (
@@ -241,7 +246,9 @@ const ImageCarousel = () => {
                   : "250px",
               flexShrink: 0,
             }}
+             
           >
+         
             <Box
               sx={{
                 position: "relative",
@@ -256,7 +263,7 @@ const ImageCarousel = () => {
             >
               <Box
                 component="img"
-                src={item.image}
+                src={item.images[0]}
                 alt={item.name}
                 sx={{
                   width: "100%",
@@ -264,6 +271,7 @@ const ImageCarousel = () => {
                   objectFit: "cover",
                   borderRadius: "20px",
                 }}
+                onClick={() => navigate(`/product/${item.id}`)} 
               />
 
               {/* Overlays */}

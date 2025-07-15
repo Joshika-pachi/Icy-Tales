@@ -205,7 +205,7 @@ const Home2Comp1 = () => {
               width={248}
               height={56}
               bcolor={ColorPalette.pink}
-              onClick={"#"}
+              onClick={"/shop2"}
               style={{ fontSize: isSmallScreen ? "18px" : "28px" }}
             />
           </Box>

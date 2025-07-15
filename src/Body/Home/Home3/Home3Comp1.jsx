@@ -194,7 +194,7 @@ const Home3Comp1 = () => {
                   width={270}
                   height={50}
                   bcolor={ColorPalette.violet}
-                  onClick={() => {}}
+                  onClick={"/shop3"}
                 />
               </Box>
             </Box>

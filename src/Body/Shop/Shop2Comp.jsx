@@ -10,13 +10,15 @@ import ClassicFavCards from "../../Common_Components/ClassicFavCards"; // your p
 import SixCardCarousel from "../../Common_Components/SixCardCarousel";
 import CategoryFilter from "../../Common_Components/CategoryFilter";
 import PriceFilter from "../../Common_Components/PriceFilter"
-import { alignItems, justifyContent } from "@mui/system";
+import { alignItems, justifyContent, margin } from "@mui/system";
 
 const styles = {
   mainBox: {
     display: "flex",
-    padding: "40px",
+    padding: {xs:'0',md:"40px"},
+    marginTop:{xs:'40px',md:'20px'},
     fontFamily: "sans-serif",
+    overflowX:'hidden'
   },
   sidebar: {
     width: "18%",
@@ -73,16 +75,33 @@ const Shop2 = () => {
     <Box>
       <PagesHeader title="Shop Layout 2" path="Shop Layout 2" />
       <Box sx={styles.mainBox}>
-        <Box sx={styles.sidebar}>
+        {/* <Box sx={styles.sidebar}>
+         
              
           <Box sx={styles.heading}>Featured Products</Box>
-          <Box sx={{display: 'flex', flexDirection: 'column', gap: '5px'}}>
+          <Box sx={{display:'flex', flexDirection: 'column', gap: '5px'}}>
           <FeaturedProductsCards img={Image.gelatoImage4} name="Pistachio" firstPrice={9.80} discounted={4.99} />
           <FeaturedProductsCards img={Image.gelatoImage3} name="Tiramisu" firstPrice={9.80} discounted={4.99} />
           <FeaturedProductsCards img={Image.gelatoImage1} name="Balsamic" firstPrice={9.80} discounted={4.99} />
           <FeaturedProductsCards img={Image.gelatoImage2} name="Hazelnut" firstPrice={9.80} discounted={4.99} />
           </Box>
-        </Box>
+        </Box> */}
+        <Box
+  sx={{
+    ...styles.sidebar,
+    display: { xs: "none", md: "block" }, // Hide sidebar on xs & sm screens
+  }}
+>
+  <Box sx={styles.heading}>Featured Products</Box>
+  <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+    <FeaturedProductsCards img={Image.gelatoImage4} name="Pistachio" firstPrice={9.80} discounted={4.99} />
+    <FeaturedProductsCards img={Image.gelatoImage3} name="Tiramisu" firstPrice={9.80} discounted={4.99} />
+    <FeaturedProductsCards img={Image.gelatoImage1} name="Balsamic" firstPrice={9.80} discounted={4.99} />
+    <FeaturedProductsCards img={Image.gelatoImage2} name="Hazelnut" firstPrice={9.80} discounted={4.99} />
+  </Box>
+</Box>
+
+       
         <Box sx={styles.centerPart}>
           <Box sx={styles.topControls}>
             <Box sx={styles.leftBox}>

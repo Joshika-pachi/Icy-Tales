@@ -67,7 +67,7 @@ const HomeComp3 = () => {
   return (
     <Box>
       <Box sx={styles.ThirdMain}>
-        <Box>
+        <Box sx={{display:{xs:"none", md:"flex"}}}>
           <img
             src={Images.pinkice}
             alt="Pink Ice"
@@ -119,7 +119,7 @@ const HomeComp3 = () => {
             </Box>
           </Box>
         </Box>
-        <Box>
+        <Box sx={{display:{xs:"none", md:"flex"}}}>
           <img
             src={Images.chocolateice}
             alt="Chocolate Ice"

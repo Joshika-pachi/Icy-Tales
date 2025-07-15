@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { Box } from "@mui/material";
 import { ColorPalette } from "../../../Assets/Colors";
@@ -7,6 +5,7 @@ import Button from "../../../Common_Components/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import Images from "../../../Assets/Images/Image";
+import { useNavigate } from "react-router-dom";
 
 const styles = {
   mainBox: {
@@ -63,6 +62,7 @@ const styles = {
 };
 
 const HomeComp8 = () => {
+  const navigate=useNavigate();
   return (
     <Box>
       <Box sx={styles.mainBox}>
@@ -84,7 +84,7 @@ const HomeComp8 = () => {
               width={160}
               height={50}
               bcolor={ColorPalette.pink}
-              onClick={() => alert("Subscribed!")}
+              onClick={() => {alert("Subscribed!"); navigate("/blog1")}}
             />
           </Box>
         </Box>

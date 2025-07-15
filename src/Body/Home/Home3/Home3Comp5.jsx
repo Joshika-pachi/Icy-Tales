@@ -160,7 +160,7 @@ const Home3Comp5 = () => {
               width={180}
               height={62}
               bcolor={ColorPalette.pink}
-              onClick={"#"}
+              onClick={"/specialOffers"}
             />
           </Box>
 

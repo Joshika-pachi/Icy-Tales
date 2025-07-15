@@ -55,10 +55,11 @@ const HomeComp2 = () => {
         alignItems: "center",
         backgroundColor: "#FFFFFF",
         marginTop: "50px",
+        padding:{xs:"40px", md:'0px'}
       }}
     >
       <Box sx={styles.SecondBox}>
-        <Box>
+        <Box sx={{display:{xs:"none",md:"flex"}}}>
           <img src={Images.girl} alt="Ice cream girl" style={styles.image} />
         </Box>
         <Box>
@@ -76,7 +77,7 @@ const HomeComp2 = () => {
               width={234}
               height={62}
               bcolor={ColorPalette.pink}
-              onClick={() => {}}
+              onClick={"/shop1"}
             />
           </Box>
         </Box>

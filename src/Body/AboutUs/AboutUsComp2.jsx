@@ -194,7 +194,7 @@ const AboutUsComp2 = () => {
               width={172}
               height={62}
               bcolor={ColorPalette.pink}
-              onClick={"#"}
+              onClick={"/loadMore"}
             />
           </Box>
         </Box>

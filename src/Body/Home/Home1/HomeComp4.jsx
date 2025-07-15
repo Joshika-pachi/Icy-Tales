@@ -54,9 +54,9 @@ const HomeComp4 = () => {
         </Box>
         <Box sx={styles.cardsContainer}>
           <CategoryCards image={Images.CategoryImage1} name="Sundaes" />
-          <CategoryCards image={Images.CategoryIamge2} name="Ice Cream Cones" />
+          <CategoryCards image={Images.CategoryIamge2} name="Popsicles" />
           <CategoryCards image={Images.CategoryImage3} name="Milkshakes" />
-          <CategoryCards image={Images.CategoryImage4} name="Seasonal Flavours" />
+          <CategoryCards image={Images.ClassicFavImage2} name="Ice Cream Cakes" />
         </Box>
       </Box>
     </Box>

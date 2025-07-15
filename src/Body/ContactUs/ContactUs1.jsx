@@ -27,6 +27,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     gap: "50px",
+    flexDirection:{xs:'column', md:'row'}
   },
   headingLine: {
     fontFamily: "Berkshire Swash",
@@ -82,3 +83,4 @@ const ContactUs1 = () => {
 };
 
 export default ContactUs1;
+

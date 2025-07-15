@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import Button from "./Button";
-import { Box } from "@mui/material";
-import { ColorPalette } from "../Assets/Colors";
-import { Link } from "react-router-dom";
-import { color } from "@mui/system";
 import { useDispatch } from "react-redux";
+import { Box } from "@mui/material";
+import { Link } from "react-router-dom";
+import Button from "./Button";
+import { ColorPalette } from "../Assets/Colors";
 import { addToCart } from "../Redux/Reducer";
 
 const styles = {
@@ -18,7 +17,7 @@ const styles = {
   row: {
     display: "flex",
     justifyContent: "center",
-    gap: "60px",
+    gap: "40px",
     flexWrap: "wrap",
   },
   card: {
@@ -31,17 +30,16 @@ const styles = {
   },
   image: {
     width: "100%",
-    height: "100%",
+    height: "200px",
     objectFit: "cover",
     borderRadius: "10px",
     marginBottom: "10px",
-    scaleY:'1'
   },
   title: {
     fontSize: "18px",
     fontWeight: "bold",
     margin: "5px 0",
-    color:'#000'
+    color: "#000",
   },
   price: {
     fontSize: "20px",
@@ -50,12 +48,13 @@ const styles = {
   },
   rating: {
     fontSize: "16px",
-    color:'#000'
+    color: "#000",
   },
   pagination: {
     display: "flex",
     alignItems: "center",
     gap: "10px",
+    marginTop: "30px",
   },
   arrow: {
     fontSize: "24px",
@@ -83,68 +82,45 @@ const styles = {
 
 const SixCardCarousel = ({ data = [] }) => {
   const dispatch = useDispatch();
-  const itemsPerPage = 6; 
+  const itemsPerPage = 6;
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const [pageIndex, setPageIndex] = useState(0);
 
   const start = pageIndex * itemsPerPage;
   const currentItems = data.slice(start, start + itemsPerPage);
+
   const topRow = currentItems.slice(0, 3);
   const bottomRow = currentItems.slice(3, 6);
 
   const goToPage = (i) => setPageIndex(i);
 
+  const Card = (item) => (
+    <Box key={item.id} style={styles.card}>
+      <Link to={`/product/${item.id}`} style={{ textDecoration: "none" }}>
+        <img src={item.images[0]} alt={item.name} style={styles.image} />
+        <h3 style={styles.title}>{item.name}</h3>
+        <p style={styles.rating}>⭐ {item.rating} / 5</p>
+        <p style={styles.price}>$ {item.price}</p>
+      </Link>
+      <Button
+        text="Add to Cart"
+        width={130}
+        height={44}
+        bcolor={ColorPalette.pink}
+        onClick={() => {dispatch(addToCart(item)); alert("added to cart")}}
+      />
+    </Box>
+  );
+
   return (
     <Box style={styles.container}>
       <Box style={styles.row}>
-        {topRow.map((item) => (
-          <Link to={`/product/${item.id}`} style={{ textDecoration: "none" }}>
-          <Box key={item.id} style={styles.card}>
-            <img src={item.images[0]} alt={item.name} style={styles.image} />
-            <h3 style={styles.title}>{item.name}</h3>
-            <p style={styles.rating}>⭐ {item.rating} / 5</p>
-            <p style={styles.price}>$ {item.price}</p>
-            <Button
-              text="Add to Cart"
-              width={130}
-              height={44}
-              bcolor={ColorPalette.pink}
-              onClick={() => dispatch(addToCart(item))}
-            />
-          </Box>
-          </Link>
-        ))}
+        {topRow.map(Card)}
       </Box>
-
       <Box style={styles.row}>
-        {bottomRow.map((item) => (
-          
-          <Box key={item.id} style={styles.card}>
-            <Link to={`/product/${item.id}`} style={{ textDecoration: "none" }}>
-            <img src={item.images[0]} alt={item.name} style={styles.image} />
-            <h3 style={styles.title}>{item.name}</h3>
-            <p style={styles.rating}>⭐ {item.rating} /5 </p>
-             </Link>
-            <p style={styles.price}>{item.price}</p>
-            <Button
-              text="Add to Cart"
-              width={130}
-              height={44}
-              bcolor={ColorPalette.pink}
-              // onClick={() => dispatch(addToCart(item))}
-              onClick={(e) => {
-      e.preventDefault(); // stop Link redirect
-      e.stopPropagation(); // stop bubbling
-      dispatch(addToCart(item));
-              }
-            }
-            />
-          </Box>
-         
-        ))}
+        {bottomRow.map(Card)}
       </Box>
 
-    
       <Box style={styles.pagination}>
         <button
           style={styles.arrow}

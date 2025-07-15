@@ -15,7 +15,7 @@ const styles = {
   image: {
     width: '60px',
     height: '60px',
-    objectFit: 'cover',
+    objectFit: 'contain',
     borderRadius: '12px',
     marginRight: '16px',
   },

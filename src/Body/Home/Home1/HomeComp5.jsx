@@ -52,7 +52,8 @@ import { Box,  } from "@mui/material";
 import { ColorPalette } from "../../../Assets/Colors";
 import Images from "../../../Assets/Images/Image"
 import Button from "../../../Common_Components/Button";
-import { height, width } from "@mui/system";
+import { alignItems, height, padding, textAlign, width } from "@mui/system";
+import { useMediaQuery } from "@mui/material";
 
 
 const styles = {
@@ -73,10 +74,12 @@ const styles = {
 
   leftContent: {
     color: "#fff",
-    maxWidth: "40%",
+    maxWidth: {xs:"100%", md:"40%"},
     display: "flex",
     flexDirection: "column",
     gap: "20px",
+    padding:{xs:"22%", md:'0px'}
+    
   },
   heading: {
     fontSize: "60px",
@@ -110,7 +113,7 @@ const styles = {
     position: "relative",
     flex: "1",
     height: "100%",
-    display: "flex",
+    display: {xs:"none",md:"flex"},
     alignItems: "center",
     justifyContent: "center",
     position:'relative'
@@ -149,18 +152,20 @@ rightIce:{
     right:'0%',
     height:'320px',
     width:'200px',
-    opacity:'0.4'
+    opacity:'0.4',
+    top:"20%"
 }
 };
 
 const Home1Comp5 = () => {
+   const isSmallScreen = useMediaQuery("(max-width:600px)");
   return (
     <Box sx={styles.heroContainer}>
       {/* LEFT SIDE */}
       <Box sx={styles.leftContent}>
         <Box sx={styles.heading}>Summer Special!</Box>
         <Box sx={styles.subHeading}>Buy One Sundae, Get One 50% Off!</Box>
-        <Button text={"Get This Deal"} width={180} height={62} bcolor={ColorPalette.pink} onClick={"#"}></Button>
+        <Button text={"Get This Deal"} width={180} height={62} bcolor={isSmallScreen ? ColorPalette.violet : ColorPalette.pink} onClick={"/specialOffers"}></Button>
         <Box sx={styles.codeText}>Use code: SUMMER50 at checkout.</Box>
       </Box>
 
@@ -171,7 +176,8 @@ const Home1Comp5 = () => {
         <img src={Images.offerBowl} alt="Ice Cream Bowl" style={styles.iceCreamImg} />
         <img src={Images.discount} alt="50% Off" style={styles.discountBadge} />
       </Box>
-       <img src={Images.icecream} style={styles.rightIce}></img>
+      <Box sx={{display:{xs:"none", md:"block"}}}>
+       <img src={Images.icecream} style={styles.rightIce}></img></Box>
       
     </Box>
   );

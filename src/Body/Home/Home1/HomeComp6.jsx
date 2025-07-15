@@ -11,27 +11,25 @@ const styles = {
     flexDirection: { xs: "column", md: "row" },
     justifyContent: { md: "space-between" },
     alignItems: "center",
-    backgroundColor: "#FFFFFF",
-    paddingTop: "50px",
-    paddingBottom: "80px",
+    paddingBottom: "30px",
+    backgroundColor: ColorPalette.gradient,
+    overflowX: "auto",
   },
   ThirdBox: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     marginTop: "30px",
+    paddingTop: "50px",
+    paddingBottom: "80px",
     width: { xs: "95%", md: "auto" },
-  },
-  ThirdMiddle: {
-    ml: { xs: 0, md: "30px" },
-    mr: { xs: 0, md: "30px" },
   },
   headingLine: {
     fontFamily: "Berkshire Swash",
-    fontSize: { xs: "28px", sm: "36px", md: "48px" },
     fontWeight: 500,
-    lineHeight: { xs: "35px", sm: "45px", md: "70px" },
     color: "#000",
+    fontSize: { xs: "28px", sm: "36px", md: "48px" },
+    lineHeight: { xs: "35px", sm: "45px", md: "64px" },
     textAlign: "center",
     marginBottom: "10px",
   },
@@ -50,26 +48,26 @@ const styles = {
   cardsContainer: {
     display: "flex",
     flexDirection: { xs: "column", sm: "column", md: "row" },
-    gap: { xs: "20px", sm: "25px", md: "40px" },
+    gap: { xs: "20px", sm: "30px", md: "40px" },
     marginTop: "30px",
     justifyContent: "center",
     alignItems: "center",
     flexWrap: "wrap",
   },
   sideImage: {
-    height: "280px",
-    width: { xs: "180px", sm: "200px", md: "223px" },
+    height: "300px",
+    width: "183px",
     marginTop: "50px",
     opacity: 0.8,
     display: { xs: "none", md: "block" },
   },
 };
 
-const HomeComp6 = () => {
+const HomeComp5 = () => {
   return (
     <Box>
       <Box sx={styles.ThirdMain}>
-        <Box>
+        <Box sx={{display:{xs:"none", md:"flex"}}}>
           <img
             src={Images.pinkice}
             alt="Pink Ice"
@@ -77,12 +75,12 @@ const HomeComp6 = () => {
           />
         </Box>
         <Box sx={styles.ThirdBox}>
-          <Box sx={styles.ThirdMiddle}>
+          <Box>
             <Box sx={styles.headingLine}>
-              Our <span style={styles.highlight}>Best</span> Sellers
+              Our Classic <span style={styles.highlight}>Favourites</span>
             </Box>
             <Box sx={styles.tagline}>
-              Discover the favorites that keep our customers coming back for more
+              Check out our top products that our customers love
             </Box>
             <Box sx={styles.cardsContainer}>
               <ClassicFavCards
@@ -91,6 +89,7 @@ const HomeComp6 = () => {
                 tagline={"Rich chocolate ice cream with chunks of brownie."}
                 price={5.49}
                 rating={4.8}
+                onclick={'#'}
               />
               <ClassicFavCards
                 img={Images.ClassicFavImage2}
@@ -98,6 +97,7 @@ const HomeComp6 = () => {
                 tagline={"Strawberry ice cream layered with shortcake"}
                 price={5.29}
                 rating={4.9}
+                onclick={'#'}
               />
               <ClassicFavCards
                 img={Images.ClassicFavImage3}
@@ -105,18 +105,21 @@ const HomeComp6 = () => {
                 tagline={"Refreshing mint ice cream with chocolate"}
                 price={3.99}
                 rating={4.5}
+                onclick={'#'}
               />
               <ClassicFavCards
+                
                 img={Images.ClassicFavImage4}
                 heading={"Classic Vanilla Ice Cream"}
                 tagline={"Creamy vanilla ice cream topped with cherry."}
                 price={4.99}
                 rating={5.0}
+                onclick={'#'}
               />
             </Box>
           </Box>
         </Box>
-        <Box>
+        <Box sx={{display:{xs:"none", md:"flex"}}}>
           <img
             src={Images.chocolateice}
             alt="Chocolate Ice"
@@ -128,4 +131,4 @@ const HomeComp6 = () => {
   );
 };
 
-export default HomeComp6;
+export default HomeComp5;

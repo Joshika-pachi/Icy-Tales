@@ -71,7 +71,8 @@ export default Image = {
     CommitmentIcecream: require("./CommitmentIceCream.png"),
     ChocoChipCone: require("./ChocoChipCone.png"),
     strawberrySundae: require("./strawberrySundae.png"),
-    paymentCards: require("./PaymentCards.png")
+    paymentCards: require("./PaymentCards.png"),
+    loginIce: require("./loginIce.png")
 
 
     

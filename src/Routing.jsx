@@ -45,6 +45,8 @@ import OneColumn from "./Body/Blog/OneColumn"
 import TwoColumn from "./Body/Blog/TwoColumn";
 import ThreeColumn from "./Body/Blog/ThreeColumn";
 import FourColumn from "./Body/Blog/FourColumn";
+import LoginLayout from "./Body/Login/LoginLayout";
+import SignupMain from "./Body/Login/SignupMain";
 
 
 const routing = createBrowserRouter([
@@ -157,6 +159,14 @@ const routing = createBrowserRouter([
         path:'FourColumn',
         element:<FourColumn />
       },
+      {
+        path:"login",
+        element:<LoginLayout />
+      },
+      {
+        path:"signup",
+        element:<SignupMain />
+      }
     ],
   },
 ]);

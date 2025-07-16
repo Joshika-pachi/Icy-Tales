@@ -134,6 +134,15 @@ const NavLayout = () => {
           <Link style={styles.links} to="/faqs">
             <div style={{ fontFamily: "Archivo", fontWeight: 500, fontSize: "19px" }}>Faq's</div>
           </Link>
+
+           <Link style={styles.links} to="/login">
+            <div style={{ fontFamily: "Archivo", fontWeight: 500, fontSize: "19px" }}>Login</div>
+          </Link>
+          <Link style={styles.links} to="/signup">
+            <div style={{ fontFamily: "Archivo", fontWeight: 500, fontSize: "19px" }}>Signup</div>
+          </Link>
+
+
           {/* <IoSearch size={26} /> */}
           <Cart count={cartCount} onClick={() => navigate("/cart")} />
           <Button
@@ -206,6 +215,14 @@ const NavLayout = () => {
 
       <Link to="/faqs" style={{ ...styles.mobileLink,  }}>
         Faq's
+      </Link>
+
+      <Link to="/login" style={{ ...styles.mobileLink,  }}>
+        Login
+      </Link>
+      
+      <Link to="/signup" style={{ ...styles.mobileLink,  }}>
+        Sign Up
       </Link>
 
       <Box display="flex" alignItems="center">

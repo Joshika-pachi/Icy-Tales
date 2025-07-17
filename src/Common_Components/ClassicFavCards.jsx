@@ -6,6 +6,12 @@ import { IoStar } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Redux/Reducer";
 import { Link } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { collection, addDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
+import {db} from "../Firebase";
+import { useState } from "react";
 
 const styles = {
   cardContainer: {
@@ -91,17 +97,52 @@ const styles = {
   },
 };
 
-const ClassicFavCards = ({ img, heading, tagline, price, rating, onAddToCart, id }) => {
-  
-const dispatch = useDispatch();
-const item = {
-    id: heading,
-    name: heading,
+const ClassicFavCards = ({
+  img,
+  heading,
+  tagline,
+  price,
+  rating,
+  onAddToCart,
+  id,
+}) => {
+  const dispatch = useDispatch();
+  const auth = getAuth();
+const navigate = useNavigate();
+const [quantity, setQuantity] = useState(1);
+const handleAddToCart = async () => {
+  const user = auth.currentUser;
+
+
+  if (user) {
+    const userId = user.uid; 
+    const item = {
+    id:heading,              
+    name: heading,    
     image: img,
     price,
     rating,
     tagline,
+    quantity
   };
+  console.log(item)
+
+    dispatch(addToCart(item));
+    alert("Item added to cart!");
+
+    try {
+      const cartRef = doc(db, "users", userId, "cart", item.id);
+      await setDoc(cartRef, item); 
+      console.log("Product added to Firestore cart!");
+    } catch (error) {
+      console.error("Error adding to Firestore cart:", error);
+    }
+
+  } else {
+    alert("Please login to add items to cart.");
+    navigate("/login");
+  }
+};
 
   return (
     <Box sx={styles.cardContainer}>
@@ -113,7 +154,7 @@ const item = {
         <Box sx={styles.heading}>{heading}</Box>
         <Box sx={styles.ratingBox}>
           <IoStar size={18} style={{ color: "gold" }} />
-          <span style={{color:'#000'}}>{rating}/5</span>
+          <span style={{ color: "#000" }}>{rating}/5</span>
         </Box>
       </Box>
 
@@ -121,17 +162,24 @@ const item = {
 
       <Box sx={styles.bottomRow}>
         <Box sx={styles.priceText}>${price}</Box>
-        <button
+        {/* <button
           style={styles.cartButton}
           aria-label={`Add ${heading} to cart`}
-        onClick={() => {
-  dispatch(addToCart(item));
-  alert("Item added to cart!");
-}}
+          onClick={() => {
+            dispatch(addToCart(item));
+            alert("Item added to cart!");
+          }}
         >
           <FaShoppingCart size={16} />
-        </button>
-      
+        </button> */}
+        <button
+  style={styles.cartButton}
+  aria-label={`Add ${heading} to cart`}
+  onClick={handleAddToCart}
+>
+  <FaShoppingCart size={16} />
+</button>
+
       </Box>
     </Box>
   );

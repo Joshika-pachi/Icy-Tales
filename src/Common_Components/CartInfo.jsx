@@ -15,6 +15,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaPlus } from "react-icons/fa6";
 import { TiMinus } from "react-icons/ti";
 import PagesHeader from "./PagesHeader";
+import { getAuth } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from '../Firebase'; 
+
+
 
 const styles = {
   container: {
@@ -156,6 +161,31 @@ const CartPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.products.cart);
+  const auth = getAuth();
+
+
+
+const saveCartToFirestore = async (cartArray) => {
+  const user = auth.currentUser;
+  if (user) {
+    
+    navigate("/checkout"); 
+  } else {
+    alert("Please login to proceed to checkout.");
+    navigate("/login");
+  }
+
+  try {
+    await setDoc(doc(db, "users", user.uid), {
+      cart: cartArray
+    });
+    console.log("Cart saved successfully!");
+  } catch (error) {
+    console.error("Error saving cart:", error);
+  }
+  navigate('/checkout')
+};
+
 
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -302,7 +332,7 @@ const CartPage = () => {
               width="75%"
               height={54}
               bcolor={ColorPalette.pink}
-              onClick={() => navigate("/checkout")}
+              onClick={()=>saveCartToFirestore(cartItems)}
             />
           </Box>
 

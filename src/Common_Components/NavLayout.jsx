@@ -12,6 +12,11 @@ import { Box, IconButton, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useSelector } from "react-redux";
+import { IoMdPerson } from "react-icons/io";
+import { auth } from "../Firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useEffect } from "react";
+import { IoPersonOutline } from "react-icons/io5";
 
 const styles = {
   outerDiv: {
@@ -53,16 +58,16 @@ const styles = {
   //   height: "100%",
   // },
   mobileMenu: {
-  width: "100%",
-  maxWidth: 280,
-  padding: "20px",
-  backgroundColor: "#fff",
-  height: "100%",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "flex-start",
-  gap: "20px",
-},
+    width: "100%",
+    maxWidth: 280,
+    padding: "20px",
+    backgroundColor: "#fff",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    gap: "20px",
+  },
   mobileLink: {
     // marginBottom: "15px"
     fontSize: "18px",
@@ -83,16 +88,23 @@ const NavLayout = () => {
     setOpenDrawer(!openDrawer);
   };
 
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   return (
     <Box sx={styles.outerDiv}>
       <Box sx={styles.innerDiv}>
-
-        
         <Box sx={styles.icelogo}>
           <img src={Images.logo} alt="Logo" />
         </Box>
 
-       
         <Box sx={{ ...styles.navlist, display: { xs: "none", md: "flex" } }}>
           <DropDown
             title="Home"
@@ -102,7 +114,15 @@ const NavLayout = () => {
             ]}
           />
           <Link style={styles.links} to="/about">
-            <div style={{ fontFamily: "Archivo", fontWeight: 500, fontSize: "19px" }}>About</div>
+            <div
+              style={{
+                fontFamily: "Archivo",
+                fontWeight: 500,
+                fontSize: "19px",
+              }}
+            >
+              About
+            </div>
           </Link>
           <DropDown
             title="Pages"
@@ -131,17 +151,18 @@ const NavLayout = () => {
               { label: "Four Column", href: "/FourColumn" },
             ]}
           />
+
           <Link style={styles.links} to="/faqs">
-            <div style={{ fontFamily: "Archivo", fontWeight: 500, fontSize: "19px" }}>Faq's</div>
+            <div
+              style={{
+                fontFamily: "Archivo",
+                fontWeight: 500,
+                fontSize: "19px",
+              }}
+            >
+              Faq's
+            </div>
           </Link>
-
-           <Link style={styles.links} to="/login">
-            <div style={{ fontFamily: "Archivo", fontWeight: 500, fontSize: "19px" }}>Login</div>
-          </Link>
-          <Link style={styles.links} to="/signup">
-            <div style={{ fontFamily: "Archivo", fontWeight: 500, fontSize: "19px" }}>Signup</div>
-          </Link>
-
 
           {/* <IoSearch size={26} /> */}
           <Cart count={cartCount} onClick={() => navigate("/cart")} />
@@ -152,9 +173,37 @@ const NavLayout = () => {
             bcolor={ColorPalette.pink}
             onClick={"/contactUs"}
           />
+
+          <NavDropdown
+            title={<IoPersonOutline size={24} />}
+            id="person-dropdown"
+            align="end"
+            style={{ fontSize: "16px", fontWeight: 500 }}
+          >
+            {!user ? (
+              <>
+                <NavDropdown.Item as={Link} to="/login">
+                  Login
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/signup">
+                  Signup
+                </NavDropdown.Item>
+              </>
+            ) : (
+              <NavDropdown.Item
+                onClick={() => {
+                  signOut(auth);
+                  alert("Logged out successfully!");
+                  navigate("/");
+                }}
+              >
+                Logout
+              </NavDropdown.Item>
+            )}
+          </NavDropdown>
+
         </Box>
 
-      
         <IconButton
           sx={{ display: { xs: "block", md: "none" } }}
           onClick={toggleDrawer}
@@ -164,85 +213,107 @@ const NavLayout = () => {
       </Box>
 
       <Drawer anchor="right" open={openDrawer} onClose={toggleDrawer}>
-  <Box sx={{ ...styles.mobileMenu, width: 280, backgroundColor: "#fff" }}>
-    <Box display="flex" justifyContent="flex-end" mb={1}>
-      <IconButton onClick={toggleDrawer}>
-        <CloseIcon />
-      </IconButton>
-    </Box>
+        <Box sx={{ ...styles.mobileMenu, width: 280, backgroundColor: "#fff" }}>
+          <Box display="flex" justifyContent="flex-end" mb={1}>
+            <IconButton onClick={toggleDrawer}>
+              <CloseIcon />
+            </IconButton>
+          </Box>
 
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-        <DropDown
-          title="Home"
-          options={[
-            { label: "Explore Our Vegan Shop", href: "/home2" },
-            { label: "Have a look at our gelato collection", href: "/home3" },
-          ]}
-        />
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <DropDown
+              title="Home"
+              options={[
+                { label: "Explore Our Vegan Shop", href: "/home2" },
+                {
+                  label: "Have a look at our gelato collection",
+                  href: "/home3",
+                },
+              ]}
+            />
 
-      <Link to="/about" style={{ ...styles.mobileLink,  }}>
-        About
-      </Link>
+            <Link to="/about" style={{ ...styles.mobileLink }}>
+              About
+            </Link>
 
-      <DropDown
-        title="Pages"
-        options={[
-          { label: "Team", href: "/team" },
-          { label: "Reviews", href: "/review" },
-          { label: "Special Offers", href: "/specialOffers" },
-          { label: "404", href: "/error" },
-          { label: "Coming Soon", href: "/comingSoon" },
-          { label: "Privacy Policy", href: "/privacyPolicy" },
-          { label: "Terms & Conditions", href: "/termsConditions" },
-          { label: "Thank You", href: "/thankYou" },
-          { label: "Shop 1", href: "/shop1" },
-          { label: "Shop 2", href: "/shop2" },
-          { label: "Shop 3", href: "/shop3" },
-        ]}
-      />
+            <DropDown
+              title="Pages"
+              options={[
+                { label: "Team", href: "/team" },
+                { label: "Reviews", href: "/review" },
+                { label: "Special Offers", href: "/specialOffers" },
+                { label: "404", href: "/error" },
+                { label: "Coming Soon", href: "/comingSoon" },
+                { label: "Privacy Policy", href: "/privacyPolicy" },
+                { label: "Terms & Conditions", href: "/termsConditions" },
+                { label: "Thank You", href: "/thankYou" },
+                { label: "Shop 1", href: "/shop1" },
+                { label: "Shop 2", href: "/shop2" },
+                { label: "Shop 3", href: "/shop3" },
+              ]}
+            />
 
-      <DropDown
-        title="Blog"
-        options={[
-          { label: "Blog", href: "/blog1" },
-          { label: "Load More", href: "/loadMore" },
-          { label: "One Column", href: "/OneColumn" },
-          // { label: "Two Column", href: "/TwoColumn" },
-          // { label: "Three Column", href: "/ThreeColumn" },
-          // { label: "Four Column", href: "/FourColumn" },
-        ]}
-      />
+            <DropDown
+              title="Blog"
+              options={[
+                { label: "Blog", href: "/blog1" },
+                { label: "Load More", href: "/loadMore" },
+                { label: "One Column", href: "/OneColumn" },
+                // { label: "Two Column", href: "/TwoColumn" },
+                // { label: "Three Column", href: "/ThreeColumn" },
+                // { label: "Four Column", href: "/FourColumn" },
+              ]}
+            />
 
-      <Link to="/faqs" style={{ ...styles.mobileLink,  }}>
-        Faq's
-      </Link>
+            <Link to="/faqs" style={{ ...styles.mobileLink }}>
+              Faq's
+            </Link>
 
-      <Link to="/login" style={{ ...styles.mobileLink,  }}>
-        Login
-      </Link>
-      
-      <Link to="/signup" style={{ ...styles.mobileLink,  }}>
-        Sign Up
-      </Link>
+            <Box display="flex" alignItems="center">
+              <Cart count={cartCount} onClick={() => navigate("/cart")} />
+              <Box sx={{ ml: 1 }}>Cart</Box>
+            </Box>
 
-      <Box display="flex" alignItems="center">
-        <Cart count={cartCount} onClick={() => navigate("/cart")} />
-          <Box sx={{ml:1}}>Cart</Box>
-      </Box>
+            <Box mt={3} textAlign="center">
+              <Button
+                text={"Contact Us"}
+                width={180}
+                height={48}
+                bcolor={ColorPalette.pink}
+                onClick={"/contactUs"}
+              />
+            </Box>
 
-      <Box mt={3} textAlign="center">
-        <Button
-          text={"Contact Us"}
-          width={180}
-          height={48}
-          bcolor={ColorPalette.pink}
-          onClick={"/contactUs"}
-        />
-      </Box>
-    </Box>
-  </Box>
-</Drawer>
-
+            <NavDropdown
+            title={<IoMdPerson size={24} />}
+            id="person-dropdown"
+            align="end"
+            style={{ fontSize: "16px", fontWeight: 500 }}
+          >
+            {!user ? (
+              <>
+                <NavDropdown.Item as={Link} to="/login">
+                  Login
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/signup">
+                  Signup
+                </NavDropdown.Item>
+              </>
+            ) : (
+              <NavDropdown.Item
+                onClick={() => {
+                  signOut(auth);
+                  alert("Logged out successfully!");
+                  navigate("/");
+                }}
+              >
+                Logout
+              </NavDropdown.Item>
+            )}
+          </NavDropdown>
+          </Box>
+        </Box>
+      </Drawer>
     </Box>
   );
 };

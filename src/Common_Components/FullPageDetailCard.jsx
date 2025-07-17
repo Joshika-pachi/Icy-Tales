@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  Box,
-  Grid,
-  Typography,
-  Button,
-  Tab,
-} from "@mui/material";
+import { Box, Grid, Typography, Button, Tab } from "@mui/material";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
@@ -16,6 +10,10 @@ import Carousel from "../Common_Components/Carousel";
 import CarouselData from "../Data/CarouselData";
 import PagesHeader from "./PagesHeader";
 import { addToCart } from "../Redux/Reducer";
+import { getAuth } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../Firebase";
 
 const styles = {
   mainBox: {
@@ -44,28 +42,53 @@ const styles = {
 const ProductDetail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const auth = getAuth();
+  const navigate = useNavigate();
+  const [quantity, setQuantity] = useState(1);
 
   const product = useSelector((state) =>
     state.products.allProducts.find((item) => item.id.toString() === id)
   );
 
   const related = useSelector((state) =>
-    state.products.allProducts.filter((item) => item.id.toString() !== id).slice(0, 4)
+    state.products.allProducts
+      .filter((item) => item.id.toString() !== id)
+      .slice(0, 4)
   );
 
   const [tabIndex, setTabIndex] = useState("0");
-  const [selectedImage, setSelectedImage] = useState(product?.images?.[0] || product?.image);
+  const [selectedImage, setSelectedImage] = useState(
+    product?.images?.[0] || product?.image
+  );
 
   if (!product) return <Typography>Product not found.</Typography>;
 
   return (
     <Box>
-      <PagesHeader title="Single Product Details" path="Single Product Details" />
+      <PagesHeader
+        title="Single Product Details"
+        path="Single Product Details"
+      />
       <Box p={{ xs: 2, md: 5 }} sx={styles.mainBox}>
-        <Grid container spacing={4} justifyContent="center" alignItems="center" mt={3}>
+        <Grid
+          container
+          spacing={4}
+          justifyContent="center"
+          alignItems="center"
+          mt={3}
+        >
           <Grid item xs={12} md={6}>
-            <Box display="flex" flexDirection="column" alignItems="center" gap={2}>
-              <img src={selectedImage} alt={product.name} style={styles.productImage} />
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              gap={2}
+            >
+              <img
+                src={selectedImage}
+                alt={product.name}
+                style={styles.productImage}
+              />
 
               <Box display="flex" justifyContent="center" flexWrap="wrap">
                 {product.images?.map((img, index) => (
@@ -76,9 +99,10 @@ const ProductDetail = () => {
                     onClick={() => setSelectedImage(img)}
                     style={{
                       ...styles.thumbnail,
-                      border: selectedImage === img
-                        ? `2px solid ${ColorPalette.pink}`
-                        : "1px solid #ccc",
+                      border:
+                        selectedImage === img
+                          ? `2px solid ${ColorPalette.pink}`
+                          : "1px solid #ccc",
                     }}
                   />
                 ))}
@@ -88,9 +112,15 @@ const ProductDetail = () => {
 
           <Grid item xs={12} md={6}>
             <Typography variant="h6">⭐ {product.rating} / 5</Typography>
-            <Typography variant="h4" fontWeight={600}>{product.name}</Typography>
-            <Typography variant="subtitle1" mt={1}>{product.tagline}</Typography>
-            <Typography variant="h5" color={ColorPalette.violet} mt={2}>$ {product.price}</Typography>
+            <Typography variant="h4" fontWeight={600}>
+              {product.name}
+            </Typography>
+            <Typography variant="subtitle1" mt={1}>
+              {product.tagline}
+            </Typography>
+            <Typography variant="h5" color={ColorPalette.violet} mt={2}>
+              $ {product.price}
+            </Typography>
 
             <Box mt={2} display="flex" gap={1} flexWrap="wrap">
               {product.sizes?.map((size, index) => (
@@ -101,11 +131,24 @@ const ProductDetail = () => {
             </Box>
 
             <Box mt={3} display="flex" alignItems="center" gap={2}>
-              <input
+              {/* <input
                 type="number"
                 defaultValue={1}
                 min={1}
                 max={99}
+                style={{
+                  width: 60,
+                  padding: 8,
+                  borderRadius: 8,
+                  border: "1px solid #ccc",
+                }}
+              /> */}
+              <input
+                type="number"
+                min={1}
+                max={99}
+                value={quantity}
+                onChange={(e) => setQuantity(Number(e.target.value))}
                 style={{
                   width: 60,
                   padding: 8,
@@ -118,9 +161,47 @@ const ProductDetail = () => {
                 sx={{
                   backgroundColor: ColorPalette.pink,
                   textTransform: "none",
-                  "&:hover": { backgroundColor: ColorPalette.violet }
+                  "&:hover": { backgroundColor: ColorPalette.violet },
                 }}
-                onClick={() => dispatch(addToCart(product))}
+                // onClick={() => dispatch(addToCart(product))}
+                onClick={async () => {
+                  const user = auth.currentUser;
+
+                  if (!user) {
+                    alert("Please login to add items to cart.");
+                    navigate("/login");
+                    return;
+                  }
+
+                  const userId = user.uid;
+
+                  const item = {
+                    id: product.id,
+                    name: product.name,
+                    image: product.image || product.images?.[0] || "",
+                    price: product.price,
+                    rating: product.rating,
+                    tagline: product.tagline,
+                    quantity, 
+                  };
+
+                  dispatch(addToCart(item));
+                  alert("Item added to cart!");
+
+                  try {
+                    const cartRef = doc(
+                      db,
+                      "users",
+                      userId,
+                      "cart",
+                      item.id.toString()
+                    );
+                    await setDoc(cartRef, item);
+                    console.log(" Product added to Firestore cart!");
+                  } catch (error) {
+                    console.error(" Error adding to Firestore cart:", error);
+                  }
+                }}
               >
                 Add to Cart
               </Button>
@@ -135,15 +216,37 @@ const ProductDetail = () => {
                 onChange={(e, val) => setTabIndex(val)}
                 aria-label="product tabs"
                 textColor="inherit"
-                TabIndicatorProps={{ style: { backgroundColor: ColorPalette.pink } }}
+                TabIndicatorProps={{
+                  style: { backgroundColor: ColorPalette.pink },
+                }}
               >
-                <Tab label="Description" value="0" sx={{ color: tabIndex === "0" ? ColorPalette.pink : "inherit" }} />
-                <Tab label="Additional Information" value="1" sx={{ color: tabIndex === "1" ? ColorPalette.pink : "inherit" }} />
-                <Tab label="Reviews" value="2" sx={{ color: tabIndex === "2" ? ColorPalette.pink : "inherit" }} />
+                <Tab
+                  label="Description"
+                  value="0"
+                  sx={{
+                    color: tabIndex === "0" ? ColorPalette.pink : "inherit",
+                  }}
+                />
+                <Tab
+                  label="Additional Information"
+                  value="1"
+                  sx={{
+                    color: tabIndex === "1" ? ColorPalette.pink : "inherit",
+                  }}
+                />
+                <Tab
+                  label="Reviews"
+                  value="2"
+                  sx={{
+                    color: tabIndex === "2" ? ColorPalette.pink : "inherit",
+                  }}
+                />
               </TabList>
             </Box>
             <TabPanel value="0">
-              <Typography>{product.description || "No description available."}</Typography>
+              <Typography>
+                {product.description || "No description available."}
+              </Typography>
             </TabPanel>
             <TabPanel value="1">
               <Typography>No additional information.</Typography>

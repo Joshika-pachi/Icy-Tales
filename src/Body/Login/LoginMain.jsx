@@ -1,223 +1,82 @@
-// import React, { useState } from "react";
-// import { Box, Typography, TextField, Button, Link as MuiLink } from "@mui/material";
-// import { FcGoogle } from "react-icons/fc";
-// import { FaGithub, FaLinkedin } from "react-icons/fa";
-// import { Link } from "react-router-dom";
-// import loginImage from "./login-image.jpg";
-// import { ColorPalette } from "../../Assets/Colors";
-// import Images from "../../Assets/Images/Image";
-// import { Col } from "react-bootstrap";
-
-// function LoginMain() {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [message, setMessage] = useState("");
-
-//   const handleLogin = (e) => {
-//     e.preventDefault();
-//     const storedUser = JSON.parse(localStorage.getItem("signupUser"));
-
-//     if (storedUser && storedUser.email === email && storedUser.password === password) {
-//       setMessage("Login successful!");
-//     } else {
-//       setMessage("Invalid email or password");
-//     }
-//   };
-
-//   return (
-//     <Box
-//       sx={{
-//         minHeight: "100vh",
-//         display: "flex",
-//         alignItems: "center",
-//         justifyContent: "center",
-//         background: ColorPalette.gradient,
-//         padding: 2,
-//         fontFamily:"Archivo"
-//       }}
-//     >
-//       <Box
-//         sx={{
-//           display: "flex",
-//           flexDirection: { xs: "column", md: "row" },
-//           width: { xs: "100%", sm: "90%", md: "800px" },
-//           maxWidth: "1000px",
-//           boxShadow: 4,
-//           borderRadius: 2,
-//           overflow: "hidden",
-//           backgroundColor: "white",
-//         }}
-//       >
-//         {/* Image Side */}
-//         <Box
-//           sx={{
-//             flex: 1,
-//             backgroundImage: `url(${Images.Home2Comp3Image})`,
-//             backgroundSize: "cover",
-//             backgroundRepeat: "no-repeat",
-//             backgroundPosition: "center",
-//             display: { xs: "none", md: "block" },
-//           }}
-//         />
-
-//         {/* Form Side */}
-//         <Box
-//           component="form"
-//           onSubmit={handleLogin}
-//           sx={{
-//             flex: 1,
-//             p: 4,
-//             display: "flex",
-//             flexDirection: "column",
-//             gap: 2,
-//           }}
-//         >
-//           <Typography variant="h4" align="center" fontWeight={600} color={ColorPalette.pink} fontFamily="Archivo">
-//             LOGIN
-//           </Typography>
-//           <hr />
-
-//           <Box>
-//             <Typography fontWeight="bold" color="#646464">Email:</Typography>
-//             <TextField
-//               fullWidth
-//               size="small"
-//               type="email"
-//               required
-//               value={email}
-//               onChange={(e) => setEmail(e.target.value)}
-//             />
-//           </Box>
-
-//           <Box>
-//             <Typography fontWeight="bold" color="#646464">Password:</Typography>
-//             <TextField
-//               fullWidth
-//               size="small"
-//               type="password"
-//               required
-//               value={password}
-//               onChange={(e) => setPassword(e.target.value)}
-//               sx={{color:ColorPalette.tagline}}
-//             />
-//           </Box>
-
-//           {message && (
-//             <Typography
-//               sx={{
-//                 color: message.includes("success") ? "green" : "red",
-//                 textAlign: "center",
-//               }}
-//             >
-//               {message}
-//             </Typography>
-//           )}
-
-//           <Button type="submit" fullWidth variant="contained" sx={{ mt: 2, bgcolor: ColorPalette.pink, color: "white" }}>
-//             Login
-//           </Button>
-
-//           <Box
-//             sx={{
-//               display: "flex",
-//               justifyContent: "space-between",
-//               mt: 2,
-//               fontSize: "14px",
-//             }}
-//           >
-//             <MuiLink href="#" underline="hover" color="#646464" fontSize="16px" fontWeight="600">
-//               Forgot Password?
-//             </MuiLink>
-//             <MuiLink component={Link} to="/signup" underline="hover" color="#646464" fontSize="16px" fontWeight="600">
-//               Signup
-//             </MuiLink>
-//           </Box>
-
-//           <hr />
-
-//           <Typography  align="center" sx={{color:ColorPalette.pink, fontWeight:"550"}}>
-//             Or Login With:
-//           </Typography>
-
-//           <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
-//             <MuiLink
-//               href="https://accounts.google.com/signin"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               sx={iconButtonStyle}
-//             >
-//               <FcGoogle size={23} />
-//             </MuiLink>
-
-//             <MuiLink
-//               href="https://github.com/Joshika-pachi"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               sx={iconButtonStyle}
-//             >
-//               <FaGithub size={23} />
-//             </MuiLink>
-
-//             <MuiLink
-//               href="https://www.linkedin.com/in/joshika-pachi-0b1b2a1b6/"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               sx={iconButtonStyle}
-//             >
-//               <FaLinkedin size={23} color="#0A66C2" />
-//             </MuiLink>
-//           </Box>
-//         </Box>
-//       </Box>
-//     </Box>
-//   );
-// }
-
-// const iconButtonStyle = {
-//   display: "flex",
-//   alignItems: "center",
-//   justifyContent: "center",
-//   width: "48px",
-//   height: "48px",
-//   borderRadius: "8px",
-//   border: "1px solid #ccc",
-//   cursor: "pointer",
-// };
-
-// export default LoginMain;
-
 import React, { useState } from 'react';
 import {
   Box, Button, TextField, Typography, Checkbox, FormControlLabel
 } from '@mui/material';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
-
-// Your assets
-// import loginIce from '../../Assets/Images/loginIce.png';
-// import circle1 from '../../Assets/Decoratives/circle1.png';
-// import triangle1 from '../../Assets/Decoratives/triangle1.png';
+import { Link, useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth, db} from "../../Firebase"; 
 import Images from '../../Assets/Images/Image';
+import { useDispatch } from 'react-redux';
+import { setCartFromFirebase } from "../../Redux/Reducer";
+import { doc, getDoc } from 'firebase/firestore';
 
 function LoginMain() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
+ 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const storedUser = JSON.parse(localStorage.getItem('signupUser'));
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    if (!email || !password) {
-      setMessage('Please fill in all fields');
-      return;
-    }
-    if (storedUser?.email === email && storedUser?.password === password) {
-      setMessage('Login successful!');
+  //   if (!email || !password) {
+  //     setMessage('Please fill in all fields');
+  //     return;
+  //   }
+
+  //   try {
+  //     await signInWithEmailAndPassword(auth, email, password);
+  //     setMessage('Login successful!');
+  //     const userDocRef = doc(db, 'users', user.uid);
+  //   const userSnap = await getDoc(userDocRef);
+
+  //   if (userSnap.exists()) {
+  //     const cartData = userSnap.data().cart || [];
+  //     dispatch(setCartFromFirebase(cartData)); 
+  //   } else {
+  //     console.log('No cart found for user');
+  //   }
+
+  //   navigate('/');
+  // } catch (error) {
+  //   setMessage('Invalid email or password');
+  // }
+  // };
+
+  const dispatch = useDispatch();
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!email || !password) {
+    setMessage('Please fill in all fields');
+    return;
+  }
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    setMessage('Login successful!');
+
+    
+    const userDocRef = doc(db, 'users', user.uid);
+    const userSnap = await getDoc(userDocRef);
+
+    if (userSnap.exists()) {
+      const cartData = userSnap.data().cart || [];
+      dispatch(setCartFromFirebase(cartData)); 
     } else {
-      setMessage('Invalid email or password');
+      console.log('No cart found for user');
     }
-  };
+
+    navigate('/');
+  } catch (error) {
+    setMessage('Invalid email or password');
+  }
+};
 
   return (
     <Box
@@ -232,7 +91,6 @@ function LoginMain() {
         px: 2,
       }}
     >
-
       {/* Decorative Images */}
       <Box
         component="img"
@@ -244,7 +102,7 @@ function LoginMain() {
           left: '80px',
           width: '40px',
           zIndex: 1,
-          scale:"1.5"
+          scale: '1.5',
         }}
       />
       <Box
@@ -257,7 +115,7 @@ function LoginMain() {
           right: '10%',
           width: '30px',
           zIndex: 1,
-          scale:"1.5"
+          scale: '1.5',
         }}
       />
 
@@ -275,7 +133,7 @@ function LoginMain() {
           zIndex: 2,
         }}
       >
-        {/* Left Image Box with gradient */}
+        {/* Left Image Box */}
         <Box
           sx={{
             flex: 1,
@@ -295,11 +153,12 @@ function LoginMain() {
               maxHeight: '500px',
               transform: 'rotate(35deg) scale(1.2)',
               objectFit: 'contain',
+              display:{xs:'none', md:"block"}
             }}
           />
         </Box>
 
-        {/* Right Form Box */}
+        {/* Login Form */}
         <Box
           component="form"
           onSubmit={handleSubmit}
@@ -384,6 +243,7 @@ function LoginMain() {
             </Typography>
           )}
 
+          {/* Sign In Button */}
           <Button
             type="submit"
             fullWidth
@@ -400,10 +260,10 @@ function LoginMain() {
               textTransform: 'none',
             }}
           >
-            Sign In
+            Login
           </Button>
 
-          {/* Google Sign In - Gray Border */}
+          {/* Google Sign In Button (non-functional placeholder for now) */}
           <Button
             fullWidth
             startIcon={<FcGoogle />}

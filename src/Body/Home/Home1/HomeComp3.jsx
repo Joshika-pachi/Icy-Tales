@@ -98,6 +98,7 @@ const HomeComp3 = () => {
                 price={5.29}
                 rating={4.9}
                 onclick={'#'}
+                
               />
               <ClassicFavCards
                 img={Images.ClassicFavImage3}

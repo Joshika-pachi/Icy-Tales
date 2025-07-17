@@ -42,8 +42,11 @@ const Reducer = createSlice({
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        state.cart.push({ ...product, quantity: 1 });
+        state.cart.push({ ...product, quantity: product.quantity ||1  });
       }
+    },
+    setCartFromFirebase: (state, action) => {
+      state.cart = action.payload;
     },
 
     removeFromCart: (state, action) => {
@@ -67,6 +70,6 @@ const Reducer = createSlice({
   },
 });
 
-export const { setCategory, setPriceRange, setSort, setSearchTerm, addToCart, removeFromCart, incrementQuantity, decrementQuantity } = Reducer.actions;
+export const { setCategory, setPriceRange, setSort, setSearchTerm, addToCart, removeFromCart, incrementQuantity, decrementQuantity, setCartFromFirebase } = Reducer.actions;
 
 export default Reducer.reducer;

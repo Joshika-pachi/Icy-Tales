@@ -17,6 +17,8 @@ import { auth } from "../Firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect } from "react";
 import { IoPersonOutline } from "react-icons/io5";
+import { useDispatch } from "react-redux";
+import { clearCart } from "../Redux/Reducer";
 
 const styles = {
   outerDiv: {
@@ -82,7 +84,8 @@ const NavLayout = () => {
   const navigate = useNavigate();
   const [openDrawer, setOpenDrawer] = useState(false);
   const cart = useSelector((state) => state.products.cart);
-  const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+  const cartCount = cart.length;
+  const dispatch=useDispatch();
 
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer);
@@ -193,6 +196,7 @@ const NavLayout = () => {
               <NavDropdown.Item
                 onClick={() => {
                   signOut(auth);
+                  dispatch(clearCart());
                   alert("Logged out successfully!");
                   navigate("/");
                 }}
@@ -303,6 +307,7 @@ const NavLayout = () => {
               <NavDropdown.Item
                 onClick={() => {
                   signOut(auth);
+                  dispatch(clearCart());
                   alert("Logged out successfully!");
                   navigate("/");
                 }}

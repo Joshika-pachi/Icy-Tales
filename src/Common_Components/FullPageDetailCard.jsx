@@ -63,6 +63,8 @@ const ProductDetail = () => {
 
   if (!product) return <Typography>Product not found.</Typography>;
 
+
+
   return (
     <Box>
       <PagesHeader

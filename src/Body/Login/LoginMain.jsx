@@ -16,34 +16,7 @@ function LoginMain() {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
- 
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   if (!email || !password) {
-  //     setMessage('Please fill in all fields');
-  //     return;
-  //   }
-
-  //   try {
-  //     await signInWithEmailAndPassword(auth, email, password);
-  //     setMessage('Login successful!');
-  //     const userDocRef = doc(db, 'users', user.uid);
-  //   const userSnap = await getDoc(userDocRef);
-
-  //   if (userSnap.exists()) {
-  //     const cartData = userSnap.data().cart || [];
-  //     dispatch(setCartFromFirebase(cartData)); 
-  //   } else {
-  //     console.log('No cart found for user');
-  //   }
-
-  //   navigate('/');
-  // } catch (error) {
-  //   setMessage('Invalid email or password');
-  // }
-  // };
 
   const dispatch = useDispatch();
 
@@ -60,17 +33,6 @@ const handleSubmit = async (e) => {
     const user = userCredential.user;
 
     setMessage('Login successful!');
-
-    
-    const userDocRef = doc(db, 'users', user.uid);
-    const userSnap = await getDoc(userDocRef);
-
-    if (userSnap.exists()) {
-      const cartData = userSnap.data().cart || [];
-      dispatch(setCartFromFirebase(cartData)); 
-    } else {
-      console.log('No cart found for user');
-    }
 
     navigate('/');
   } catch (error) {
@@ -91,7 +53,7 @@ const handleSubmit = async (e) => {
         px: 2,
       }}
     >
-      {/* Decorative Images */}
+     
       <Box
         component="img"
         src={Images.SideCircles}
@@ -119,7 +81,7 @@ const handleSubmit = async (e) => {
         }}
       />
 
-      {/* Main container */}
+      
       <Box
         sx={{
           maxWidth: '1000px',
@@ -133,7 +95,7 @@ const handleSubmit = async (e) => {
           zIndex: 2,
         }}
       >
-        {/* Left Image Box */}
+        
         <Box
           sx={{
             flex: 1,
@@ -158,7 +120,7 @@ const handleSubmit = async (e) => {
           />
         </Box>
 
-        {/* Login Form */}
+       
         <Box
           component="form"
           onSubmit={handleSubmit}
@@ -186,7 +148,7 @@ const handleSubmit = async (e) => {
             Welcome back! Please enter your details
           </Typography>
 
-          {/* Email */}
+        
           <Box>
             <Typography sx={{ mb: 0.5, fontWeight: 500, fontSize: '14px' }}>Email</Typography>
             <TextField
@@ -206,7 +168,7 @@ const handleSubmit = async (e) => {
             />
           </Box>
 
-          {/* Password */}
+        
           <Box>
             <Typography sx={{ mb: 0.5, fontWeight: 500, fontSize: '14px' }}>Password</Typography>
             <TextField
@@ -243,7 +205,7 @@ const handleSubmit = async (e) => {
             </Typography>
           )}
 
-          {/* Sign In Button */}
+         
           <Button
             type="submit"
             fullWidth
@@ -263,7 +225,7 @@ const handleSubmit = async (e) => {
             Login
           </Button>
 
-          {/* Google Sign In Button (non-functional placeholder for now) */}
+        
           <Button
             fullWidth
             startIcon={<FcGoogle />}

@@ -45,10 +45,6 @@ const Reducer = createSlice({
         state.cart.push({ ...product, quantity: product.quantity ||1  });
       }
     },
-    setCartFromFirebase: (state, action) => {
-      state.cart = action.payload;
-    },
-
     removeFromCart: (state, action) => {
       const productId = action.payload;
       state.cart = state.cart.filter((item) => item.id !== productId);
@@ -67,9 +63,15 @@ const Reducer = createSlice({
         item.quantity -= 1;
       }
     },
+    setCart:(state,action)=>{
+      state.cart=action.payload
+    },
+    clearCart: (state) => {
+      state.cart = [];
+    },
   },
 });
 
-export const { setCategory, setPriceRange, setSort, setSearchTerm, addToCart, removeFromCart, incrementQuantity, decrementQuantity, setCartFromFirebase } = Reducer.actions;
+export const { setCategory, setPriceRange, setSort, setSearchTerm, addToCart, removeFromCart, incrementQuantity, decrementQuantity, setCart, clearCart } = Reducer.actions;
 
 export default Reducer.reducer;

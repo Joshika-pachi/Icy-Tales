@@ -16,8 +16,9 @@ import { FaPlus } from "react-icons/fa6";
 import { TiMinus } from "react-icons/ti";
 import PagesHeader from "./PagesHeader";
 import { getAuth } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
-import { db } from '../Firebase'; 
+import { doc, setDoc, updateDoc, deleteDoc, collection, getDocs } from "firebase/firestore";
+import { db, auth } from '../Firebase';
+import { useAuthState } from "react-firebase-hooks/auth"; 
 
 
 
@@ -162,6 +163,8 @@ const CartPage = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.products.cart);
   const auth = getAuth();
+  const [user]=useAuthState(auth)
+
 
 
 
@@ -185,6 +188,28 @@ const saveCartToFirestore = async (cartArray) => {
   }
   navigate('/checkout')
 };
+
+const updateCartInFirestore = async (productId, quantity) => {
+    if (!user) return;
+    const ref = doc(db, "users", user.uid, "cart", productId.toString());
+    await updateDoc(ref, { quantity });
+  };
+
+  const deleteCartItemFromFirestore = async (productId) => {
+    if (!user) return;
+    const ref = doc(db, "users", user.uid, "cart", productId.toString());
+    await deleteDoc(ref);
+  };
+
+  const clearFirestoreCart = async () => {
+    if (!user) return;
+    const cartRef = collection(db, "users", user.uid, "cart");
+    const snapshot = await getDocs(cartRef);
+    snapshot.forEach((docSnap) =>
+      deleteDoc(doc(db, "users", user.uid, "cart", docSnap.id))
+    );
+  };
+
 
 
   const subtotal = cartItems.reduce(
@@ -232,14 +257,18 @@ const saveCartToFirestore = async (cartArray) => {
                   <td style={{ textAlign: "center" }}>
                     <Box sx={styles.quantityBox}>
                       <Box
-                        onClick={() => dispatch(incrementQuantity(item.id))}
+                        onClick={() => {dispatch(incrementQuantity(item.id));
+                          updateCartInFirestore(item.id,item.quantity+1)
+                        }}
                         sx={{ cursor: "pointer" }}
                       >
                         <FaPlus />
                       </Box>
                       {item.quantity}
                       <Box
-                        onClick={() => dispatch(decrementQuantity(item.id))}
+                        onClick={() => {dispatch(decrementQuantity(item.id));
+                          updateCartInFirestore(item.id, item.quantity-1)
+                        }}
                         sx={{ cursor: "pointer" }}
                       >
                         <TiMinus />
@@ -252,7 +281,9 @@ const saveCartToFirestore = async (cartArray) => {
                   <td style={{ textAlign: "center" }}>
                     <Box
                       sx={styles.removeBtn}
-                      onClick={() => dispatch(removeFromCart(item.id))}
+                      onClick={() => {dispatch(removeFromCart(item.id));
+                        deleteCartItemFromFirestore(item.id)
+                      }}
                     >
                       <ImCross />
                     </Box>

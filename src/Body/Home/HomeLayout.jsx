@@ -21,18 +21,25 @@ import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import NavLayout from "../../Common_Components/NavLayout";
 import Footer from "../../Common_Components/Footer";
+import CartSync from "../../CartSync";
+import Loader from "../../Loader";
+import { useDispatch } from "react-redux";
+
 
 
 const HomeLayout = () => {
   const location = useLocation();
+  const dispatch= useDispatch();
 
-  // Hide these components on login or signup paths
+  
   const hideComponentsOnPaths = ["/login", "/signup"];
 
   const shouldHide = hideComponentsOnPaths.includes(location.pathname);
 
   return (
     <div>
+      <CartSync />
+     
       {!shouldHide && <NavLayout />}
      
 

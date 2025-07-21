@@ -111,7 +111,7 @@ const Home2Comp5 = () => {
               width={180}
               height={58}
               bcolor={ColorPalette.violet}
-              onClick={"#"}
+              onClick={"/specialOffers"}
             />
           </Box>
 

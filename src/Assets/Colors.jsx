@@ -2,7 +2,7 @@ export const ColorPalette = {
   gradient: 'linear-gradient(to right, #EFD7EF, #F5F9FC, #F8EAE1, #EAF8F9)',
   pink:"#F83D8E",
   violet:'#683292',
-  wbgradient: 'linear-gradient(to right,#FFFFFF,#000000)',
+  wbgradient: 'linear-gradient(to bottom,#FFFFFF,#000000)',
   tagline:"#646464",
   white:"#FFFFFF",
 };

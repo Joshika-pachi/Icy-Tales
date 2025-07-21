@@ -12,7 +12,7 @@ const styles = {
     justifyContent: { md: "space-between" },
     alignItems: "center",
     paddingBottom: "30px",
-    backgroundColor: ColorPalette.gradient,
+    backgroundColor: ColorPalette.white,
     overflowX: "auto",
   },
   ThirdBox: {

@@ -48,7 +48,6 @@ import FourColumn from "./Body/Blog/FourColumn";
 import LoginLayout from "./Body/Login/LoginLayout";
 import SignupMain from "./Body/Login/SignupMain";
 
-
 const routing = createBrowserRouter([
   {
     path: "/",
@@ -166,7 +165,7 @@ const routing = createBrowserRouter([
       {
         path:"signup",
         element:<SignupMain />
-      }
+      },
     ],
   },
 ]);

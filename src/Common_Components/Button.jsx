@@ -30,9 +30,11 @@ const Button = ({text,width, height,bcolor, onClick}) => {
 
   return (
     <button style={style} onClick={handleClick}>
-      {text}  <FaArrowRight size={17}/>
+      {text}  <FaArrowRight size={17} data-testid="arrow-icon"/>
     </button>
   );
 };
 
 export default Button;
+
+

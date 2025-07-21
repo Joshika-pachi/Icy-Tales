@@ -93,13 +93,51 @@ const HomeComp1 = () => {
             />
           </Box>
         </Box>
-        <Box sx={{display:{xs:"none", md:"flex"}}}>
+        {/* <Box sx={{display:{xs:"none", md:"flex"}}}>
+          <Box sx={{height:'100px', width:'100px', borderRadius:'50%', backgroundColor:ColorPalette.wbgradient, overflow:'hidden'}}>
           <img
             src={Images.bigicecream}
             alt="big icecream"
             style={styles.image}
           />
-        </Box>
+          </Box>
+        </Box> */}
+
+<Box
+  sx={{
+    position: "relative",
+    display: { xs: "none", md: "flex" },
+    alignItems: "center",
+    justifyContent: "center",
+    width: "fit-content",
+  }}
+>
+  {/* Background circle */}
+  <Box
+    sx={{
+      position: "absolute",
+      height: "200px",    // Small circle
+      width: "200px",
+      borderRadius: "50%",
+      background: ColorPalette.wbgradient,
+      zIndex: 1,
+    }}
+  />
+
+  {/* Big image above the circle */}
+  <img
+    src={Images.bigicecream}
+    alt="big icecream"
+    style={{
+      height: "420px",    // Big image
+      width: "420px",
+      objectFit: "contain",
+      zIndex: 2,
+      position: "relative",
+    }}
+  />
+</Box>
+
       </Box>
     </Box>
   )

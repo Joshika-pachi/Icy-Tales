@@ -12,6 +12,8 @@ import { collection, addDoc } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore";
 import {db} from "../Firebase";
 import { useState } from "react";
+import Snackbar from '@mui/material/Snackbar';
+
 
 const styles = {
   cardContainer: {
@@ -110,6 +112,11 @@ const ClassicFavCards = ({
   const auth = getAuth();
 const navigate = useNavigate();
 const [quantity, setQuantity] = useState(1);
+
+const [snackOpen, setSnackOpen] = useState(false);
+const [snackMessage, setSnackMessage] = useState('');
+
+
 const handleAddToCart = async () => {
   const user = auth.currentUser;
 
@@ -128,7 +135,10 @@ const handleAddToCart = async () => {
   console.log(item)
 
     dispatch(addToCart(item));
-    alert("Item added to cart!");
+    // alert("Item added to cart!");
+    setSnackMessage("Item added to cart!");
+    setSnackOpen(true);
+    
 
     try {
       const cartRef = doc(db, "users", userId, "cart", item.id);
@@ -139,7 +149,8 @@ const handleAddToCart = async () => {
     }
 
   } else {
-    alert("Please login to add items to cart.");
+     setSnackMessage("Please login to add items to cart.");
+    setSnackOpen(true);
     navigate("/login");
   }
 };
@@ -179,6 +190,20 @@ const handleAddToCart = async () => {
 >
   <FaShoppingCart size={16} />
 </button>
+ <Snackbar
+      open={snackOpen}
+      autoHideDuration={3000}
+      onClose={() => setSnackOpen(false)}
+      message={snackMessage}
+      anchorOrigin={{ vertical: "top", horizontal: "center" }}
+       ContentProps={{
+    sx: {
+      backgroundColor: ColorPalette.pink,
+      color: "#fff", 
+      fontWeight: 'bold', 
+    },
+  }}
+    />
 
       </Box>
     </Box>

@@ -50,6 +50,7 @@ const styles = {
     fontWeight: "400",
     textAlign: "center",
     fontSize: "16px",
+    marginTop:"30px"
   },
   button: {
     fontSize: "30px",

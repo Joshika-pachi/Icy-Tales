@@ -9,6 +9,12 @@ import Button from "./Button";
 import Image from "../Assets/Images/Image";
 import { FaMoneyBillWave } from "react-icons/fa";
 import { ColorPalette } from "../Assets/Colors";
+import { TextField } from "@mui/material";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import { borderColor } from "@mui/system";
 
 const styles = {
   container: {
@@ -44,11 +50,14 @@ const styles = {
     padding: "9px 9px 0 0",
   },
   inputBox: {
-    height: "42px",
-    width: { xs: "100%", sm: "300px" },
-    borderRadius: "20px",
-    border: "1px solid #E3E4E5",
-    "&:hover": {
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "20px",
+      height: "42px",
+    },
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#E3E4E5",
+    },
+    "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
       borderColor: ColorPalette.pink,
     },
   },
@@ -89,6 +98,21 @@ const styles = {
     marginTop: "20px",
     fontSize: "16px",
   },
+  selectStyles: {
+    borderRadius: "20px",
+    borderColor:'#E3E4E5',
+    height: "42px",
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "20px",
+      height: "42px",
+      "&:hover fieldset": {
+        borderColor: ColorPalette.pink,
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: ColorPalette.pink,
+      },
+    },
+  },
 };
 
 const CheckOut = () => {
@@ -98,6 +122,16 @@ const CheckOut = () => {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+
+  const [state, setState] = React.useState("");
+  const [city, setCity]=React.useState("");
+
+  const handleChange = (event) => {
+    setState(event.target.value);
+  };
+  const handleChangeCity = (event) => {
+    setCity(event.target.value);
+  };
 
   return (
     <Box>
@@ -123,9 +157,7 @@ const CheckOut = () => {
                 </Box>
                 <Box>${(item.price * item.quantity).toFixed(2)}</Box>
               </Box>
-              <Box
-                sx={{ borderBottom: "1px solid #eee", marginTop: "12px" }}
-              />
+              <Box sx={{ borderBottom: "1px solid #eee", marginTop: "12px" }} />
             </Box>
           ))}
 
@@ -135,6 +167,7 @@ const CheckOut = () => {
           </Box>
         </Box>
         {/* Billing Form */}
+
         <Box sx={styles.formBox}>
           <Box sx={{ fontWeight: 550, fontSize: "20px", marginBottom: 2 }}>
             Billing Address
@@ -143,31 +176,52 @@ const CheckOut = () => {
           <Box sx={styles.rowBox}>
             <Box sx={{ width: "100%" }}>
               <span style={styles.inputTitle}>First Name</span>
-              <Box sx={styles.inputBox}></Box>
+              <TextField
+                fullWidth
+                placeholder="First Name"
+                sx={styles.inputBox}
+                variant="outlined"
+              />
             </Box>
             <Box sx={{ width: "100%" }}>
               <span style={styles.inputTitle}>Last Name</span>
-              <Box sx={styles.inputBox}></Box>
+              <TextField
+                fullWidth
+                placeholder="Last Name"
+                sx={styles.inputBox}
+                variant="outlined"
+              />
             </Box>
           </Box>
 
           <Box sx={styles.rowBox}>
             <Box sx={{ width: "100%" }}>
               <span style={styles.inputTitle}>Email address</span>
-              <Box sx={styles.inputBox}></Box>
+              <TextField
+                fullWidth
+                placeholder="Email address"
+                sx={styles.inputBox}
+                variant="outlined"
+              />
             </Box>
             <Box sx={{ width: "100%" }}>
               <span style={styles.inputTitle}>State</span>
-              <Box sx={styles.inputBox}>
-                <Box sx={{ margin: "8px 16px" }}>
-                  <DropDown
-                    title="Select State"
-                    options={[
-                      { label: "Home 2", href: "/home2" },
-                      { label: "Home 3", href: "/home3" },
-                    ]}
-                  />
-                </Box>
+              <Box sx={{ minWidth: 120 }}>
+                <FormControl fullWidth sx={styles.selectStyles}>
+                  <Select
+                    value={state}
+                    onChange={handleChange}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                  >
+                    <MenuItem value="">
+                      <em style={{color:"gray"}}>State</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Andhra Pradesh</MenuItem>
+                    <MenuItem value={20}>Telangana</MenuItem>
+                    <MenuItem value={30}>Kerala</MenuItem>
+                  </Select>
+                </FormControl>
               </Box>
             </Box>
           </Box>
@@ -175,86 +229,37 @@ const CheckOut = () => {
           <Box sx={styles.rowBox}>
             <Box sx={{ width: "100%" }}>
               <span style={styles.inputTitle}>City</span>
-              <Box sx={styles.inputBox}>
-                <Box sx={{ margin: "8px 16px" }}>
-                  <DropDown
-                    title="Select City"
-                    options={[
-                      { label: "Home 2", href: "/home2" },
-                      { label: "Home 3", href: "/home3" },
-                    ]}
-                  />
-                </Box>
+              <Box sx={{ minWidth: 120 }}>
+                <FormControl fullWidth sx={styles.selectStyles}>
+                  <Select
+                    value={city}
+                    onChange={handleChangeCity}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                  >
+                    <MenuItem value="">
+                      <em style={{color:"gray"}}>City</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Visakhapatnam</MenuItem>
+                    <MenuItem value={20}>Vijayawada</MenuItem>
+                    <MenuItem value={30}>Hyderabad</MenuItem>
+                  </Select>
+                </FormControl>
               </Box>
             </Box>
             <Box sx={{ width: "100%" }}>
               <span style={styles.inputTitle}>Pin Code</span>
-              <Box sx={styles.inputBox}></Box>
-            </Box>
-          </Box>
-
-          <Box sx={{ fontWeight: 550, fontSize: "20px", marginBottom: 1 }}>
-            Payment Method
-          </Box>
-
-          <Box sx={styles.rowBox}>
-            <Box sx={styles.wideInputBox}>
-              <FormControlLabel
-                control={<Radio color="primary" />}
-                label="Credit Card"
-              />
-              <img
-                src={Image.paymentCards}
-                alt="Cards"
-                style={{ height: "26px", objectFit: "contain" }}
+              <TextField
+                fullWidth
+                placeholder="Pin Code"
+                sx={styles.inputBox}
+                variant="outlined"
               />
             </Box>
-          </Box>
-
-          <Box sx={styles.rowBox}>
-            <Box sx={styles.wideInputBox}>
-              <FormControlLabel
-                control={<Radio color="primary" />}
-                label="Cash On Delivery"
-              />
-              <FaMoneyBillWave size={20} />
-            </Box>
-          </Box>
-
-          <Box sx={{ textAlign: "center", width: "100%" }}>
-            <FormControlLabel
-              control={<Radio color="primary" />}
-              label={
-                <span>
-                  I agree to the{" "}
-                  <a href="/privacy" style={{ color: ColorPalette.pink }}>
-                    privacy policy
-                  </a>
-                </span>
-              }
-            />
-          </Box>
-
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              width: "100%",
-              marginTop: "20px",
-            }}
-          >
-            <Button
-              text={"Place Order Now"}
-              width={"95%"}
-              height={52}
-              bcolor={ColorPalette.pink}
-              onClick={"#"}
-            />
           </Box>
         </Box>
 
         {/* Cart Summary */}
-        
       </Box>
     </Box>
   );

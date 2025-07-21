@@ -128,7 +128,7 @@ const handleAddToCart = async () => {
   console.log(item)
 
     dispatch(addToCart(item));
-    alert("Item added to cart!");
+    alert(" Your Item added to cart!");
 
     try {
       const cartRef = doc(db, "users", userId, "cart", item.id);

@@ -4,6 +4,7 @@ import { borderRadius, color, display, flexDirection, fontFamily, padding } from
 import { IoPerson } from "react-icons/io5";
 import { ColorPalette } from '../Assets/Colors';
 import { FaCalendarAlt } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const styles={
     mainBox:{
@@ -33,7 +34,19 @@ const BlogCard = ({blogs}) => {
             </Box>
             <Box sx={{fontSize:'20px', fontWeight:"600", fontFamily:'Archivo'}}>{blogs.title}</Box>
             <Box sx={{color:'#646464', lineHeight:'20px', fontFamily:'Archivo', marginBottom:'5px', fontSize:'17px', padding:'2% 0'}}>{blogs.description}</Box>
-            <Box sx={{fontFamily:'Archivo', color:'#0F0200', fontSize:"16px"}}>Read More</Box>
+            {/* <Box sx={{fontFamily:'Archivo', color:'#0F0200', fontSize:"16px"}}>Read More</Box> */}
+            <Link
+  to={`/blog/${blogs.id}`}
+  style={{
+    fontFamily: 'Archivo',
+    color: '#0F0200',
+    fontSize: '16px',
+    textDecoration: 'none',
+    fontWeight: 500
+  }}
+>
+  Read More →
+</Link>
         </Box>
         </Box>
       

@@ -24,6 +24,7 @@ import Footer from "../../Common_Components/Footer";
 import CartSync from "../../CartSync";
 import Loader from "../../Loader";
 import { useDispatch } from "react-redux";
+import MultiImageUpload from "../../MultiImageUpload";
 
 
 
@@ -39,6 +40,7 @@ const HomeLayout = () => {
   return (
     <div>
       <CartSync />
+      {/* <MultiImageUpload /> */}
      
       {!shouldHide && <NavLayout />}
      

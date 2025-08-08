@@ -12,6 +12,7 @@ function App(){
     return(
         <Box>
             <MainApp />
+            
         </Box>
 
     );
